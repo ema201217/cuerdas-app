@@ -1,0 +1,15 @@
+[
+  {
+    "brand": "Freedom",
+    "model": "CG-300",
+    "type": "Clásica",
+    "color": "Rojo/Negro",
+    "price": 6300,
+    "discount": 10,
+    "offer": true,
+    "outstanding": false,
+    "description": "Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza de máquina: níquel",
+    "madeIn": null,
+    "category": "guitarras"
+  }
+]

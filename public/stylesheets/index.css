@@ -1,0 +1,110 @@
+.index__main{
+    
+}
+
+.banner__section__image{
+
+    flex-wrap: wrap;
+    width:100% ;
+    justify-content: center;
+    display: flex;
+
+
+}
+.oferta__main__section h2{
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.index__main__section--products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+
+}
+.index__main__section__instrument--product{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: space-between;
+
+}
+.index__main__section__instrument--product img{
+       width: 100%;
+}
+
+.index__main__section__instrument--product ul li span{
+    
+    font-weight: 600;
+  
+  
+}
+
+.index__main__section__instrument--product ul hr{
+    
+    margin: 8px 0;
+  
+  
+}
+.index__main__section__instrument--product h2 {
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+
+.general__buttom__product{
+    display:inline-block;
+    margin: 20px 0;
+    padding: 10px;
+    background-color:#603601;
+    color: #fff;
+    width: 100px;
+    text-align: center;
+    align-self: flex-end;
+}
+
+
+@media (min-width:768px){
+
+    .index__main__section--products{
+        padding: 20px;
+    
+    }
+    .index__main__section__instrument--product{
+       
+        width: 55%;
+       
+    
+    }
+}
+
+ @media (min-width:1024px){
+
+    .index__main__section--products{
+        padding: 40px;
+    
+    }
+    .index__main__section__instrument--product{
+       
+        width: 22%;
+       
+    
+    }
+
+    
+ 
+
+
+ }

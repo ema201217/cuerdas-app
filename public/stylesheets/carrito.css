@@ -1,0 +1,163 @@
+/* CARRITO BODY */
+/* MAIN */
+
+.carrito {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    }
+
+.carrito__main {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px;
+    }
+
+.carrito__main h3 {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 15px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.carrito__main__section__product {
+    display: flex;
+    height: 50vh;
+    gap: 15px;
+    justify-content: space-around;
+}
+.carrito__main__section__product--detail, .carrito__main__section__product--buy {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.carrito__main__section__product--detail p {
+        font-size: 10px;
+        padding-top: 5px;
+        margin: 0px;
+}
+
+.carrito__main__section__product--detail img {
+    width: 120px;
+    padding-left: 15px;
+}
+
+.carrito__tr__items th {
+    padding-bottom: 15px;
+    padding-top: 18px;
+}
+
+.carrito_buy_box {
+    padding-right: 15px;
+}
+
+
+.carrito_detalle_producto {
+    display: flex;
+    padding-left: 15px;
+}
+
+.carrito_borrar_carrito {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    padding: 5px; 
+    padding-left: 0px; 
+}
+
+.carrito_detalle_producto{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    gap: 5px;
+}
+
+.carrito__main__section__product--buy {
+    justify-content: space-around;
+    gap: 110px;
+    padding-right: 15px;
+}
+
+.carrito__main__section__product--buy table{
+    font-size: 10px;
+    }
+
+.carrito__main__section__product--buy .buy-box {
+    width: 45px;
+    height: 45px;
+    border: 1px solid grey;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.carrito__main__section__product--buy li{
+    font-size: 10px;
+    padding-top: 10px;
+    font-weight: 600;
+    text-align: justify;
+}
+
+.carrito_imagen_tarjetas_credito{
+    width: 60px;
+    height: 20px;
+    }
+
+.carrito_fin_de_compra {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+
+}
+
+.carrito_compra_segura{
+    display: flex;
+    flex-direction: column;    
+}
+
+.carrito_compra_segura p {
+    font-size: 8px;
+    font-weight: 600;
+} 
+
+
+.carrito_finalizar_compra {
+    display: flex;
+    height: 40px;
+    width: 160px;
+    background-color: var(--marronIntermedio);
+    align-items: center;
+    border: solid var(--grisClaro) 1px;
+    justify-content: end;   
+}
+
+.carrito_finalizar_compra h3 {
+    font-size: 12px;
+    color: var(--grisClaro);
+    text-align: right;
+    padding: 8px;
+    margin: 0px;
+    padding-right: 16px;
+}
+
+.carrito_finalizar_compra i {
+    color: var(--grisClaro);
+    font-size: 10px;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 80%;
+    border: 1px solid var(--grisClaro);
+    align-items: center;
+}
+

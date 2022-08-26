@@ -1,0 +1,60 @@
+<%- include('./partials/head',
+{
+  title : 'Detalle del producto'
+}) %> 
+
+<body class="detail">
+  <%- include('./partials/header') %> 
+    <main class="detail__main">
+        <section class="detail__main__section">
+            <article class="detail__main__section__article">
+                <img src="/images/guitarra.jpg" width = "60" alt="">
+            <div class="detail__main__section--content">
+                <p> Guitarra criolla clásica Gracia M1 </p>
+                <h6>$5.800</h6>
+                <h5>Lo que tenés que saber de este producto:</h5>
+            <div class="detail_especificaciones">
+                <li>Construida en abedul.</li>
+                <li>Cuerdas de nylon.</li>
+                <li>Guitarra versátil, se adapta a una gran variedad de estilos musicales</li>
+            </div>
+                <a class="general__button__product " href="">Añadir al carrito</a>
+            </div>  
+        </article>
+        <article class="detail__main__section__article">
+                <img  src="/images/violin.jpg" height= "350" alt="">
+            <div class="detail__main__section--content">
+                <p>Violin Acústico Segovia Estudio
+                    Antique Mate 1/2 Tilo Arco</p>
+                <h6>$14.000</h6>
+                <h5>Lo que tenés que saber de este producto</h5>
+            <div class="detail_especificaciones">
+                <li>Violin de estudio antique 1/2 MATE.</li>
+                <li>Terminación: Marrón antiguo mate.</li>
+                <li>Tapa: madera contrachapada de
+                    tilo. Parte posterior y lateral: madera contrachapada de tilo. 
+                    Diapasón: Madera dura terciada. Arco redondo de palisandro. </li>
+            </div> 
+                <a class="general__button__product " href="">Añadir al carrito</a>
+            </div>
+        </article>
+            <article class="detail__main__section__article">
+                <img src="/images/bajo.jpg" alt="">
+            <div class="detail__main__section--content">
+                <p>Bajo Eléctrico Sx Precisión 5 Cuerdas Fpb-62/5 + Funda</p>
+                <h6>$19.700</h6>
+                <h5>Lo que tenés que saber de este producto</h5>
+            <div class="detail_especificaciones">
+                <li>Escala: 864mm </li>
+                <li>Cuerpo: Basswood</li>
+                <li>Mastil:Canadian Maple</li>
+                <li>Diapason: Rosewood</li>
+                <li>Trastes: 20 Nickel</li>
+            </div>
+                <a class="general__button__product " href="">Añadir al carrito</a>
+            </div>
+        </article>
+        </section>
+    </main>
+    <%- include('./partials/footer') %> 
+</body>

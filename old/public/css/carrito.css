@@ -1,0 +1,204 @@
+/* CARRITO BODY */
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: var(--roboto);
+    min-height: 100%;
+    }
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: var(--marronClaro);
+    width: 100%;
+}
+
+.logo_marca {
+    display:flex;
+    flex-direction: row;
+    color: var(--grisClaro);
+    gap: 20px;
+    align-items: center;
+}
+
+.logo_marca img {
+    padding: 20px;    
+}
+
+.icono_menu_hamburguesa i {
+    display: flex;
+    justify-content: center;
+    width: 35px;
+    background-color: var(--colorCeleste); 
+    padding-bottom:15px;
+    text-align: center;
+    margin: auto; 
+}
+
+
+/* MAIN */
+
+.main {
+    width: 100%;
+    box-sizing: border-box;
+    width: 100%;   
+    justify-content: center;
+    margin: 0 auto; 
+    }
+
+
+.tu_compra {
+    background-color: var(--grisClaro);
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    height: 50px;
+}
+
+.tu_compra h3 {
+    flex-grow: 0.9;
+    padding: 15px;
+    font-size: --var(--tamanioTitulares);
+
+}
+
+.tu_compra i {
+    border-radius: 30%;
+    border: 1px solid #010702;
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #FFF;
+    color: black;
+    }
+
+
+.cuerpo_principal{
+    display: flex;
+    flex-direction: row;
+    gap:15px;
+    max-height: 100%;
+}
+
+.descripcion_precio {
+    display: flex;
+    justify-content: column;
+    gap: 200px;
+    padding: 10px 40px 40px 120px
+}
+
+.items_desglose_precios ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 35px;  
+    padding-bottom: 10px;  
+}
+
+.cuadrado{
+    height: 80px;
+    width: 80px;
+    background-color: var(--grisClaro);
+    box-shadow: 5px 5px 5px var(--marronIntermedio);
+}
+
+.linea_cuadrados{
+    display:flex;
+    justify-content: row;
+    gap: 10px;
+}
+
+.descripcion_producto{
+    display: flex;
+    padding: 40px 40px 40px 120px;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.items_desglose_precios ul {
+    display:flex;
+    flex-direction: row;
+    gap: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.descripcion_pago{
+ padding-top:210px;
+ display: flex;
+ gap:40px;
+}
+
+.descripcion_pago ul{
+    display: flex;
+    gap:15px;
+    flex-direction: column;
+   }
+
+.detalle_producto{
+    padding-top:20px;
+}
+
+.borrar_carrito{
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    gap: 10px;
+}
+
+.borrar_carrito p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+.finalizar_compra {
+    display: flex;
+    height: 80px;
+    background-color: var(--marronClaro);
+    justify-content: end;
+    gap: 15px;
+    align-items: center;
+    border: 1px var(--grisClaro);
+    border: solid var(--grisClaro) 1px;
+}
+
+.finalizar_compra h3 {
+    font-size: 24px;
+    color: var(--grisClaro);
+    background-color: var(--marronClaro);
+    text-align: right;
+    margin-right: 110px;
+}
+
+.finalizar_compra i {
+    color: var(--marronIntermedio);
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 60%;
+    border: 1px solid var(--grisClaro);
+    align-items: center;
+}
+
+.imagen_tarjetas_credito{
+    width: 180px;
+    margin: 20px;
+}

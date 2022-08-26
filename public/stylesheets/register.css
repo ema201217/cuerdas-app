@@ -1,0 +1,22 @@
+.register h1{
+    width: 210px;
+    text-align: center;
+    color:white ;
+    margin: 30px auto;
+    background: #603601;
+    font-style: normal ;
+    padding: 10px;
+    border-radius: 5%;
+}
+
+.register__main_section{
+    padding: 20px;
+}
+
+@media (min-width:768px){
+    .register__main_section{
+        width: 450px;
+        margin: 30px auto;
+    }
+   
+}

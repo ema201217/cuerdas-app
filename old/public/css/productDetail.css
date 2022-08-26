@@ -1,0 +1,20 @@
+.detail__main{
+        background-color: #CC9544;
+        display: flex;
+        flex-wrap: wrap;
+}
+
+.detail__main__section{
+    padding: 20px;
+}
+.detail__main__section__article img{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.detail__footer{
+    background-color:rgb(204, 118, 68); 
+    margin: 0px;
+    border: 5px;
+}
