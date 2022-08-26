@@ -1,13 +1,15 @@
-<header class="header">
+<header id="header" class="header">
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-gradient" style="height:120px ;">
     <div class="container-fluid">
       <a class="col-2" href="/"><img class="w-50 mask-circle" src="/images/logo.jpeg"></a>
+
       <!-- BUSCADOR -->
       <form class="d-flex justify-content-center form-group py-0 col-6 col-lg-4" action="/buscar" method="get">
         <input class="border-0 me-2 form-control" type="search" style="outline: none;" placeholder="Buscar..."
-          aria-label="Search">
-        <button class="btn btn-dark bg-gradient" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          aria-label="Search" name="keyword">
+        <button class="btn btn-dark bg-gradient" type="submit"><i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </form>
 
       <button class="navbar-toggler col-2" type="button" data-bs-toggle="collapse"
@@ -17,10 +19,12 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-5">
+
           <!-- HOME -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/">Home</a>
           </li>
+
           <!-- CATEGORÍAS -->
           <li class="nav-item dropdown text-start">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -43,10 +47,11 @@
           <li class="nav-item">
             <a href="/carrito" aria-current="page" class="nav-link position-relative">
               <i class="fa-solid fa-cart-shopping"></i>
-              <span class="position-absolute top-50 start-0 translate-middle badge rounded-pill bg-success">
+              <!-- Si esta logueado mostrar esto comentado -->
+              <!-- <span class="position-absolute top-50 start-0 translate-middle badge rounded-pill bg-success">
                 2
                 <span class="visually-hidden">unread messages</span>
-              </span>
+              </span> -->
             </a>
           </li>
 
@@ -54,13 +59,30 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <i class="fa-solid fa-user"></i>
+               <i class="fa-solid fa-user"></i>
               <span class="position-absolute top-50 start-0 translate-middle badge rounded-pill bg-success bg-gradient">
-                
+                <i class="fa-solid fa-unlock-keyhole"></i>
                 <span class="visually-hidden">unread messages</span>
-              </span>
+              </span> 
+              <!-- Si esta logueado mostrar esto comentado -->
+              <!--    <i class="rounded-circle">
+                <img width="40px" height="40px" class="rounded-circle" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                  alt=""> -->
+              </i> 
             </a>
             <ul class="dropdown-menu dropdown-menu-end bg-dark dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <li class="nav-item text-end">
+                <button class="nav-link bg-transparent border-0">
+                  <i class="fa-solid fa-toggle-on"></i> Modo visual
+                  <!--  <i class="fa-solid fa-toggle-off"></i> -->
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link bg-transparent border-0">
+                  <i class="fa-solid fa-earth-americas"></i>
+                  Lenguaje
+                </button>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/usuario/ingresar" tabindex="-1">Iniciar Sesión</a>
               </li>
@@ -89,6 +111,6 @@
       </div>
     </div>
   </nav>
-  
+
   <%- include('banner') %>
 </header>
