@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const {detail} = require('../controllers/productsControllers')
+const {contact} = require('../controllers/infoControllers')
 
 /* /products */
 router
-  .get('/detalle', detail)
+  .get('/contacto', contact)
  
 
 module.exports = router;

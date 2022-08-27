@@ -1,60 +1,65 @@
-<%- include('./partials/head',{
-  title : 'Carrito'
-}) %> 
+<%- include('./partials/head',{ title : 'Carrito' }) %>
 
-<body class="carrito">
-  <%- include('./partials/header') %> 
+  <body>
+    <%- include('./partials/header') %>
 
-<main class="carrito__main">
-        <h3> Tu compra </h3>
-        <hr style= height:4px; color="brown">
-    <section class="carrito__main__section__product">
-      <article class="carrito__main__section__product--detail">
-            <img src="/images/imagen_compra.jpg">
-          <div class="carrito_detalle_producto">
-            <p>Violín Yamaha HGF 9765</p>
-            <div class="carrito_borrar_carrito">
-              <i class="fa-solid fa-trash"></i>
-              <p>Borrar</p>
-            </div>
-          </div>     
-        </div>
-      </article>
-      <article class="carrito__main__section__product--buy">
-        <table class="table">
-          <thead >
-            <tr class="carrito__tr__items">
-              <th scope="col">Precio</th>
+      <main class="container my-5" width="300px">
+
+        <h3 class="text-center mb-5">CARRITO DE COMPRA</h3>
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+        <table class="table table-sm table-lg text-center table-hover">
+          <thead>
+            <tr class="table-dark">
+              <th scope="col"></th>
+              <th scope="col">Productos</th>
+              <th scope="col">Nombre</th>
               <th scope="col">Cantidad</th>
-              <th scope="col">Total</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col"></th>
             </tr>
           </thead>
-          <tbody class="carrito_buy_box">
-            <tr >
-              <td class="buy-box">$2000</td>
-              <td class="buy-box">2</td>
-              <td class="buy-box">$4000</td>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>
+                <a href="/productos/detalle/2">
+                  <img src="images/guitar2.jpg" class="shadow" alt="" width="100px">
+                </a>
+              </td>
+              <td>Titulo 1</td>
+              <td>
+                <div class="btn-group justify-content-center" role="group" aria-label="Basic example">
+                  <button type="button" class="border-0 bg-transparent">-</button>
+                  <input type="text" class="form-control w-50 text-center" value="1" min="1" max="100">
+                  <button type="button" class="border-0 bg-transparent">+</button>
+                </div>
+              </td>
+              <td>$2.300</td>
+              <td>$2.300</td>
+              <td>
+                <button type="button" class="btn-close" aria-label="Close"></button>
+              </td>
             </tr>
           </tbody>
         </table>
-        <ul>
-          <li>Subtotal <span>$</span></li>
-          <li>Envío <span>$</span></li>
-          <li>TOTAL <span>$</span></li>
-        </ul>
-      </article>
-    </section>
-  <section class="carrito_fin_de_compra">
-    <section class="carrito_compra_segura">
-    <img class= "carrito_imagen_tarjetas_credito" src="/images/tarjetas_credito.jpg" alt="Tarjetas crédito">
-    <p>Compra segura</p>
-    </section>
-    <div class="carrito_finalizar_compra">
-      <i class="fa-solid fa-lock"></i>
-      <h3>Finalizar Compra</h3>
-  </section>
- </main>
-  <%- include('./partials/footer') %> 
-</body>
-</html>
-  
+      </div>
+
+
+        <section class="container">
+          <section class="row col-12 gap-1 text-end">
+            <div class="alert alert-light">
+              <span>Total: </span><output>$2.300</output>
+            </div>
+            <span class="d-none d-lg-block col-5"></span>
+            <button class="col-12 col-lg-2 btn btn-sm btn-success bg-gradient">Realizar Compra</button>
+            <button class="col-12 col-lg-2 btn btn-sm btn-warning bg-gradient fw-bold">Vaciar Carrito</button>
+            <button class="col-12 col-lg-2 btn btn-sm btn-danger bg-gradient">Volver</button>
+
+          </section>
+        </section>
+      </main>
+      <%- include('./partials/footer') %>
+  </body>
+
+  </html>

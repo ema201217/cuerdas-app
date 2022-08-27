@@ -1,60 +1,68 @@
-<%- include('./partials/head',
-{
-  title : 'Detalle del producto'
-}) %> 
+<%- include('./partials/head', { title : 'Detalles del producto' }) %>
 
-<body class="detail">
-  <%- include('./partials/header') %> 
-    <main class="detail__main">
-        <section class="detail__main__section">
-            <article class="detail__main__section__article">
-                <img src="/images/guitarra.jpg" width = "60" alt="">
-            <div class="detail__main__section--content">
-                <p> Guitarra criolla clásica Gracia M1 </p>
-                <h6>$5.800</h6>
-                <h5>Lo que tenés que saber de este producto:</h5>
-            <div class="detail_especificaciones">
-                <li>Construida en abedul.</li>
-                <li>Cuerdas de nylon.</li>
-                <li>Guitarra versátil, se adapta a una gran variedad de estilos musicales</li>
+  <body class="">
+    <%- include('./partials/header') %>
+      <main>
+        <div class="container my-3">
+          <div class="row">
+            <div class="glider-contain d-block d-lg-none mb-4 col-12 col-md-6">
+              <div class="glider-detail">
+                <img class="w-100" src="https://source.unsplash.com/W1yjvf5idqA">
+                <img class="w-100" src="https://source.unsplash.com/VgbUxvW3gS4">
+                <img class="w-100" src="https://source.unsplash.com/5WbYFH0kf_8">
+              </div>
+              <button aria-label="Previous"
+                class="d-none d-lg-block start-0 top-50 rounded-end p-1 bg-dark bg-gradient glider-prev glider-prev-detail"><i
+                  class="fa-solid fa-arrow-left"></i></button>
+              <button aria-label="Next"
+                class="d-none d-lg-block end-0 top-50 rounded-start p-1 bg-dark bg-gradient glider-next glider-next-detail"><i
+                  class="fa-solid fa-arrow-right"></i></button>
+              <div role="tablist" class="dots text-dark" id="dots-detail"></div>
             </div>
-                <a class="general__button__product " href="">Añadir al carrito</a>
-            </div>  
-        </article>
-        <article class="detail__main__section__article">
-                <img  src="/images/violin.jpg" height= "350" alt="">
-            <div class="detail__main__section--content">
-                <p>Violin Acústico Segovia Estudio
-                    Antique Mate 1/2 Tilo Arco</p>
-                <h6>$14.000</h6>
-                <h5>Lo que tenés que saber de este producto</h5>
-            <div class="detail_especificaciones">
-                <li>Violin de estudio antique 1/2 MATE.</li>
-                <li>Terminación: Marrón antiguo mate.</li>
-                <li>Tapa: madera contrachapada de
-                    tilo. Parte posterior y lateral: madera contrachapada de tilo. 
-                    Diapasón: Madera dura terciada. Arco redondo de palisandro. </li>
-            </div> 
-                <a class="general__button__product " href="">Añadir al carrito</a>
+
+            <div class="col-lg-7 d-none d-lg-block">
+              <div class="product-image">
+                <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
+              </div>
+              <ul class="image-list">
+                <li class="image-item"><img src="https://source.unsplash.com/W1yjvf5idqA"></li>
+                <li class="image-item"><img src="https://source.unsplash.com/VgbUxvW3gS4"></li>
+                <li class="image-item"><img src="https://source.unsplash.com/5WbYFH0kf_8"></li>
+              </ul>
             </div>
-        </article>
-            <article class="detail__main__section__article">
-                <img src="/images/bajo.jpg" alt="">
-            <div class="detail__main__section--content">
-                <p>Bajo Eléctrico Sx Precisión 5 Cuerdas Fpb-62/5 + Funda</p>
-                <h6>$19.700</h6>
-                <h5>Lo que tenés que saber de este producto</h5>
-            <div class="detail_especificaciones">
-                <li>Escala: 864mm </li>
-                <li>Cuerpo: Basswood</li>
-                <li>Mastil:Canadian Maple</li>
-                <li>Diapason: Rosewood</li>
-                <li>Trastes: 20 Nickel</li>
+
+            <div class="card col-12 col-lg-5 position-relative border-0">
+              <span class="position-absolute top-0 end-0 fs-2 text-primary p-2" title="Agregar a favoritos">
+                <i class="fas fa-heart"></i>
+              </span>
+              <h2 class="card-title fw-bold my-2 pe-4">Titulo producto</h2>
+              <div class="card-body">
+                <p class="my-0 text-decoration-line-through text-danger">$15.000</p>
+                <div class="d-flex align-items-center gap-1">
+                  <p class="my-0 fs-2 text-primary">$12.500 </p><span class="text-success fs-5">8% OFF</span>
+                </div>
+                <P class="fs-6 text-dark fw-bold">en 12x $1.500</P>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nulla exercitationem quas
+                  iure obcaecati nobis perferendis qui officiis harum dignissimos amet autem, placeat sit cum
+                  dolorem quod, consectetur beatae nihil?
+                  Officia molestias quasi, explicabo molestiae quibusdam sint voluptas expedita nesciunt! Sequi nemo
+                  at vitae, sunt autem saepe aperiam dolores obcaecati delectus. Doloremque consequatur impedit
+                  natus veritatis ipsam minima neque facere.</p>
+              </div>
+
+              <div class="row">
+                <button class="btn btn-primary col-10 offset-1 col-md-6 offset-md-3">Comprar ahora</button>
+                <button class="btn btn-info text-primary col-10 offset-1 col-md-6 offset-md-3 my-2 shadow over" style="background-color: rgba(65,137,230,.15);
+                    border-color: transparent;
+                    color: #3483fa;">Agregar al carrito</button>
+              </div>
+
             </div>
-                <a class="general__button__product " href="">Añadir al carrito</a>
-            </div>
-        </article>
-        </section>
-    </main>
-    <%- include('./partials/footer') %> 
-</body>
+          </div>
+        </div>
+      </main>
+      <%- include('./partials/footer') %>
+        <script src="/javascript/gallery-detail.js"></script>
+        <script src="/javascript/library/glider.js"></script>
+        <script src="/javascript/glider.config.js"></script>
+  </body>

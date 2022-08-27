@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); /* importa fuente */
-@import "normalize.css"; /* importa hoja normalize */
 @import "general.css";
 @import "header.css";
 @import "footer.css";

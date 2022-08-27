@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {index,carrito} = require('../controllers/indexController')
+const {index,carrito} = require('../controllers/indexControllers')
 
 /* / */
 router

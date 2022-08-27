@@ -1,38 +1,68 @@
-<%- include('./partials/head',{
-    title : 'Login'
-  }) %> 
+<%- include('./partials/head',{ title : 'Login' }) %>
 
 
-<body class="register">
-    <%- include('./partials/header') %> 
+    <body>
+        <%- include('./partials/header') %>
+            <main class="container my-5">
+                <section class="row justify-content-center">
+                    <div class="col-12 col-md-8">
+                        <form action="" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
+                            <!-- TITULO -->
+                            <h1 class="card-title my-5 text-center">Iniciar Sesión</h1>
 
+                            <!-- ENTRADAS EMAIL Y CONTRASEÑA -->
+                            <div class="mb-3 form-floating col-12 col-lg-8 offset-lg-2">
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Email o Usuario" name="usernameOrEmail">
+                                <label for="exampleInputEmail1" class="form-label ms-1">Email o Usuario</label>
+                            </div>
+                            <div class="mb-3 form-floating col-12 col-lg-8 offset-lg-2">
+                                <input type="password" class="form-control" id="pass" placeholder="Contraseña"
+                                    name="password">
+                                <label for="pass" class="form-label ms-1">Contraseña</label>
+                            </div>
 
-    <main class="register__main">
-        <section class="register__main_section">
-            <h1>Inicia Sesión</h1>
-            <form class="form" action="">
-                <div class="form__box">
-                    <label class="form__label" for="email">Correo Electrónico</label>
-                    <input class="form__input" type="email" id="email"  name="email">
-                </div>
-                <div class="form__box">
-                    <label class="form__label" for="password">Contraseña</label>
-                    <input class="form__input" type="password" id="password" name="password">
-                </div>
-                <div class="form__input_checkbox">
-                    <input class="form__input_checkbox" type="checkbox">
-                    <label >
-                         Recúerdame
-                    </label>
-                </div>
-                <div class="form__box_buttom">
-                    <a class="form__button_cancel" href="">Cancelar</a>
-                    <button class="form__button_submit" type="submit">Entrar</button>
-                </div>
-            </form>
-        </section>
-    </main>
-      <%- include('./partials/footer') %> 
+                            <!-- ERROR -->
+                            <p class="text-danger text-center mt-0">Credenciales invalidas</p>
 
-</body>
-</html>
+                            <!-- COOKIE -->
+                            <div class="mx-auto mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">No me olvides</label>
+                            </div>
+
+                            <!-- INGRESO NORMAL -->
+                            <button type="submit"
+                                class="btn btn-light col-12 col-lg-6 offset-lg-3 link-primary my-2">Ingresar</button>
+
+                            <!-- INGRESO CON GOOGLE -->
+                            <a href="#"
+                                class="d-inline-block btn btn-light link-danger col-12 col-lg-6 offset-lg-3 my-2"><i
+                                    class="fa-brands fa-google"></i>oogle
+                            </a>
+
+                            <!-- INGRESO CON FACEBOOK -->
+                            <a href="#" class="d-inline-block btn btn-primary col-12 col-lg-6 offset-lg-3 my-2"><i
+                                    class="fa-brands fa-facebook"></i>acebook
+                            </a>
+
+                            <!-- OLVIDO DE CONTRASEÑA Y REGISTRARSE -->
+                            <div class="text-center my-3">
+                                <p class="form-text">
+                                    <a class="text-decoration-underline" href="/usuario/registrar">Olvide mi
+                                        contraseña</a>
+                                </p>
+                                <p class="form-text">
+                                    <span class="text-muted">¿No tienes cuenta? </span><a
+                                        href="/usuario/registrar">Regístrate</a>
+                                </p>
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+            </main>
+            <%- include('./partials/footer') %>
+    </body>
+
+    </html>
