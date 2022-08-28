@@ -31,7 +31,7 @@ module.exports = {
       return res.render('admin/sales')
   },
   notesCredits : (req,res) => {
-      return res.render('admin/notesCredits')
+      return res.render('admin/notes-credits')
   },
 
 }
