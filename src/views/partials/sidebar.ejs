@@ -1,93 +1,110 @@
 <div class="d-flex align-items-start">
+  <!-- NAVEGACIÓN LATERAL -->
   <div class="d-flex flex-column flex-shrink-0 p-lg-3 text-white bg-dark vh-100 position-fixed start-0" style="top:53px">
-    <a href="/" class="btn d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <span class="fs-4">HOME</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column flex-nowrap mb-auto gap-3 align-items-center overflow-scroll">
+    <ul class="nav nav-pills flex-column flex-nowrap mb-auto gap-3 align-items-center align-items-lg-start overflow-scroll">
+      <li class="nav-item m-0 text-white">
+        <a href="/" class="nav-link link-primary d-flex justify-content-center align-items-center mt-1 text-white gap-3">
+          <i class="fa-solid fa-house-chimney"></i>
+          <span class="d-none d-lg-block">Home</span>
+        </a>
+      </li>
+      <hr class="w-100 text-white my-0">
       <li class="nav-item m-0">
-        <a href="/admin/productos" class="nav-link text-white d-flex align-items-center gap-3 <%= page === "productos" ? "active" : null %>">
+        <a href="/admin/dashboard" class="nav-link link-danger text-white d-flex align-items-center gap-3 <%= page === "dashboard" ? "active" : null %>">
+          <i class="fa-solid fa-chart-line"></i>
+          <span class="d-none d-lg-block"> Tablero de estadísticas</span>
+        </a>
+      </li>
+      <li class="nav-item m-0">
+        <a href="/admin/ventas" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "ventas" ? "active" : null %>">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+          <span class="d-none d-lg-block"> Ventas</span>
+        </a>
+      </li>
+      <li class="nav-item m-0">
+        <a href="/admin/notas-creditos" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "ventas" ? "active" : null %>">
+          <i class="fa-solid fa-note-sticky"></i>
+          <span class="d-none d-lg-block"> Notas de crédito</span>
+        </a>
+      </li>
+      <hr class="w-100 text-white my-0">
+      <li class="nav-item m-0">
+        <a href="/admin/productos" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "productos" ? "active" : null %>">
           <i class="fa-solid fa-boxes-stacked"></i>
           <span class="d-none d-lg-block"> Productos</span>
         </a>
       </li>
       <li class="nav-item m-0">
-        <a href="/admin/usuarios" class="nav-link text-white d-flex align-items-center gap-3 <%= page === "usuarios" ? "active" : null %>">
+        <a href="/admin/usuarios" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "usuarios" ? "active" : null %>">
           <i class="fa-solid fa-users"></i>
           <span class="d-none d-lg-block"> Usuarios</span>
         </a>
       </li>
       <li class="nav-item m-0">
-        <a href="/admin/empleados" class="nav-link text-white d-flex align-items-center gap-3 <%= page === "empleados" ? "active" : null %>">
-          <i class="fa-solid fa-users text-danger"></i>
-          <span class="d-none d-lg-block text-danger"> Empleados</span>
+        <a href="/admin/empleados" class="nav-link link-success text-white d-flex align-items-center gap-3 <%= page === "empleados" ? "active" : null %>">
+          <i class="fa-solid fa-users-between-lines"></i>
+          <span class="d-none d-lg-block"> Empleados</span>
         </a>
       </li>
       <li class="nav-item m-0">
-        <a href="/admin/banners" class="nav-link d-flex align-items-center gap-3 text-white <%= page === "banners" ? "active" : null %>">
+        <a href="/admin/banners" class="nav-link link-primary d-flex align-items-center gap-3 text-white <%= page === "banners" ? "active" : null %>">
           <i class="fa-solid fa-images"></i>
           <span class="d-none d-lg-block"> Banners</span>
         </a>
       </li>
       <li class="nav-item m-0">
-        <a href="/admin/dashboard" class="nav-link text-white d-flex align-items-center gap-3 <%= page === "dashboard" ? "active" : null %>">
-          <i class="fa-solid fa-chart-line"></i>
-          <span class="d-none d-lg-block"> Dashboard</span>
-        </a>
-      </li>
-      <li class="nav-item m-0">
-        <a href="/admin/categorias" class="nav-link text-white d-flex align-items-center gap-3 <%= page === "categorias" ? "active" : null %>">
+        <a href="/admin/categorias" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "categorias" ? "active" : null %>">
           <i class="fa-solid fa-list"></i>
           <span class="d-none d-lg-block"> Categorías</span>
         </a>
       </li>
+      <hr class="w-100 text-white my-0">
       <li class="nav-item m-0">
-        <a href="/admin/code" class="nav-link text-white d-flex align-items-center gap-3 <%= page === "code" ? "active" : null %>">
-          <i class="fa-solid fa-code text-warning"></i>
-          <span class="d-none d-lg-block text-warning"> Editor de código</span>
+        <a href="/admin/mensajes" class="nav-link link-info text-white d-flex align-items-center gap-3 <%= page === "ventas" ? "active" : null %>">
+          <i class="fa-solid fa-comment-sms"></i>
+          <span class="d-none d-lg-block"> Mensajes</span>
+        </a>
+      </li>
+      <li class="nav-item m-0 mb-5">
+        <a href="/admin/code" class="nav-link link-warning text-white d-flex align-items-center gap-3 <%= page === "code" ? "active" : null %>">
+          <i class="fa-solid fa-code"></i>
+          <span class="d-none d-lg-block"> Editor de código</span>
         </a>
       </li>
     </ul>
     <hr>
   </div>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 p-0 p-lg-2">
     <div class="container-fluid gap-2">
      
-
-      <form class="d-flex col col-lg-6 position-relative">
+      <!-- BUSCADOR -->
+      <form action="/admin/search" class="d-flex col col-lg-6 offset-lg-3 position-relative" method="get">
         <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar...">
         <button class="btn position-absolute end-0 me-2 border-0" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
 
-      <button class="navbar-toggler border-0" style="outline: none;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+      <!-- MENU AVATAR -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 position-relative">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex justify-content-end align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>Emanuel Arroyo</strong>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <strong class="d-none d-lg-block">Emanuel Arroyo</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end bg-dark position-absolute" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Mi información</a></li>
               <li><a class="dropdown-item" href="#">Configuraciones</a></li>
               <li>
-                <hr class="dropdown-divider">
+                <hr class="dropdown-divider bg-white">
               </li>
-              <li><a class="dropdown-item" href="/admin/salir">Cerrar sesión</a></li>
-            </ul>
-          </li>
-        </ul>
+              <li><a class="dropdown-item" href="/usuario/salir">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
 
-      </div>
     </div>
   </nav>
 </div>

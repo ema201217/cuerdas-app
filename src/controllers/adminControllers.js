@@ -20,4 +20,17 @@ module.exports = {
   staff : (req,res) => {
       return res.render('admin/staff')
   },
+  search : (req,res) => {
+      return res.render('admin/search')
+  },
+  messages : (req,res) => {
+      return res.render('admin/messages')
+  },
+  sales : (req,res) => {
+      return res.render('admin/sales')
+  },
+  notesCredits : (req,res) => {
+      return res.render('admin/notesCredits')
+  },
+
 }
