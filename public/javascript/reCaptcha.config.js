@@ -1,7 +1,8 @@
 var onloadCallback = function () {
   grecaptcha.render('ReCaptcha', {
-      sitekey: '6LfpdrQhAAAAAMlJq4D37DZoDctHcG38mI7exiEW',
+      sitekey: 'AIzaSyAoIZ-KDaN70pjbFczMqabnz-g2D6o_GNA',
       theme: 'light',
       size: 'normal',
   })
 }
+
