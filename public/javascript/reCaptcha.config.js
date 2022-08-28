@@ -5,4 +5,3 @@ var onloadCallback = function () {
       size: 'normal',
   })
 }
-
