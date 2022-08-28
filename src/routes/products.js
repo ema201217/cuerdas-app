@@ -6,7 +6,7 @@ const {detail,all} = require('../controllers/productsControllers')
 /* /products */
 router
   .get('/', all)
-  .get('/detalle/?id', detail)
+  .get('/detalle/:id', detail)
 
  
 

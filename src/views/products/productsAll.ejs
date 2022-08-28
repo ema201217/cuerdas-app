@@ -1,12 +1,113 @@
-<%- include('./partials/head',{ title : 'Home' }) %>
+<%- include('../partials/head',{ title : 'Lista de productos' }) %>
 
   <body class="index">
-    <%- include('./partials/header') %>
-      <%- include('./partials/banner') %>
-        <main class="py-0 py-lg-5">
-        
-        </main>
-        <%- include('./partials/footer') %>
-          <script src="/javascript/library/glider.js"></script>
-          <script src="/javascript/glider.config.js"></script>
+    <%- include('../partials/header') %>
+      <main class="container-lg">
+        <div class="row my-5">
+          <div class="d-flex align-items-center">
+
+            <!-- LINEA DE RECORRIDO DE VISTAS -->
+            <nav aria-label="breadcrumb col-lg-3 py-5">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Todos los productos</li>
+              </ol>
+            </nav>
+
+            <!-- PAGINACIÓN SUPERIOR -->
+            <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5 col offset-1">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link disabled" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+          </div>
+
+          <div class="col d-flex gap-4 position-relative">
+
+            <!-- FILTROS LATERALES -->
+            <section
+              class="card border-0 col-lg-3 mb-3 position-sticky start-0 top-0 border-start border-top overflow-scroll"
+              style="height: fit-content;">
+
+
+              <div class="card-body vh-100 pb-5">
+                <p><a href="">filtro 1</a></p>
+                <p><a href="">filtro 2</a></p>
+                <p><a href="">filtro 3</a></p>
+                <p><a href="">filtro 4</a></p>
+                <p><a href="">filtro 5</a></p>
+                <hr class="w-100 my-3">
+                <p><a href="">filtro 6</a></p>
+                <p><a href="">filtro 7</a></p>
+                <p><a href="">filtro 8</a></p>
+                <p><a href="">filtro 9</a></p>
+                <p><a href="">filtro 10</a></p>
+                <p><a href="">filtro 11</a></p>
+                <hr class="w-100 my-3">
+                <p><a href="">filtro 12</a></p>
+                <p><a href="">filtro 13</a></p>
+                <p><a href="">filtro 14</a></p>
+                <p><a href="">filtro 15</a></p>
+                <p><a href="">filtro 16</a></p>
+                <hr class="w-100 my-3">
+                <p><a href="">filtro 17</a></p>
+                <p><a href="">filtro 18</a></p>
+                <p><a href="">filtro 19</a></p>
+                <p class="mb-5"><a href="">filtro 20</a></p>
+              </div>
+
+            </section>
+
+
+            <!-- TARJETAS -->
+            <section class="col-lg-9 row">
+
+              <% for( let index=0; index < 20; index++ ) { %>
+                <div class="col-3 mb-3 px-1">
+                  <%- include('../partials/card') %>
+                </div>
+                <% } %>
+                  <!-- PAGINACIÓN INFERIOR -->
+
+                  <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link disabled" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">5</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+            </section>
+          </div>
+
+        </div>
+
+      </main>
+      <%- include('../partials/footer') %>
   </body>
