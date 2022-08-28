@@ -10,10 +10,10 @@
             <li class="breadcrumb-item active" aria-current="page">Mi Carrito</li>
           </ol>
         </nav>
-        <h3 class="text-center mb-5">CARRITO DE COMPRA</h3>
-        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
-          tabindex="0">
-          <table class="table table-sm table-lg text-center table-hover">
+        <!-- <h3 class="text-center mb-5">CARRITO DE COMPRA</h3> -->
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
+          class="scrollspy-example py-5 overflow-scroll" tabindex="0">
+          <table class="table table-lg text-center table-hover">
             <thead>
               <tr class="table-dark">
                 <th scope="col"></th>
@@ -22,7 +22,7 @@
                 <th scope="col">Cantidad</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Subtotal</th>
-                <th scope="col"></th>
+                <th scope="col">Quitar</th>
               </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                 <th scope="row">1</th>
                 <td>
                   <a href="/productos/detalle/2">
-                    <img src="images/guitar2.jpg" class="shadow" alt="" width="100px">
+                    <img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px">
                   </a>
                 </td>
                 <td>Titulo 1</td>
@@ -51,16 +51,16 @@
           </table>
         </div>
 
-
         <section class="container">
-          <section class="row col-12 gap-1 text-end">
-            <div class="alert alert-light">
+          <section class="row text-center">
+            <div class="alert alert-success col-12 col-lg-3">
               <span>Total: </span><output>$2.300</output>
             </div>
-            <span class="d-none d-lg-block col-5"></span>
-            <button class="col-12 col-md-2 btn btn-sm btn-success bg-gradient">Realizar Compra</button>
-            <button class="col-12 col-md-2 btn btn-sm btn-warning bg-gradient fw-bold">Vaciar Carrito</button>
-            <button class="col-12 col-md-2 btn btn-sm btn-danger bg-gradient">Volver</button>
+            <span class="col-lg-5 offset-lg-4">
+              <button class="col-12 col-md-3 btn btn-sm btn-primary bg-gradient my-1">Realizar Compra</button>
+              <button class="col-12 col-md-3 btn btn-sm btn-danger bg-gradient my-1">Vaciar Carrito</button>
+              <button class="col-12 col-md-3 btn btn-sm btn-light bg-gradient my-1">Volver</button>
+            </span>
 
           </section>
         </section>

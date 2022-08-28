@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Guitarras"
+  },
+  {
+    "id": 2,
+    "name": "Violines"
+  },
+  {
+    "id": 3,
+    "name": "Bajos"
+  },
+  {
+    "id": 4,
+    "name": "Contrabajos"
+  },
+  {
+    "id": 5,
+    "name": "Charangos"
+  },
+  {
+    "id": 6,
+    "name": "Arpa"
+  },
+  {
+    "id": 7,
+    "name": "Piano"
+  }
+]

@@ -95,7 +95,7 @@ const optionsRelated = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 6,
+        slidesToShow: 5,
       },
     },
   ],
@@ -128,6 +128,34 @@ const optionsDetailProducts = {
     },
   ],
 };
+/* TODOS LOS PRODUCTOS --> VISTA - OPCIONES */
+const optionsProductsAll = {
+  dots: "#dots-products",
+  slidesToScroll: 1,
+  dragVelocity: 2,
+  scrollLock: true,
+  rewind:true,
+  duration: 2,
+  draggable: true,
+  arrows: {
+    prev: ".glider-prev.glider-prev-products",
+    next: ".glider-next.glider-next-products",
+  },
+  responsive: [
+    {
+      breakpoint: 0,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+  ],
+};
 
 const glidersObj = [
   /* DESTACADOS */
@@ -150,8 +178,15 @@ const glidersObj = [
     className: ".glider-related",
     options: optionsRelated,
   },
+  /* TODOS LOS PRODUCTOS --> VISTA */
+  {
+    className: ".glider-products",
+    options: optionsProductsAll,
+  },
 ];
 
+
+/* ---------------||||------------- */
 glidersObj.forEach((glider, index) => {
   const $glider = document.querySelector(glider.className);
   window.addEventListener("load", function () {

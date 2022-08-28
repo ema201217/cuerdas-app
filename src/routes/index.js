@@ -3,9 +3,9 @@ const router = express.Router();
 
 const {index, search} = require('../controllers/indexControllers')
 
-/* / */
+/*  */
 router
   .get('/', index)
-  .get('/search', search)
+  .get('/buscar', search)
 
 module.exports = router;

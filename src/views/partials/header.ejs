@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-gradient">
     <div class="container-fluid">
-      <a class="col-2" href="/"><img class="w-50 mask-circle" src="/images/logo.jpeg"></a>
+      <a class="col-2" href="/"><img class="w-50 mask-circle" src="/images/Icons/logo.jpeg"></a>
 
       <!-- BUSCADOR -->
       <form class="d-flex justify-content-center form-group py-0 col col-lg-6" action="/buscar" method="get">
@@ -32,25 +32,38 @@
               Categorías
             </a>
             <ul class="dropdown-menu dropdown-menu-end bg-dark dropdown-menu-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/productos/1">Guitarras</a></li>
-              <li><a class="dropdown-item" href="/productos/2">Violines</a></li>
-              <li><a class="dropdown-item" href="/productos/2">Bajos</a></li>
-              <li><a class="dropdown-item" href="/productos/2">Accesorios</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="/productos">Todos los productos</a></li>
+              <span class="dropdown-header">Categorias</span>
+              <% categories.forEach(category=> { %>
+                <li><a class="dropdown-item" href="/productos/<%= category.id %>">
+                    <%= category.name %>
+                  </a></li>
+                <% }) %>
+                  <li>
+                    <hr class="dropdown-divider bg-white">
+                  </li>
+                  <li>
+                    <span class="dropdown-header">Accesorios</span>
+                    <% accessories.forEach(accessory=> { %>
+                      <li><a class="dropdown-item" href="/productos/<%= accessory.id %>">
+                          <%= accessory.name %>
+                        </a></li>
+                      <% }) %>
+                </li>
+                  <li>
+                    <hr class="dropdown-divider bg-white">
+                  </li>
+                  <li><a class="dropdown-item" href="/productos/x">Todos los productos</a></li>
             </ul>
           </li>
 
           <!-- CONTACTO -->
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/info/contacto">Contactarnos</a>
+            <a class="nav-link" aria-current="page" href="/info/contacto">Contáctenos</a>
           </li>
 
           <!-- CARRITO DE COMPRA -->
           <li class="nav-item">
-            <a href="/carrito" aria-current="page" class="nav-link position-relative">
+            <a href="/usuario/carrito" aria-current="page" class="nav-link position-relative">
               <i class="fa-solid fa-cart-shopping"></i>
               <!-- Si esta logueado mostrar esto comentado -->
               <!-- <span class="position-absolute top-50 start-0 translate-middle badge rounded-pill bg-success">
@@ -66,7 +79,7 @@
               aria-expanded="false">
               <i class="fa-solid fa-user position-relative">
                 <span
-                  class="d-block position-absolute top-100 start-0 translate-middle badge rounded-fills bg-danger bg-gradient">
+                  class="position-absolute top-100 start-0 translate-middle badge rounded-circle bg-danger p-2">
 
                 </span>
               </i>

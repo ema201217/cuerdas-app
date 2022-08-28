@@ -1,0 +1,22 @@
+[
+  {
+    "id":1,
+    "name":"Afinadores"
+  },
+  {
+    "id":2,
+    "name":"Cuerdas"
+  },
+  {
+    "id":3,
+    "name":"Cables"
+  },
+  {
+    "id":4,
+    "name":"Puas"
+  },
+  {
+    "id":5,
+    "name":"Microfonos"
+  }
+]
