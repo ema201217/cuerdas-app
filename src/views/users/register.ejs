@@ -1,9 +1,18 @@
-<%- include('./partials/head',{title : 'Registro' }) %>
+<%- include('../partials/head',{title : 'Registro' }) %>
 
     <body>
-        <%- include('./partials/header') %>
+        <%- include('../partials/header') %>
             <main class="container my-5">
                 <section class="row justify-content-center">
+                    
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Registrarse</li>
+                        </ol>
+                    </nav>
+
+
                     <div class="col-12 col-md-8">
                         <form action="" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
                             <!-- TITULO -->
@@ -57,7 +66,7 @@
                                 <div class="d-flex align-items-center gap-2">
                                     <label class="form-check-label" for="remember">Aceptar términos y
                                         condiciones</label>
-                                        <!-- ERROR -->
+                                    <!-- ERROR -->
                                     <i class="fa-solid fa-xmark text-danger"></i>
                                 </div>
 
@@ -91,7 +100,7 @@
                     </div>
                 </section>
             </main>
-            <%- include('./partials/footer') %>
+            <%- include('../partials/footer') %>
     </body>
 
     </html>

@@ -22,7 +22,10 @@
     "description": "Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza de máquina: níquel",
     "madeIn": "Guatemala",
     "category": "guitarras",
-    "available": true
+    "available": true,
+    "stock": true,
+    "freeShipping":false,
+    "priceShipping":700
   },
   {
     "brand": "Gracia",
@@ -45,7 +48,9 @@
     "madeIn": "Argentina",
     "category": "guitarras",
     "available": true,
-    "stock": true
+    "stock": true,
+    "freeShipping":false,
+    "priceShipping":700
   },
   {
     "brand": "Segovia",
@@ -68,7 +73,9 @@
     "madeIn": "Argentina",
     "category": "violines",
     "available": true,
-    "stock": true
+    "stock": true,
+    "freeShipping":false,
+    "priceShipping":700
   },
   {
     "brand": "SX",
@@ -91,7 +98,9 @@
     "madeIn": "Argentina",
     "category": "bajos",
     "available": true,
-    "stock": true
+    "stock": true,
+    "freeShipping":false,
+    "priceShipping":700
   },
   {
     "brand": "Yamaha",
@@ -114,6 +123,8 @@
     "madeIn": "Argentina",
     "category": "bajos",
     "available": true,
-    "stock": true
+    "stock": true,
+    "freeShipping":false,
+    "priceShipping":700
   }
 ]

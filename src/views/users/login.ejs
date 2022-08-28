@@ -1,10 +1,18 @@
-<%- include('./partials/head',{ title : 'Login' }) %>
+<%- include('../partials/head',{ title : 'Login' }) %>
 
 
     <body>
-        <%- include('./partials/header') %>
+        <%- include('../partials/header') %>
             <main class="container my-5">
                 <section class="row justify-content-center">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Iniciar Sesión</li>
+                        </ol>
+                    </nav>
+
                     <div class="col-12 col-md-8">
                         <form action="" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
                             <!-- TITULO -->
@@ -62,7 +70,7 @@
                     </div>
                 </section>
             </main>
-            <%- include('./partials/footer') %>
+            <%- include('../partials/footer') %>
     </body>
 
     </html>

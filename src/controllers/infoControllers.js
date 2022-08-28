@@ -1,6 +1,6 @@
 module.exports = {
   contact : (req,res) => {
-      return res.render('contact')
+      return res.render('info/contact')
   },
 
 }

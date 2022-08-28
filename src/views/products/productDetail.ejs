@@ -1,9 +1,19 @@
-<%- include('./partials/head', { title : 'Detalles del producto' }) %>
+<%- include('../partials/head', { title : 'Detalles del producto' }) %>
 
   <body class="">
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
+
+
       <main>
-        <div class="container my-3">
+        
+        <div class="container my-lg-5">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Detalles del producto</li>
+            </ol>
+          </nav>
           <div class="row">
             <div class="glider-contain d-block d-lg-none mb-4 col-12 col-md-6">
               <div class="glider-detail">
@@ -31,7 +41,7 @@
               </ul>
             </div>
 
-            <div class="card col-12 col-lg-5 position-relative border-0">
+            <div class="card col-12 col-lg-5 position-relative shodow">
               <span class="position-absolute top-0 end-0 fs-2 text-primary p-2" title="Agregar a favoritos">
                 <i class="fas fa-heart"></i>
               </span>
@@ -52,7 +62,7 @@
 
               <div class="row">
                 <button class="btn btn-primary col-10 offset-1 col-md-6 offset-md-3">Comprar ahora</button>
-                <button class="btn btn-info text-primary col-10 offset-1 col-md-6 offset-md-3 my-2 shadow over" style="background-color: rgba(65,137,230,.15);
+                <button class="btn text-primary col-10 offset-1 col-md-6 offset-md-3 my-2" style="background-color: rgba(65,137,230,.15);
                     border-color: transparent;
                     color: #3483fa;">Agregar al carrito</button>
               </div>
@@ -61,7 +71,15 @@
           </div>
         </div>
       </main>
-      <%- include('./partials/footer') %>
+
+      <hr class="divider">
+
+      <section class="py-3 py-lg-5">
+        <h1 class="col-12 text-center">Productos relacionados</h1>
+        <%- include("../partials/slider.ejs",{type:"related"}) %>
+      </section>
+
+      <%- include('../partials/footer') %>
         <script src="/javascript/gallery-detail.js"></script>
         <script src="/javascript/library/glider.js"></script>
         <script src="/javascript/glider.config.js"></script>
