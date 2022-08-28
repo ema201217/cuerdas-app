@@ -1,15 +1,18 @@
 <div class="glider-contain">
-  <div class="glider-<%= type %>">
+  <div class="glider glider-<%= type %>">
     <% for( let index=0; index < 10; index++ ) { %>
-      <%- include('card') %>
-        <% } %>
+      <div class="glider-slide mx-3">
+        <%- include('card') %>
+      </div>
+      <% } %>
   </div>
 
   <button aria-label="Previous"
-    class="d-none d-lg-block start-0 top-50 rounded-end p-1 bg-dark bg-gradient glider-prev glider-prev-<%= type %>"><i
+    class="d-none d-lg-block start-0 rounded-end p-1 bg-light text-primary bg-gradient glider-prev glider-prev-<%= type %>" style="top:35%"><i
       class="fa-solid fa-arrow-left"></i></button>
   <button aria-label="Next"
-    class="d-none d-lg-block end-0 top-50 rounded-start p-1 bg-dark bg-gradient glider-next glider-next-<%= type %>"><i
+    class="d-none d-lg-block end-0 rounded-start p-1 bg-light text-primary bg-gradient glider-next glider-next-<%= type %>" style="top:35%"><i
       class="fa-solid fa-arrow-right"></i></button>
+
   <div role="tablist" class="dots text-dark" id="dots-<%= type %>"></div>
 </div>

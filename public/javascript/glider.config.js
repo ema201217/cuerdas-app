@@ -1,3 +1,40 @@
+const options = {
+  dots: "#dots-outstanding",
+  slidesToScroll: 1,
+  dragVelocity: 2,
+  scrollLock: true,
+  rewind:true,
+  duration: 2,
+  draggable: true,
+  arrows: {
+    prev: ".glider-prev.glider-prev-outstanding",
+    next: ".glider-next.glider-next-outstanding",
+  },
+  responsive: [
+    {
+      breakpoint: 0,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+      },
+    
+    },
+  ],
+}
+
+
 
 /* DESTACADOS */
 window.addEventListener("load", function () {
@@ -6,7 +43,7 @@ window.addEventListener("load", function () {
     slidesToScroll: 1,
     dragVelocity: 2,
     scrollLock: true,
-    loop: true,
+    rewind:true,
     duration: 2,
     draggable: true,
     arrows: {
@@ -45,7 +82,7 @@ window.addEventListener("load", function () {
     slidesToScroll: 1,
     dragVelocity: 2,
     scrollLock: true,
-    loop: true,
+    rewind:true,
     duration: 2,
     draggable: true,
     arrows: {
