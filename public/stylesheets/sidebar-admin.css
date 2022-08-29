@@ -1,0 +1,23 @@
+#sidebar-admin *::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#sidebar-admin *::-webkit-scrollbar:vertical {
+  width:5px;
+}
+
+#sidebar-admin *::-webkit-scrollbar-button:increment,#sidebar-admin *::-webkit-scrollbar-button {
+  
+} 
+
+#sidebar-admin *::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+#sidebar-admin *::-webkit-scrollbar-thumb {
+  background-color: #0d6efd;
+  border-radius: 10px;
+}
+#sidebar-admin *::-webkit-scrollbar-corner {
+  display: none;
+}

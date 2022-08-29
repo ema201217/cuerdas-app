@@ -1,7 +1,330 @@
-<%- include('../partials/head',{ title : 'Productos' }) %>
+<%- include('../partials/head',{ title : 'Búsqueda' }) %>
+
   <body>
     <main>
       <%- include("../partials/sidebar",{page:"productos"}) %>
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
+          class="scrollspy-example overflow-scroll mx-2 position-relative" style="height:calc(100vh - 63.99px);" tabindex="0">
+
+          <table class="table table-lg table-hover text-center table-bordered">
+            
+              <tr class="table-info positio-fixed top-0">
+                <th scope="col">ID</th>
+                <th scope="col">Imágenes</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Precio final</th>
+                <th scope="col">Descuento</th>
+                <th scope="col">Tip</th>
+                <th scope="col">Colores</th>
+                <th scope="col">Oferta</th>
+                <th scope="col">Destacado</th>
+                <th scope="col">Subtitulo</th>
+                <th scope="col">Descripciones</th>
+                <th scope="col">Hecho en</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Disponible</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Envió gratis</th>
+                <th scope="col">Precio envió</th>
+              </tr>
+            
+              <tr>
+                <!-- ID -->
+                <th scope="row">1</th>
+                <!-- Imagenes -->
+                <td>
+                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
+                </td>
+                <!-- Titulo -->
+                <td>Guitarra clásica 1/2 Freedom CG300</td>
+                <!-- Marca -->
+                <td>Freedom</td>
+                <!-- Precio -->
+                <td>$6.300</td>
+                <!-- Precio final -->
+                <td>$5.670</td>
+                <!-- Descuento-->
+                <td>10 %</td>
+                <!-- Tipo-->
+                <td>Clásica</td>
+                <!-- Colores -->
+                <td>
+                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
+                  <div width="20" height="20" style="background-color:#000000"></div> -->
+                </td>
+                <!-- Oferta -->
+                <td>No</td>
+                <!-- Destacado -->
+                <td>Si</td>
+                <!-- Subtitulo -->
+                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                <!-- Descripciones -->
+                <td>
+                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
+                  de máquina: níquel
+                </td>
+                <!-- Hecho en -->
+                <td>Guatemala</td>
+                <!-- Categoría -->
+                <td>guitarras</td>
+                <!-- Disponible -->
+                <td>Si</td>
+                <!-- Stock -->
+                <td>Si</td>
+                <!-- Envió gratis -->
+                <td>Si</td>
+                <!-- Precio envió -->
+                <td>700</td>
+              </tr>
+              <tr>
+                <!-- ID -->
+                <th scope="row">1</th>
+                <!-- Imagenes -->
+                <td>
+                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
+                </td>
+                <!-- Titulo -->
+                <td>Guitarra clásica 1/2 Freedom CG300</td>
+                <!-- Marca -->
+                <td>Freedom</td>
+                <!-- Precio -->
+                <td>$6.300</td>
+                <!-- Precio final -->
+                <td>$5.670</td>
+                <!-- Descuento-->
+                <td>10 %</td>
+                <!-- Tipo-->
+                <td>Clásica</td>
+                <!-- Colores -->
+                <td>
+                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
+                  <div width="20" height="20" style="background-color:#000000"></div> -->
+                </td>
+                <!-- Oferta -->
+                <td>No</td>
+                <!-- Destacado -->
+                <td>Si</td>
+                <!-- Subtitulo -->
+                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                <!-- Descripciones -->
+                <td>
+                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
+                  de máquina: níquel
+                </td>
+                <!-- Hecho en -->
+                <td>Guatemala</td>
+                <!-- Categoría -->
+                <td>guitarras</td>
+                <!-- Disponible -->
+                <td>Si</td>
+                <!-- Stock -->
+                <td>Si</td>
+                <!-- Envió gratis -->
+                <td>Si</td>
+                <!-- Precio envió -->
+                <td>700</td>
+              </tr>
+              <tr>
+                <!-- ID -->
+                <th scope="row">1</th>
+                <!-- Imagenes -->
+                <td>
+                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
+                </td>
+                <!-- Titulo -->
+                <td>Guitarra clásica 1/2 Freedom CG300</td>
+                <!-- Marca -->
+                <td>Freedom</td>
+                <!-- Precio -->
+                <td>$6.300</td>
+                <!-- Precio final -->
+                <td>$5.670</td>
+                <!-- Descuento-->
+                <td>10 %</td>
+                <!-- Tipo-->
+                <td>Clásica</td>
+                <!-- Colores -->
+                <td>
+                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
+                  <div width="20" height="20" style="background-color:#000000"></div> -->
+                </td>
+                <!-- Oferta -->
+                <td>No</td>
+                <!-- Destacado -->
+                <td>Si</td>
+                <!-- Subtitulo -->
+                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                <!-- Descripciones -->
+                <td>
+                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
+                  de máquina: níquel
+                </td>
+                <!-- Hecho en -->
+                <td>Guatemala</td>
+                <!-- Categoría -->
+                <td>guitarras</td>
+                <!-- Disponible -->
+                <td>Si</td>
+                <!-- Stock -->
+                <td>Si</td>
+                <!-- Envió gratis -->
+                <td>Si</td>
+                <!-- Precio envió -->
+                <td>700</td>
+              </tr>
+              <tr>
+                <!-- ID -->
+                <th scope="row">1</th>
+                <!-- Imagenes -->
+                <td>
+                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
+                </td>
+                <!-- Titulo -->
+                <td>Guitarra clásica 1/2 Freedom CG300</td>
+                <!-- Marca -->
+                <td>Freedom</td>
+                <!-- Precio -->
+                <td>$6.300</td>
+                <!-- Precio final -->
+                <td>$5.670</td>
+                <!-- Descuento-->
+                <td>10 %</td>
+                <!-- Tipo-->
+                <td>Clásica</td>
+                <!-- Colores -->
+                <td>
+                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
+                  <div width="20" height="20" style="background-color:#000000"></div> -->
+                </td>
+                <!-- Oferta -->
+                <td>No</td>
+                <!-- Destacado -->
+                <td>Si</td>
+                <!-- Subtitulo -->
+                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                <!-- Descripciones -->
+                <td>
+                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
+                  de máquina: níquel
+                </td>
+                <!-- Hecho en -->
+                <td>Guatemala</td>
+                <!-- Categoría -->
+                <td>guitarras</td>
+                <!-- Disponible -->
+                <td>Si</td>
+                <!-- Stock -->
+                <td>Si</td>
+                <!-- Envió gratis -->
+                <td>Si</td>
+                <!-- Precio envió -->
+                <td>700</td>
+              </tr>
+              <tr>
+                <!-- ID -->
+                <th scope="row">1</th>
+                <!-- Imagenes -->
+                <td>
+                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
+                </td>
+                <!-- Titulo -->
+                <td>Guitarra clásica 1/2 Freedom CG300</td>
+                <!-- Marca -->
+                <td>Freedom</td>
+                <!-- Precio -->
+                <td>$6.300</td>
+                <!-- Precio final -->
+                <td>$5.670</td>
+                <!-- Descuento-->
+                <td>10 %</td>
+                <!-- Tipo-->
+                <td>Clásica</td>
+                <!-- Colores -->
+                <td>
+                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
+                  <div width="20" height="20" style="background-color:#000000"></div> -->
+                </td>
+                <!-- Oferta -->
+                <td>No</td>
+                <!-- Destacado -->
+                <td>Si</td>
+                <!-- Subtitulo -->
+                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                <!-- Descripciones -->
+                <td>
+                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
+                  de máquina: níquel
+                </td>
+                <!-- Hecho en -->
+                <td>Guatemala</td>
+                <!-- Categoría -->
+                <td>guitarras</td>
+                <!-- Disponible -->
+                <td>Si</td>
+                <!-- Stock -->
+                <td>Si</td>
+                <!-- Envió gratis -->
+                <td>Si</td>
+                <!-- Precio envió -->
+                <td>700</td>
+              </tr>
+              <tr>
+                <!-- ID -->
+                <th scope="row">1</th>
+                <!-- Imagenes -->
+                <td>
+                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
+                </td>
+                <!-- Titulo -->
+                <td>Guitarra clásica 1/2 Freedom CG300</td>
+                <!-- Marca -->
+                <td>Freedom</td>
+                <!-- Precio -->
+                <td>$6.300</td>
+                <!-- Precio final -->
+                <td>$5.670</td>
+                <!-- Descuento-->
+                <td>10 %</td>
+                <!-- Tipo-->
+                <td>Clásica</td>
+                <!-- Colores -->
+                <td>
+                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
+                  <div width="20" height="20" style="background-color:#000000"></div> -->
+                </td>
+                <!-- Oferta -->
+                <td>No</td>
+                <!-- Destacado -->
+                <td>Si</td>
+                <!-- Subtitulo -->
+                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                <!-- Descripciones -->
+                <td>
+                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
+                  de máquina: níquel
+                </td>
+                <!-- Hecho en -->
+                <td>Guatemala</td>
+                <!-- Categoría -->
+                <td>guitarras</td>
+                <!-- Disponible -->
+                <td>Si</td>
+                <!-- Stock -->
+                <td>Si</td>
+                <!-- Envió gratis -->
+                <td>Si</td>
+                <!-- Precio envió -->
+                <td>700</td>
+              </tr>
+          </table>
+
+        </div>
+        </div>
+        </div>
+
     </main>
   </body>
+
   </html>
