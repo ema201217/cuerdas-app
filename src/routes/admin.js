@@ -13,20 +13,44 @@ const {
   notesCredits,
   sales,
   search,
+  add,
+  edit,
 } = require("../controllers/adminControllers");
 
-/* /products */
 router
-  .get("/categorias", categories)
-  .get("/usuarios", users)
+  /* productos */
   .get("/productos", products)
+  .get("/productos/agregar", add)
+  .get("/productos/editar/:id", edit)
+
+  /* categorias */
+  .get("/categorias", categories)
+
+  /* usuarios */
+  .get("/usuarios", users)
+
+  /* banners */
   .get("/banners", banners)
+
+  /* dashboard - estadisticas */
   .get("/dashboard", dashboard)
+
+  /* código (probar) */
   .get("/code", codeEditor)
+
+  /* empleados */
   .get("/empleados", staff)
+
+  /* buscador */
   .get("/search", search)
+
+  /* mensajes */
   .get("/mensajes", messages)
+
+  /* notas de crédito */
   .get("/notas-creditos", notesCredits)
+
+  /* ventas */
   .get("/ventas", sales);
 
 module.exports = router;

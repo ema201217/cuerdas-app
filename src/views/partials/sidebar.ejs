@@ -1,7 +1,10 @@
 <div class="d-flex align-items-start" id="sidebar-admin">
+  
   <!-- NAVEGACIÓN LATERAL -->
   <div  class="col-2 d-flex flex-column flex-shrink-0 p-lg-3 text-white bg-dark vh-100 start-0">
     <ul class="nav nav-pills flex-column flex-nowrap mb-auto gap-3 align-items-center align-items-lg-start overflow-scroll">
+
+      <!-- HOME -->
       <li class="nav-item m-0 text-white">
         <a href="/" class="nav-link link-primary d-flex justify-content-center align-items-center mt-1 text-white gap-3">
           <i class="fa-solid fa-house-chimney"></i>
@@ -9,18 +12,24 @@
         </a>
       </li>
       <hr class="w-100 text-white my-0">
+
+      <!-- DASHBOARD -->
       <li class="nav-item m-0">
         <a href="/admin/dashboard" class="nav-link link-danger text-white d-flex align-items-center gap-3 <%= page === "dashboard" ? "active" : null %>">
           <i class="fa-solid fa-chart-line"></i>
           <span class="d-none d-lg-block"> Tablero de estadísticas</span>
         </a>
       </li>
+
+      <!-- VENTAS -->
       <li class="nav-item m-0">
         <a href="/admin/ventas" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "ventas" ? "active" : null %>">
           <i class="fa-solid fa-file-invoice-dollar"></i>
           <span class="d-none d-lg-block"> Ventas</span>
         </a>
       </li>
+
+      <!-- NOTAS DE CRÉDITO -->
       <li class="nav-item m-0">
         <a href="/admin/notas-creditos" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "notas-creditos" ? "active" : null %>">
           <i class="fa-solid fa-note-sticky"></i>
@@ -28,49 +37,72 @@
         </a>
       </li>
       <hr class="w-100 text-white my-0">
+
+      <!-- PRODUCTS -->
       <li class="nav-item m-0">
         <a href="/admin/productos" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "productos" ? "active" : null %>">
           <i class="fa-solid fa-boxes-stacked"></i>
           <span class="d-none d-lg-block"> Productos</span>
         </a>
       </li>
+
+      <!-- USUARIOS -->
       <li class="nav-item m-0">
         <a href="/admin/usuarios" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "usuarios" ? "active" : null %>">
           <i class="fa-solid fa-users"></i>
           <span class="d-none d-lg-block"> Usuarios</span>
         </a>
       </li>
+
+      <!-- EMPLEADOS -->
       <li class="nav-item m-0">
         <a href="/admin/empleados" class="nav-link link-success text-white d-flex align-items-center gap-3 <%= page === "empleados" ? "active" : null %>">
           <i class="fa-solid fa-users-between-lines"></i>
           <span class="d-none d-lg-block"> Empleados</span>
         </a>
       </li>
+
+      <!-- BANNERS -->
       <li class="nav-item m-0">
         <a href="/admin/banners" class="nav-link link-primary d-flex align-items-center gap-3 text-white <%= page === "banners" ? "active" : null %>">
           <i class="fa-solid fa-images"></i>
           <span class="d-none d-lg-block"> Banners</span>
         </a>
       </li>
+
+      <!-- CATEGORIAS -->
       <li class="nav-item m-0">
         <a href="/admin/categorias" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "categorias" ? "active" : null %>">
           <i class="fa-solid fa-list"></i>
           <span class="d-none d-lg-block"> Categorías</span>
         </a>
       </li>
+
+      <!-- MARCAS -->
+      <li class="nav-item m-0">
+        <a href="/admin/marcas" class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "marcas" ? "active" : null %>">
+          <i class="fa-solid fa-list"></i>
+          <span class="d-none d-lg-block"> Marcas</span>
+        </a>
+      </li>
       <hr class="w-100 text-white my-0">
+
+      <!-- MENSAJES -->
       <li class="nav-item m-0">
         <a href="/admin/mensajes" class="nav-link link-info text-white d-flex align-items-center gap-3 <%= page === "mensajes" ? "active" : null %>">
           <i class="fa-solid fa-comment-sms"></i>
           <span class="d-none d-lg-block"> Mensajes</span>
         </a>
       </li>
+
+      <!-- EDITOR DE CÓDIGO -->
       <li class="nav-item m-0 mb-5">
         <a href="/admin/code" class="nav-link link-warning text-white d-flex align-items-center gap-3 <%= page === "code" ? "active" : null %>">
           <i class="fa-solid fa-code"></i>
           <span class="d-none d-lg-block"> Editor de código</span>
         </a>
       </li>
+
     </ul>
   </div>
 

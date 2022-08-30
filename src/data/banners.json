@@ -1,0 +1,38 @@
+[
+  {
+  "id":1,
+  "images":["","",""],
+  "view":"home",
+  "active":true
+  },
+  {
+  "id":2,
+  "images":["","",""],
+  "view":"detalle de producto",
+  "active":false
+},
+{
+  "id":3,
+  "images":["","",""],
+  "view":"carrito de compra",
+  "active":false
+  },
+  {
+  "id":4,
+  "images":["","",""],
+  "view":"productos",
+  "active":false
+  },
+  {
+  "id":4,
+  "images":["","",""],
+  "view":"categorias",
+  "active":false
+  },
+  {
+  "id":4,
+  "images":["","",""],
+  "view":"categories",
+  "active":false
+  }
+]

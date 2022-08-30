@@ -1,14 +1,24 @@
 <%- include('../partials/head',{ title : 'Búsqueda' }) %>
 
   <body>
-    <main>
+    <main class="admin-products">
       <%- include("../partials/sidebar",{page:"productos"}) %>
-        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
-          class="scrollspy-example overflow-scroll mx-2 position-relative" style="height:calc(100vh - 63.99px);" tabindex="0">
 
-          <table class="table table-lg table-hover text-center table-bordered">
-            
-              <tr class="table-info positio-fixed top-0">
+        <div class="container">
+          <div class="row p-2">
+            <!-- Button trigger modal -->
+            <button type="button" class="col-6 col-md-2 btn btn-sm btn-primary bg-gradient" data-bs-toggle="modal"
+              data-bs-target="#modalProductAdd">
+              Agregar un producto
+            </button>
+          </div>
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
+            class="scrollspy-example overflow-scroll mx-2 position-relative" style="height:calc(100vh - 111.14px);"
+            tabindex="0">
+
+            <table class="table table-lg table-hover text-center table-bordered">
+
+              <tr class="table-primary bg-gradient positio-fixed top-0">
                 <th scope="col">ID</th>
                 <th scope="col">Imágenes</th>
                 <th scope="col">Titulo</th>
@@ -29,301 +39,409 @@
                 <th scope="col">Envió gratis</th>
                 <th scope="col">Precio envió</th>
               </tr>
-            
-              <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Imagenes -->
-                <td>
-                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
-                </td>
-                <!-- Titulo -->
-                <td>Guitarra clásica 1/2 Freedom CG300</td>
-                <!-- Marca -->
-                <td>Freedom</td>
-                <!-- Precio -->
-                <td>$6.300</td>
-                <!-- Precio final -->
-                <td>$5.670</td>
-                <!-- Descuento-->
-                <td>10 %</td>
-                <!-- Tipo-->
-                <td>Clásica</td>
-                <!-- Colores -->
-                <td>
-                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
-                  <div width="20" height="20" style="background-color:#000000"></div> -->
-                </td>
-                <!-- Oferta -->
-                <td>No</td>
-                <!-- Destacado -->
-                <td>Si</td>
-                <!-- Subtitulo -->
-                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
-                <!-- Descripciones -->
-                <td>
-                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
-                  de máquina: níquel
-                </td>
-                <!-- Hecho en -->
-                <td>Guatemala</td>
-                <!-- Categoría -->
-                <td>guitarras</td>
-                <!-- Disponible -->
-                <td>Si</td>
-                <!-- Stock -->
-                <td>Si</td>
-                <!-- Envió gratis -->
-                <td>Si</td>
-                <!-- Precio envió -->
-                <td>700</td>
-              </tr>
-              <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Imagenes -->
-                <td>
-                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
-                </td>
-                <!-- Titulo -->
-                <td>Guitarra clásica 1/2 Freedom CG300</td>
-                <!-- Marca -->
-                <td>Freedom</td>
-                <!-- Precio -->
-                <td>$6.300</td>
-                <!-- Precio final -->
-                <td>$5.670</td>
-                <!-- Descuento-->
-                <td>10 %</td>
-                <!-- Tipo-->
-                <td>Clásica</td>
-                <!-- Colores -->
-                <td>
-                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
-                  <div width="20" height="20" style="background-color:#000000"></div> -->
-                </td>
-                <!-- Oferta -->
-                <td>No</td>
-                <!-- Destacado -->
-                <td>Si</td>
-                <!-- Subtitulo -->
-                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
-                <!-- Descripciones -->
-                <td>
-                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
-                  de máquina: níquel
-                </td>
-                <!-- Hecho en -->
-                <td>Guatemala</td>
-                <!-- Categoría -->
-                <td>guitarras</td>
-                <!-- Disponible -->
-                <td>Si</td>
-                <!-- Stock -->
-                <td>Si</td>
-                <!-- Envió gratis -->
-                <td>Si</td>
-                <!-- Precio envió -->
-                <td>700</td>
-              </tr>
-              <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Imagenes -->
-                <td>
-                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
-                </td>
-                <!-- Titulo -->
-                <td>Guitarra clásica 1/2 Freedom CG300</td>
-                <!-- Marca -->
-                <td>Freedom</td>
-                <!-- Precio -->
-                <td>$6.300</td>
-                <!-- Precio final -->
-                <td>$5.670</td>
-                <!-- Descuento-->
-                <td>10 %</td>
-                <!-- Tipo-->
-                <td>Clásica</td>
-                <!-- Colores -->
-                <td>
-                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
-                  <div width="20" height="20" style="background-color:#000000"></div> -->
-                </td>
-                <!-- Oferta -->
-                <td>No</td>
-                <!-- Destacado -->
-                <td>Si</td>
-                <!-- Subtitulo -->
-                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
-                <!-- Descripciones -->
-                <td>
-                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
-                  de máquina: níquel
-                </td>
-                <!-- Hecho en -->
-                <td>Guatemala</td>
-                <!-- Categoría -->
-                <td>guitarras</td>
-                <!-- Disponible -->
-                <td>Si</td>
-                <!-- Stock -->
-                <td>Si</td>
-                <!-- Envió gratis -->
-                <td>Si</td>
-                <!-- Precio envió -->
-                <td>700</td>
-              </tr>
-              <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Imagenes -->
-                <td>
-                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
-                </td>
-                <!-- Titulo -->
-                <td>Guitarra clásica 1/2 Freedom CG300</td>
-                <!-- Marca -->
-                <td>Freedom</td>
-                <!-- Precio -->
-                <td>$6.300</td>
-                <!-- Precio final -->
-                <td>$5.670</td>
-                <!-- Descuento-->
-                <td>10 %</td>
-                <!-- Tipo-->
-                <td>Clásica</td>
-                <!-- Colores -->
-                <td>
-                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
-                  <div width="20" height="20" style="background-color:#000000"></div> -->
-                </td>
-                <!-- Oferta -->
-                <td>No</td>
-                <!-- Destacado -->
-                <td>Si</td>
-                <!-- Subtitulo -->
-                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
-                <!-- Descripciones -->
-                <td>
-                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
-                  de máquina: níquel
-                </td>
-                <!-- Hecho en -->
-                <td>Guatemala</td>
-                <!-- Categoría -->
-                <td>guitarras</td>
-                <!-- Disponible -->
-                <td>Si</td>
-                <!-- Stock -->
-                <td>Si</td>
-                <!-- Envió gratis -->
-                <td>Si</td>
-                <!-- Precio envió -->
-                <td>700</td>
-              </tr>
-              <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Imagenes -->
-                <td>
-                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
-                </td>
-                <!-- Titulo -->
-                <td>Guitarra clásica 1/2 Freedom CG300</td>
-                <!-- Marca -->
-                <td>Freedom</td>
-                <!-- Precio -->
-                <td>$6.300</td>
-                <!-- Precio final -->
-                <td>$5.670</td>
-                <!-- Descuento-->
-                <td>10 %</td>
-                <!-- Tipo-->
-                <td>Clásica</td>
-                <!-- Colores -->
-                <td>
-                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
-                  <div width="20" height="20" style="background-color:#000000"></div> -->
-                </td>
-                <!-- Oferta -->
-                <td>No</td>
-                <!-- Destacado -->
-                <td>Si</td>
-                <!-- Subtitulo -->
-                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
-                <!-- Descripciones -->
-                <td>
-                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
-                  de máquina: níquel
-                </td>
-                <!-- Hecho en -->
-                <td>Guatemala</td>
-                <!-- Categoría -->
-                <td>guitarras</td>
-                <!-- Disponible -->
-                <td>Si</td>
-                <!-- Stock -->
-                <td>Si</td>
-                <!-- Envió gratis -->
-                <td>Si</td>
-                <!-- Precio envió -->
-                <td>700</td>
-              </tr>
-              <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Imagenes -->
-                <td>
-                  <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt="" width="100px"></a>
-                </td>
-                <!-- Titulo -->
-                <td>Guitarra clásica 1/2 Freedom CG300</td>
-                <!-- Marca -->
-                <td>Freedom</td>
-                <!-- Precio -->
-                <td>$6.300</td>
-                <!-- Precio final -->
-                <td>$5.670</td>
-                <!-- Descuento-->
-                <td>10 %</td>
-                <!-- Tipo-->
-                <td>Clásica</td>
-                <!-- Colores -->
-                <td>
-                  <!-- <div width="20" height="20" style="background-color:#ff0000"></div>
-                  <div width="20" height="20" style="background-color:#000000"></div> -->
-                </td>
-                <!-- Oferta -->
-                <td>No</td>
-                <!-- Destacado -->
-                <td>Si</td>
-                <!-- Subtitulo -->
-                <td>Guitarra clásica ideal para principiantes y aficionados.</td>
-                <!-- Descripciones -->
-                <td>
-                  Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza
-                  de máquina: níquel
-                </td>
-                <!-- Hecho en -->
-                <td>Guatemala</td>
-                <!-- Categoría -->
-                <td>guitarras</td>
-                <!-- Disponible -->
-                <td>Si</td>
-                <!-- Stock -->
-                <td>Si</td>
-                <!-- Envió gratis -->
-                <td>Si</td>
-                <!-- Precio envió -->
-                <td>700</td>
-              </tr>
-          </table>
 
-        </div>
+              <% for( let index=0; index < 20; index++ ) { %>
+                <tr>
+                  <!-- ID -->
+                  <th scope="row">1</th>
+                  <!-- Imagenes -->
+                  <td>
+                    <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt=""
+                        width="100px"></a>
+                  </td>
+                  <!-- Titulo -->
+                  <td>Guitarra clásica 1/2 Freedom CG300</td>
+                  <!-- Marca -->
+                  <td>Freedom</td>
+                  <!-- Precio -->
+                  <td>$6.300</td>
+                  <!-- Precio final -->
+                  <td>$5.670</td>
+                  <!-- Descuento-->
+                  <td>10 %</td>
+                  <!-- Tipo-->
+                  <td>Clásica</td>
+                  <!-- Colores -->
+                  <td>
+                    <span class="col d-inline-block" style="background-color:#ff0000;height: 20px;width:20px;"></span>
+                    <span class="col d-inline-block" style="background-color:#000000;height: 20px;width:20px;"></sp>
+                  </td>
+                  <!-- Oferta -->
+                  <td>No</td>
+                  <!-- Destacado -->
+                  <td>Si</td>
+                  <!-- Subtitulo -->
+                  <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                  <!-- Descripciones -->
+                  <td>
+                    Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente:
+                    arce\nCabeza
+                    de máquina: níquel
+                  </td>
+                  <!-- Hecho en -->
+                  <td>Guatemala</td>
+                  <!-- Categoría -->
+                  <td>guitarras</td>
+                  <!-- Disponible -->
+                  <td>Si</td>
+                  <!-- Stock -->
+                  <td>Si</td>
+                  <!-- Envió gratis -->
+                  <td>Si</td>
+                  <!-- Precio envió -->
+                  <td>700</td>
+                </tr>
+                <% } %>
+            </table>
+
+          </div>
         </div>
         </div>
 
+
+
+
+        <!-- MODAL DE CREAR UN PRODUCTO -->
+
+        <div class="modal  fade" id="modalProductAdd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="false">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Nuevo producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="row gx-3 gy-2 align-items-center">
+
+                  <!-- TITULO -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Titulo">
+                    <label class="form-label px-3 fw-normal" for="title">Titulo</label>
+                    <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+                      style="font-size:10px;"></i>
+                  </div>
+
+                  <!-- MARCA -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
+                    <select class="form-select" name="brand">
+                      <option selected hidden value="">...</option>
+                      <option value="1">Freedom</option>
+                      <option value="2">Gracia</option>
+                      <option value="3">Segovia</option>
+                      <option value="3">SX</option>
+                      <option value="3">Yamaha</option>
+                    </select>
+                    <label for="form-label">Marcas</label>
+                    <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+                      style="font-size:10px;"></i>
+                  </div>
+
+                  <!-- CATEGORIAS -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <select class="form-select" name="categories">
+                      <option selected hidden value="">...</option>
+                      <option value="1">Guitarras</option>
+                      <option value="2">Violines</option>
+                      <option value="3">Bajos</option>
+                      <option value="4">Contrabajos</option>
+                      <option value="5">Charangos</option>
+                      <option value="6">Arpa</option>
+                      <option value="7">Piano</option>
+                    </select>
+                    <label for="form-label">Categorias</label>
+                    <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+                      style="font-size:10px;"></i>
+                  </div>
+
+                  <!-- DESCRIPCIÓN -->
+                  <div class="col-auto col-lg-8 form-floating position-relative">
+                    <textarea type="text" class="form-control" id="description" name="description"
+                      placeholder="Descripción"></textarea>
+                    <label class="form-label px-3 fw-normal" for="description">Descripción</label>
+                    <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+                      style="font-size:10px;"></i>
+                  </div>
+
+                  <!-- COLORES -->
+                  <div class="col-12 col-md-6 col-lg-4 form-group">
+                    <div class="input-group">
+                      <div class="input-group-text bg-transparent position-relative d-flex flex-column">
+                        <input type="color" class="form-control form-control-color border-0" id="colorProduct" value=""
+                          title="Color del producto">
+                        <!-- <input type="color" class="form-control form-control-color" id="colorProduct" value=""
+                          title="Color del producto">
+                        <input type="color" class="form-control form-control-color" id="colorProduct" value=""
+                          title="Color del producto"> -->
+
+                        <!-- BORRAR ULTIMO COLOR -->
+                        <button type="button"
+                          class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
+                          style="z-index:1;font-size: 8px;right: 40px;">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <!-- AGREGAR UN COLOR -->
+                        <button type="button"
+                          class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
+                          style="z-index:1;font-size: 8px;right: 10px;">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                      </div>
+
+                      <!-- COLOR -> input type text -->
+                      <div class="form-floating">
+                        <input type="text" list="colorsList" class="form-control" id="color" placeholder="Color">
+                        <label for="colorProduct" class="form-label fw-normal px-2">Colores</label>
+                        <datalist id="colorsList">
+                          <option value="Natural">
+                          <option value="Marrón oscuro">
+                          <option value="Rojo/Negro">
+                          <option value="Marrón mate">
+                        </datalist>
+
+                      </div>
+                      <i class="text-danger position-absolute top-0 end-0 pt-2 pe-2 fa-solid fa-asterisk"
+                        style="font-size:10px;"></i>
+                    </div>
+
+                  </div>
+
+                  <!-- LINEA DIVISION -->
+                  <hr class="col-6 offset-3 mt-4 mb-1 w-50">
+
+                  <!-- IMÁGENES ARCHIVOS -->
+                  <h4>Seleccionar las Imágenes</h4>
+
+                  <!-- PREVISUALIZACIÓN DE LAS IMÁGENES AGREGADAS -->
+                  <div class="glider-contain" id="slider-admin-products">
+                    <div class="glider glider-img-admin">
+                      <% for( let index=0; index < 10; index++ ) { %>
+
+                        <div class="position-relative img-hover">
+                          <img src="/images/Products/guitar2.jpg" alt="">
+                          <button class="link-dark border-0 position-absolute top-0 end-0 px-1">
+                            <i class="fa-solid fa-xmark"></i>
+                            </butt>
+                        </div>
+                        <% } %>
+
+                    </div>
+
+                    <div role="tablist" class="dots text-dark" id="dots-img-admin"></div>
+                  </div>
+
+                  <!-- IMÁGENES INPUT -->
+                  <div class="col-12 col-lg-6">
+                    <input class="form-control form-control" name="imgsFiles" id="ImgProduct" type="file" multiple
+                      accept="image/*">
+                  </div>
+
+                  <!-- IMÁGENES URL -->
+                  <div class="col-12 col-lg-6 position-relative">
+                    <input type="text" class="form-control my-1" id="imgText" name="imgText"
+                      placeholder="Coloca una url de imagen">
+                    <!--   <input type="text" class="form-control my-1" id="imgText" name="imgText"
+                      placeholder="Coloca una url de imagen">
+                    <input type="text" class="form-control my-1" id="imgText" name="imgText"
+                      placeholder="Coloca una url de imagen"> -->
+
+
+
+                    <!-- BORRAR ULTIMA IMAGEN URL -->
+                    <button type="button"
+                      class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
+                      style="z-index:1;font-size: 8px;right: 40px;" title="borrar ultimo campo">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+
+                    <!-- AGREGAR UNA IMAGEN NUEVA URL -->
+                    <button type="button"
+                      class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
+                      style="z-index:1;font-size: 8px;right: 10px;" title="agregar un nuevo campo">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+
+                  <!-- LINEA DIVISION -->
+                  <hr class="col-6 offset-3 mt-4 mb-1 w-50">
+
+                  <!-- SUBTITULO -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Subtitulo">
+                    <label class="form-label px-3 fw-normal" for="subtitle">Subtitulo</label>
+                  </div>
+
+                  <!-- MODELO -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <input type="text" class="form-control" id="model" name="model" placeholder="Modelo">
+                    <label class="form-label px-3 fw-normal" for="model">Modelo</label>
+                  </div>
+
+                  <!-- TIPO -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <input type="text" list="typeList" class="form-control" id="type" name="type" placeholder="Tipo">
+                    <label class="form-label px-3 fw-normal" for="type">Tipo</label>
+                    <datalist id="typeList">
+                      <option value="Clásico">
+                      <option value="Acústico">
+                      <option value="Precisión">
+                      <option value="Electrónico">
+                    </datalist>
+                  </div>
+
+                  <!-- HECHO EN -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <input type="text" class="form-control" id="madeIn" name="madeIn" placeholder="Hecho en">
+                    <label class="form-label px-3 fw-normal" for="madeIn">Hecho en</label>
+                  </div>
+
+                  <!-- CANTIDAD -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <input type="number" min="1" class="form-control" id="quantity" name="quantity"
+                      placeholder="Cantidad">
+                    <label class="form-label px-3 fw-normal" for="quantity">Cantidad</label>
+                  </div>
+
+                  <!-- PRECIO -->
+                  <div class="col-12 col-md-6 col-lg-4 form-floating">
+                    <input type="number" min="1" class="form-control" id="price" name="price" placeholder="Precio">
+                    <label class="form-label px-3 fw-normal" for="price">Precio</label>
+                  </div>
+
+                  <!-- DESCUENTO -->
+                  <div class="col-12 col-md-6 col-lg-6 form-floating">
+                    <input type="number" min="1" class="form-control" id="discount" name="discount"
+                      placeholder="Descuento">
+                    <label class="form-label px-3 fw-normal" for="discount">Descuento</label>
+                  </div>
+
+                  <!-- PRECIO MÍNIMO DE ENVIÓ -->
+                  <div class="col-12 col-md-6 col-lg-6 form-floating">
+                    <input type="number" min="1" class="form-control" id="priceShipping" name="priceShipping"
+                      placeholder="Precio mínimo de envió">
+                    <label class="form-label px-3 fw-normal" for="priceShipping">Precio mínimo de envió</label>
+                  </div>
+
+                  <!-- LINEA DIVISION -->
+                  <hr class="col-6 offset-3 mt-4 mb-1 w-50">
+
+                  <div class="col-12 col-md-7 form-group fw-normal row my-3 align-self-baseline">
+                    <!-- MOSTRAR COMO OFERTA -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="form-check">
+                        <input class="form-check-input" name="showInOffer" type="checkbox" id="showInOffer">
+                        <label class="form-check-label" for="showInOffer">
+                          Mostrar como oferta
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- DESTACADO -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="form-check">
+                        <input class="form-check-input" name="outstanding" type="checkbox" id="outstanding">
+                        <label class="form-check-label" for="outstanding">
+                          Destacar
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- DISPONIBLE -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="form-check">
+                        <input class="form-check-input" name="available" type="checkbox" id="available">
+                        <label class="form-check-label" for="available">
+                          Disponible
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- HAY STOCK -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="form-check">
+                        <input class="form-check-input" name="stock" type="checkbox" id="stock">
+                        <label class="form-check-label" for="stock">
+                          Hay Stock
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- ENVIÓ GRATIS -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="form-check">
+                        <input class="form-check-input" name="freeShipping" type="checkbox" id="freeShipping">
+                        <label class="form-check-label" for="freeShipping">
+                          Envió gratis
+                        </label>
+                      </div>
+                    </div>
+
+
+
+
+                    <!-- Contraseña (llave) para realizar el proceso -->
+                    <div class="col-12 col-md-6 form-floating my-5 align-self-baseline">
+                      <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+                      <label class="form-label px-3 fw-normal" for="password">Contraseña</label>
+                    </div>
+
+                    <div class="col-12 col-md-6 my-5 align-self-baseline">
+                      <button type="submit" class="btn btn-primary">Guardar producto</button>
+                    </div>
+
+                  </div>
+
+                  <embed class="col-5 border mt-4" src="http://localhost:3000/productos/detalle/1" type="text/html"
+                    height="500px" style="object-fit: cover;">
+
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="col-auto offset-lg-11 btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalPreviewDesktop" title="Previsualización PC">
+                    <i class="fa-solid fa-display"></i>
+                  </button>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL PREVISUALIZACION DESKTOP -->
+
+        <div class="modal fade" id="modalPreviewDesktop" data-bs-backdrop="static" data-bs-keyboard="false"
+          tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl" height="80vh">
+            <div class="modal-content" style="height: 90vh;">
+              <div class="modal-header">
+                <h5 class="modal-title">Preview Desktop</h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                <button type="button" data-bs-dismiss="modal" class="btn-close col-6 col-md-4" data-bs-toggle="modal"
+                  data-bs-target="#modalProductAdd"></button>
+              </div>
+              <div class="modal-body">
+
+                <embed class="" src="http://localhost:3000/productos/detalle/1" type="text/html" height="100%"
+                  width="100%">
+
+              </div>
+              <div class="modal-footer">
+                <!-- Button trigger modal -->
+                <button type="button" class="col-6 col-md-4 btn btn-sm btn-primary bg-gradient" data-bs-toggle="modal"
+                  data-bs-target="#modalProductAdd">
+                  Cerrar
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="/javascript/library/glider.js"></script>
+        <script src="/javascript/glider.config.js"></script>
     </main>
   </body>
 

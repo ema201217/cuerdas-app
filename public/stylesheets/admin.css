@@ -1,3 +1,5 @@
+/* SCROLL STYLES */
+
 #sidebar-admin *::-webkit-scrollbar {
   -webkit-appearance: none;
 }
@@ -20,4 +22,22 @@
 }
 #sidebar-admin *::-webkit-scrollbar-corner {
   display: none;
+}
+
+#slider-admin-products *::-webkit-scrollbar:horizontal {
+  height: 3px;
+}
+
+#slider-admin-products *::-webkit-scrollbar-thumb {
+  background-color: #94979c;
+}
+
+/* HOVER DE LAS IMÁGENES PRE-VISUALIZADAS */
+.admin-products .img-hover{
+  border: 1px solid transparent;
+  transition: 1s border;
+}
+.admin-products .img-hover:hover{
+  border:1px solid rgb(194, 194, 194);
+  transition: 1s border;
 }

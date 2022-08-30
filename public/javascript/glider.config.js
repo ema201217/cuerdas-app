@@ -157,6 +157,33 @@ const optionsProductsAll = {
   ],
 };
 
+/* TODOS LOS PRODUCTOS --> VISTA - OPCIONES */
+const gliderImgAdmin = {
+  slidesToScroll: 1,
+  duration: 2,
+  draggable: true,
+  responsive: [
+    {
+      breakpoint: 0,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 102,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+  ],
+};
+
 const glidersObj = [
   /* DESTACADOS */
   {
@@ -182,6 +209,11 @@ const glidersObj = [
   {
     className: ".glider-products",
     options: optionsProductsAll,
+  },
+  /* IMÁGENES DE PRODUCTOS --> ADMIN */
+  {
+    className: ".glider-img-admin",
+    options: gliderImgAdmin,
   },
 ];
 
