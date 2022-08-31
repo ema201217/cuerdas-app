@@ -5,7 +5,7 @@ const { detail, all } = require("../controllers/productsControllers");
 
 /* /products */
 router
-.get("/detalle/:id/:category?", detail)
-.get("/:categoryId/:accessoryId?", all);
+.get("/:categoryId?", all)
+.get("/detalle/:id/:categoryId?", detail)
 
 module.exports = router;

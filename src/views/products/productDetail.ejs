@@ -6,13 +6,15 @@
 
       <main>
 
-        <div class="container my-lg-5">
+        <div class="container my-4 my-lg-5">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
-              <li class="breadcrumb-item" aria-current="page">Detalles del producto</li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li class="breadcrumb-item active">Detalles del producto &nbsp;&nbsp;
+                <i class="fa-solid fa-arrow-right"></i>
+              </li>
+              <li class="mx-3" aria-current="page">
                 <%= title %>
               </li>
             </ol>
@@ -20,9 +22,12 @@
           <div class="row">
             <div class="glider-contain d-block d-lg-none mb-4 col-12 col-md-6">
               <div class="glider-detail">
-                <img class="w-100" src="https://source.unsplash.com/W1yjvf5idqA">
-                <img class="w-100" src="https://source.unsplash.com/VgbUxvW3gS4">
-                <img class="w-100" src="https://source.unsplash.com/5WbYFH0kf_8">
+                <img style="object-fit:contain"
+                  src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>">
+                <img style="object-fit:contain"
+                  src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>">
+                <img style="object-fit:contain"
+                  src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>">
               </div>
               <button aria-label="Previous"
                 class="d-none d-lg-block start-0 top-50 rounded-end p-1 bg-dark bg-gradient glider-prev glider-prev-detail"><i
@@ -35,12 +40,16 @@
 
             <div class="col-lg-7 d-none d-lg-block">
               <div class="product-image">
-                <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
+                <img style="object-fit:contain" class="active"
+                  src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>">
               </div>
               <ul class="image-list">
-                <li class="image-item"><img src="https://source.unsplash.com/W1yjvf5idqA"></li>
-                <li class="image-item"><img src="https://source.unsplash.com/VgbUxvW3gS4"></li>
-                <li class="image-item"><img src="https://source.unsplash.com/5WbYFH0kf_8"></li>
+                <li class="image-item"><img style="object-fit:contain"
+                    src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>"></li>
+                <li class="image-item"><img style="object-fit:contain"
+                    src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>"></li>
+                <li class="image-item"><img style="object-fit:contain"
+                    src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`  %>"></li>
               </ul>
             </div>
 
@@ -55,33 +64,33 @@
 
               <% if (subtitle) { %>
                 <h6 class="card-text fw-bold my-2 pe-5">
-                  <%=  subtitle  %>
+                  <%= subtitle %>
                 </h6>
                 <% } %>
-              <div class="card-body">
-                <p class="<%= !discount && " d-none" %> my-0 text-decoration-line-through text-muted">$<%=
-                    toThousand(price) %>
-                </p>
-                <div class="d-flex align-items-center gap-1">
-                  <p class="my-0 fs-2 text-primary fw-normal">$ <%= toThousand(discount ? price - (price * discount /
-                      100) : price) %>
-                  </p><span class="text-success fs-5">
-                    <%= discount ? discount + " % OFF" : null %>
-                  </span>
-                </div>
-                <P class="fs-6 text-dark fw-bold">en 12x $<%= (price / 12).toFixed(2) %>
-                </P>
-                <p>
-                  <%= description %>
-                </p>
-              </div>
+                  <div class="card-body">
+                    <p class="<%= !discount && " d-none" %> my-0 text-decoration-line-through text-muted">$<%=
+                        toThousand(price) %>
+                    </p>
+                    <div class="d-flex align-items-center gap-1">
+                      <p class="my-0 fs-2 text-primary fw-normal">$ <%= toThousand(discount ? price - (price * discount
+                          / 100) : price) %>
+                      </p><span class="text-success fs-5">
+                        <%= discount ? discount + " % OFF" : null %>
+                      </span>
+                    </div>
+                    <P class="fs-6 text-dark fw-bold">en 12x $<%= (price / 12).toFixed(2) %>
+                    </P>
+                    <p>
+                      <%= description %>
+                    </p>
+                  </div>
 
-              <div class="row">
-                <button class="btn btn-primary col-10 offset-1 col-md-6 offset-md-3">Comprar ahora</button>
-                <button class="btn text-primary col-10 offset-1 col-md-6 offset-md-3 my-2" style="background-color: rgba(65,137,230,.15);
+                  <div class="row">
+                    <button class="btn btn-primary col-10 offset-1 col-md-6 offset-md-3">Comprar ahora</button>
+                    <button class="btn text-primary col-10 offset-1 col-md-6 offset-md-3 my-2" style="background-color: rgba(65,137,230,.15);
                     border-color: transparent;
                     color: #3483fa;">Agregar al carrito</button>
-              </div>
+                  </div>
 
             </div>
           </div>

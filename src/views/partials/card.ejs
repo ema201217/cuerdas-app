@@ -17,8 +17,12 @@
 
     </div>
     <p class="text-success my-0 fs-6 fw-light">5x $1.250 sin interés</p>
-    <p class="text-success my-0 fs-6"><%= freeShipping ? "Envió gratis" : null%><span class="fst-italic"> <i
-          class="fa-solid fa-bolt-lightning"></i>FULL</span></p>
+    <p class="text-success my-0 fs-6 fw-normal"><%= freeShipping ? "Envió gratis" : null%>
+     <% if (freeShipping) { %>
+      <i
+          class="fa-solid fa-bolt-lightning"></i>
+     <% } %>
+    </p>
     <p class="my-1 fs-6 text-muted fw-light card-description overflow-hidden text-truncate" style="max-width: 100%;"><%= title %>
     </p>
   </div>

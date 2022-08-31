@@ -14,6 +14,7 @@
               </ol>
             </nav>
 
+            <% if (products.length) { %>
             <!-- PAGINACIÓN SUPERIOR -->
             <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5 col offset-1">
               <ul class="pagination">
@@ -34,10 +35,12 @@
                 </li>
               </ul>
             </nav>
+            <% } %>
           </div>
 
           <div class="col d-flex gap-3 justify-content-center position-relative">
 
+            
             <!-- FILTROS LATERALES -->
             <section
               class="d-none d-lg-block card border-1 col-lg-3 mb-3 position-sticky start-0 top-0 border-end-0 overflow-scroll"
@@ -71,42 +74,53 @@
 
             <!-- TARJETAS DE PRODUCTOS -->
             <section class="col-12 col-lg-9">
-              <div class="d-none d-lg-flex row">
-                <% products.forEach( product=> { %>
-                  <div class="col-12 col-md-4 mb-3">
-                    <!-- Enviamos a la tarjeta todas las propiedades que tiene cada producto con un expred operator (...) y definimos si queremos las animaciones en la tarjeta -->
-                    <%- include('../partials/card',{...product,animation:true}) %>
+
+              <% if (products.length) { %>
+
+                <div class="d-none d-lg-flex row">
+                  <% products.forEach( product=> { %>
+                    <div class="col-12 col-md-4 mb-3">
+                      <!-- Enviamos a la tarjeta todas las propiedades que tiene cada producto con un expred operator (...) y definimos si queremos las animaciones en la tarjeta -->
+                      <%- include('../partials/card',{...product,animation:true}) %>
+                    </div>
+                    <% }) %>
+                </div>
+
+                <div class="d-block d-lg-none">
+                  <!-- Enviamos al slider el tipo de entidad con la que se relaciona y los productos para que se itere en base a la tarjeta definida -->
+                  <%- include('../partials/slider',{type:"products",products}) %>
+                </div>
+                <!-- PAGINACIÓN INFERIOR -->
+                <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link disabled" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="/productos?offset=21&limit=21">2</a></li>
+                    <li class="page-item"><a class="page-link" href="/productos?offset=42&limit=21">3</a></li>
+                    <li class="page-item"><a class="page-link" href="/productos?offset=63&limit=21">4</a></li>
+                    <li class="page-item"><a class="page-link" href="/productos?offset=84&limit=21">5</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <% }else{ %>
+
+                  <div class="text-center my-5">
+                    <h3>No existen productos con la categoría seleccionada</h3>
                   </div>
-                  <% }) %>
-              </div>
 
-              <div class="d-block d-lg-none">
-                <!-- Enviamos al slider el tipo de entidad con la que se relaciona y los productos para que se itere en base a la tarjeta definida -->
-                <%- include('../partials/slider',{type:"products",products}) %>
-              </div>
+                  <% } %>
 
 
-              <!-- PAGINACIÓN INFERIOR -->
-              <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link disabled" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="/productos?offset=21&limit=21">2</a></li>
-                  <li class="page-item"><a class="page-link" href="/productos?offset=42&limit=21">3</a></li>
-                  <li class="page-item"><a class="page-link" href="/productos?offset=63&limit=21">4</a></li>
-                  <li class="page-item"><a class="page-link" href="/productos?offset=84&limit=21">5</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
             </section>
+
           </div>
         </div>
 
