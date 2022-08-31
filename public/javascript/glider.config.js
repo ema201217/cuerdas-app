@@ -4,7 +4,6 @@ const optionsOutstanding = {
   slidesToScroll: 1,
   dragVelocity: 2,
   scrollLock: true,
-  rewind: true,
   duration: 2,
   draggable: true,
   arrows: {
@@ -38,7 +37,6 @@ const optionsOffer = {
   slidesToScroll: 1,
   dragVelocity: 2,
   scrollLock: true,
-  rewind: true,
   duration: 2,
   draggable: true,
   arrows: {

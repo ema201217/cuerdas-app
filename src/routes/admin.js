@@ -20,7 +20,6 @@ const {
 router
   /* productos */
   .get("/productos", products)
-  .get("/productos/agregar", add)
   .get("/productos/editar/:id", edit)
 
   /* categorias */

@@ -19,6 +19,8 @@
             <table class="table table-lg table-hover text-center table-bordered">
 
               <tr class="table-primary bg-gradient positio-fixed top-0">
+
+                <th scope="col"></th>
                 <th scope="col">ID</th>
                 <th scope="col">Imágenes</th>
                 <th scope="col">Titulo</th>
@@ -40,8 +42,53 @@
                 <th scope="col">Precio envió</th>
               </tr>
 
-              <% for( let index=0; index < 20; index++ ) { %>
+
+
+
+
+
+              <% for( let id = 0; id < 20; id++ ) { %>
+
+                <!-- Modal Deleted-->
+                <div class="modal fade" id="modalDelete-<%= id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title fs-1 text-center" id="exampleModalLabel">
+                          <i class="fa-solid fa-triangle-exclamation"></i>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body my-3">
+                        <h4>
+                          Estas Seguro de querer eliminar el producto: TITULO PRODUCTO
+                        </h4>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <form action="/admin/productos/eliminar/2?_method=DELETE">
+                          <button type="submit" class="btn btn-success">Aceptar</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <tr>
+                  <!-- ID -->
+                  <th>
+                    <a href="/admin/productos/editar/1" class="fs-5 btn btn-outline-primary border-0"><i
+                        class="fa-solid fa-pen-to-square"></i></a>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="fs-5 btn btn-outline-danger border-0" data-bs-toggle="modal"
+                      data-bs-target="#modalDelete-<%= id %>">
+                      <i class="fa-solid fa-eraser"></i>
+                    </button>
+
+                  </th>
+
                   <!-- ID -->
                   <th scope="row">1</th>
                   <!-- Imagenes -->
@@ -90,7 +137,9 @@
                   <td>Si</td>
                   <!-- Precio envió -->
                   <td>700</td>
+
                 </tr>
+
                 <% } %>
             </table>
 
@@ -223,7 +272,7 @@
                           <img src="/images/Products/guitar2.jpg" alt="">
                           <button class="link-dark border-0 position-absolute top-0 end-0 px-1">
                             <i class="fa-solid fa-xmark"></i>
-                            </butt>
+                          </button>
                         </div>
                         <% } %>
 
@@ -410,8 +459,9 @@
           </div>
         </div>
 
-        <!-- MODAL PREVISUALIZACION DESKTOP -->
 
+
+        <!-- MODAL PREVISUALIZACION DESKTOP -->
         <div class="modal fade" id="modalPreviewDesktop" data-bs-backdrop="static" data-bs-keyboard="false"
           tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-xl" height="80vh">

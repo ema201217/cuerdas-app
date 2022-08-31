@@ -1,5 +1,7 @@
 [
   {
+    "id":1,
+    "images":["freedon.jpg"],
     "title": "Guitarra clásica 1/2 Freedom CG300",
     "subtitle": "Guitarra clásica ideal para principiantes y aficionados.",
     "description": "Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente: arce\nCabeza de máquina: níquel",
@@ -33,7 +35,6 @@
     "type": "Clásica",
     "color": [
       {
-        "stock": 10,
         "color": "Natural",
         "hex": "#000000"
       }
@@ -42,6 +43,8 @@
     "discount": 0,
     "showInOffer": false,
     "outstanding": true,
+    "id":2,
+    "images":["gracia.jpg"],
     "title": "Guitarra clásica Gracia M1",
     "subtitle": "Guitarra clásica ideal para principiantes y aficionados.",
     "description": "Con un toque artesanal único plasmado en sus materiales, Gracia acompaña a la historia musical desde el año 1870. Sus guitarras poseen alcance internacional y son utilizadas tantos por principiantes como por grandes referentes de la música.",
@@ -59,15 +62,16 @@
     "type": "Acústico",
     "color": [
       {
-        "stock": 5,
         "color": "Marrón mate",
         "hex": "#000000"
       }
     ],
     "price": 14000,
-    "discount": 20,
+    "discount": 5,
     "showInOffer": true,
     "outstanding": true,
+    "id":3,
+    "images":["Segovia.jpg"],
     "title": "Violin Acústico Segovia Estudio Antique Mate 1/2 Tilo Arco",
     "subtitle": null,
     "description": "Terminación: Marrón antiguo mate. Tapa: madera contrachapada de tilo Parte posterior y lateral: madera contrachapada de tilo Diapasón: Madera dura terciada Clavija y mentonera: madera terciada Cordal: aleación de aluminio Arco redondo de palisandro Estuche Triangular de Gomaespuma",
@@ -85,7 +89,6 @@
     "type": "Precisión",
     "color": [
       {
-        "stock": 8,
         "color": "Marrón oscuro",
         "hex": "#000000"
       }
@@ -94,6 +97,8 @@
     "discount": 0,
     "showInOffer": false,
     "outstanding": false,
+    "id":4,
+    "images":["https://http2.mlstatic.com/D_NQ_NP_2X_738121-MLA32554875275_102019-F.webp"],
     "title": "Bajo 4 Cuerdas Sx Fpb 62 57 Precision Bas",
     "subtitle": null,
     "description": "- Cuerpo sólido de aliso con sonido vintage.\n- Doble corte en el cuerpo o cutaway para fácil acceso a notas más agudas.\n- Mástil de arce atornillado con alma ajustable.\n- Mástil de acción rápida, tocada ágil. - Ofrece 20 trastes jumbo.\n- Pastillas Precision SX Split type passive pickup.\n- Puente ajustable hacen el bajo muy fácil tocar.\n- Herrajes cromados.",
@@ -111,15 +116,16 @@
     "type": "Precisión",
     "color": [
       {
-        "stock": 3,
         "color": "Marrón mate",
         "hex": "#000000"
       }
     ],
     "price": 22200,
-    "discount": 0,
+    "discount": 20,
     "showInOffer": true,
     "outstanding": true,
+    "id":5,
+    "images":["https://http2.mlstatic.com/D_NQ_NP_2X_611601-MLA41149914261_032020-F.webp"],
     "title": "Bajo Yamaha Standard BJ-250 Bass Arc",
     "subtitle": null,
     "description": "Cuerpo: Alder\nDiapasón: Maple C atornillado\nTrastera: Maple\nMicrófonos: Fender Standard Precision Bass\nCantidad de trastes: 20\nControles: Volumen y tono\nHardware: Cromado\nFunda incluida: Genérica",
@@ -129,6 +135,60 @@
     "available": true,
     "stock": true,
     "freeShipping":false,
+    "priceShipping":700
+  },
+  {
+    "brand": "Yamaha",
+    "model": "BJ-234",
+    "type": "Clásico",
+    "color": [
+      {
+        "color": "Marrón",
+        "hex": "#000000"
+      }
+    ],
+    "price": 10200,
+    "discount": 0,
+    "showInOffer": true,
+    "outstanding": true,
+    "id":6,
+    "images":["https://http2.mlstatic.com/D_NQ_NP_2X_955583-MLA41168267303_032020-F.webp"],
+    "title": "Bajo Yamaha Standard BJ-234",
+    "subtitle": null,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
+    "madeIn": "China",
+    "quantity":10,
+    "category": "bajos",
+    "available": true,
+    "stock": true,
+    "freeShipping":false,
+    "priceShipping":700
+  },
+  {
+    "brand": "SX-F",
+    "model": "FPB-22",
+    "type": "Precisión",
+    "color": [
+      {
+        "color": "Natural",
+        "hex": "#000000"
+      }
+    ],
+    "price": 19000,
+    "discount": 10,
+    "showInOffer": true,
+    "outstanding": false,
+    "id":4,
+    "images":["https://http2.mlstatic.com/D_NQ_NP_2X_972814-MLA48532963709_122021-F.webp"],
+    "title": "Bajo 4 Cuerdas Sx-f Fpb 62 57 Precision Bas",
+    "subtitle": null,
+    "description": "- Cuerpo sólido de aliso con sonido vintage.\n- Doble corte en el cuerpo o cutaway para fácil acceso a notas más agudas.\n- Mástil de arce atornillado con alma ajustable.\n- Mástil de acción rápida, tocada ágil. - Ofrece 20 trastes jumbo.\n- Pastillas Precision SX Split type passive pickup.\n- Puente ajustable hacen el bajo muy fácil tocar.\n- Herrajes cromados.",
+    "madeIn": "Japón",
+    "quantity":4,
+    "category": "bajos",
+    "available": true,
+    "stock": true,
+    "freeShipping":true,
     "priceShipping":700
   }
 ]

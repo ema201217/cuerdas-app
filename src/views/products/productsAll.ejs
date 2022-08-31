@@ -72,15 +72,17 @@
             <!-- TARJETAS DE PRODUCTOS -->
             <section class="col-12 col-lg-9">
               <div class="d-none d-lg-flex row">
-                <% for( let index=0; index < 21; index++ ) { %>
+                <% products.forEach( product=> { %>
                   <div class="col-12 col-md-4 mb-3">
-                    <%- include('../partials/card') %>
+                    <!-- Enviamos a la tarjeta todas las propiedades que tiene cada producto con un expred operator (...) y definimos si queremos las animaciones en la tarjeta -->
+                    <%- include('../partials/card',{...product,animation:true}) %>
                   </div>
-                  <% } %>
+                  <% }) %>
               </div>
 
               <div class="d-block d-lg-none">
-                <%- include('../partials/slider',{type:"products"}) %>
+                <!-- Enviamos al slider el tipo de entidad con la que se relaciona y los productos para que se itere en base a la tarjeta definida -->
+                <%- include('../partials/slider',{type:"products",products}) %>
               </div>
 
 
@@ -93,10 +95,10 @@
                     </a>
                   </li>
                   <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item"><a class="page-link" href="/productos?offset=21&limit=21">2</a></li>
+                  <li class="page-item"><a class="page-link" href="/productos?offset=42&limit=21">3</a></li>
+                  <li class="page-item"><a class="page-link" href="/productos?offset=63&limit=21">4</a></li>
+                  <li class="page-item"><a class="page-link" href="/productos?offset=84&limit=21">5</a></li>
                   <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
@@ -105,13 +107,11 @@
                 </ul>
               </nav>
             </section>
-
           </div>
-
         </div>
 
       </main>
       <%- include('../partials/footer') %>
-      <script src="/javascript/library/glider.js"></script>
-      <script src="/javascript/glider.config.js"></script>
+        <script src="/javascript/library/glider.js"></script>
+        <script src="/javascript/glider.config.js"></script>
   </body>

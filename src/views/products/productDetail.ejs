@@ -5,13 +5,16 @@
 
 
       <main>
-        
+
         <div class="container my-lg-5">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Detalles del producto</li>
+              <li class="breadcrumb-item" aria-current="page">Detalles del producto</li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <%= title %>
+              </li>
             </ol>
           </nav>
           <div class="row">
@@ -43,21 +46,34 @@
 
             <div class="card col-12 col-lg-5 position-relative shodow">
               <span class="position-absolute top-0 end-0 fs-2 text-primary p-2" title="Agregar a favoritos">
-                <i class="fas fa-heart"></i>
+                <i class="fa-regular fa-heart fs-3"></i>
+                <!-- <i class="fa-solid fa-heart fs-3"></i> -->
               </span>
-              <h2 class="card-title fw-bold my-2 pe-4">Titulo producto</h2>
+              <h4 class="card-title fw-bold my-2 pe-5">
+                <%= title %>
+              </h4>
+
+              <% if (subtitle) { %>
+                <h6 class="card-text fw-bold my-2 pe-5">
+                  <%=  subtitle  %>
+                </h6>
+                <% } %>
               <div class="card-body">
-                <p class="my-0 text-decoration-line-through text-danger">$15.000</p>
+                <p class="<%= !discount && " d-none" %> my-0 text-decoration-line-through text-muted">$<%=
+                    toThousand(price) %>
+                </p>
                 <div class="d-flex align-items-center gap-1">
-                  <p class="my-0 fs-2 text-primary">$12.500 </p><span class="text-success fs-5">8% OFF</span>
+                  <p class="my-0 fs-2 text-primary fw-normal">$ <%= toThousand(discount ? price - (price * discount /
+                      100) : price) %>
+                  </p><span class="text-success fs-5">
+                    <%= discount ? discount + " % OFF" : null %>
+                  </span>
                 </div>
-                <P class="fs-6 text-dark fw-bold">en 12x $1.500</P>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nulla exercitationem quas
-                  iure obcaecati nobis perferendis qui officiis harum dignissimos amet autem, placeat sit cum
-                  dolorem quod, consectetur beatae nihil?
-                  Officia molestias quasi, explicabo molestiae quibusdam sint voluptas expedita nesciunt! Sequi nemo
-                  at vitae, sunt autem saepe aperiam dolores obcaecati delectus. Doloremque consequatur impedit
-                  natus veritatis ipsam minima neque facere.</p>
+                <P class="fs-6 text-dark fw-bold">en 12x $<%= (price / 12).toFixed(2) %>
+                </P>
+                <p>
+                  <%= description %>
+                </p>
               </div>
 
               <div class="row">
@@ -74,13 +90,16 @@
 
       <hr>
 
-      <section class="py-3 py-lg-5">
-        <h1 class="col-12 text-center">Productos relacionados</h1>
-        <%- include("../partials/slider.ejs",{type:"related"}) %>
-      </section>
+      <% if (relateds.length) { %>
+        <section class="py-3 py-lg-5">
+          <h1 class="col-12 text-center">Productos relacionados</h1>
+          <!-- Enviamos al slider los productos relacionados al producto que se ve en el detalle de producto -->
+          <%- include("../partials/slider.ejs",{type:"related", products: relateds}) %>
+        </section>
+        <% } %>
 
-      <%- include('../partials/footer') %>
-        <script src="/javascript/gallery-detail.js"></script>
-        <script src="/javascript/library/glider.js"></script>
-        <script src="/javascript/glider.config.js"></script>
+          <%- include('../partials/footer') %>
+            <script src="/javascript/gallery-detail.js"></script>
+            <script src="/javascript/library/glider.js"></script>
+            <script src="/javascript/glider.config.js"></script>
   </body>

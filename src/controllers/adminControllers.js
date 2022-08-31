@@ -3,11 +3,8 @@ module.exports = {
   products: (req, res) => {
     return res.render("admin/products");
   },
-  add: (req, res) => {
-    return res.render("admin/product-add");
-  },
   edit: (req, res) => {
-    return res.render("admin/products-edit");
+    return res.render("admin/product-edit");
   },
 
   /* CATEGORIAS */
