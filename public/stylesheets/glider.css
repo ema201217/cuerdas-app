@@ -19,6 +19,9 @@
   display: flex;
   z-index: 1;
 }
+.glider-track {
+  margin: auto;
+}
 .glider.draggable {
   user-select: none;
   cursor: -webkit-grab;

@@ -24,6 +24,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Imágenes</th>
                 <th scope="col">Titulo</th>
+                <th scope="col">Cantidad</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Precio final</th>
@@ -33,7 +34,7 @@
                 <th scope="col">Oferta</th>
                 <th scope="col">Destacado</th>
                 <th scope="col">Subtitulo</th>
-                <th scope="col">Descripciones</th>
+                <th scope="col" width="200px">Descripciones</th>
                 <th scope="col">Hecho en</th>
                 <th scope="col">Categoría</th>
                 <th scope="col">Disponible</th>
@@ -47,27 +48,36 @@
 
 
 
-              <% for( let id = 0; id < 20; id++ ) { %>
-
-                <!-- Modal Deleted-->
-                <div class="modal fade" id="modalDelete-<%= id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-md">
+          
+              <% products.forEach(({id,images,title,subtitle,description,brand,model,type,category,madeIn,color,quantity,price,discount,showInOffer,outstanding,available,stock,freeShipping,priceShipping}) => { %>
+                
+              <!-- Modal Deleted-->
+              <div class="modal fade" id="modalDelete-<%= id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-md">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title fs-1 text-center" id="exampleModalLabel">
-                          <i class="fa-solid fa-triangle-exclamation"></i>
+                        <h5 class="modal-title text-warning ms-3" id="exampleModalLabel" style="font-size: 3rem;">
+                          <i class="fa-solid fa-triangle-exclamation" style="text-shadow:0 0 3px black ;"></i>
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body my-3">
-                        <h4>
-                          Estas Seguro de querer eliminar el producto: TITULO PRODUCTO
+                        <h4 class="my-3">
+                          Estas Seguro de querer eliminar el producto:<span class="fw-normal fs-6 text-danger">  <%= title %></span>
                         </h4>
+                        
+                        
+                          <div class="row">
+                            <input type="text" class="d-block form-control col-6" placeholder="/<%= title %>/">
+                          </div>
+                        
+                        <div class="fw-normal">Para eliminar escribe: /<span class="text-muted fw-bold"><%= title %></span>/ .
+                          <p>Tener en cuenta que no podrás recuperar el producto eliminado.</p></div>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <form action="/admin/productos/eliminar/2?_method=DELETE">
+                        <form action="/admin/productos/eliminar/<%= id %>?_method=DELETE">
                           <button type="submit" class="btn btn-success">Aceptar</button>
                         </form>
                       </div>
@@ -75,10 +85,11 @@
                   </div>
                 </div>
 
+               
                 <tr>
                   <!-- ID -->
                   <th>
-                    <a href="/admin/productos/editar/1" class="fs-5 btn btn-outline-primary border-0"><i
+                    <a href="/admin/productos/editar/<%= id %>" class="fs-5 btn btn-outline-primary border-0"><i
                         class="fa-solid fa-pen-to-square"></i></a>
 
                     <!-- Button trigger modal -->
@@ -90,57 +101,62 @@
                   </th>
 
                   <!-- ID -->
-                  <th scope="row">1</th>
+                  <th scope="row"><%= id %></th>
                   <!-- Imagenes -->
                   <td>
-                    <a href="/productos/detalle/2"><img src="/images/Products/guitar2.jpg" class="border" alt=""
-                        width="100px"></a>
+                    <a href="/productos/detalle/<%= id %>">
+                    <% images.forEach((image) => { %>
+                        <img src="<%= /http/.test(image) ? image : `/images/Products/${image}` %>" class="border" alt="" width="30px" height="40px" style="object-fit:contain">
+                          <% }) %>
+                        </a>
                   </td>
                   <!-- Titulo -->
-                  <td>Guitarra clásica 1/2 Freedom CG300</td>
+                  <td><%= title %></td>
+                  <!-- Cantidad -->
+                  <td><%= quantity %></td>
                   <!-- Marca -->
-                  <td>Freedom</td>
+                  <td><%= brand %></td>
                   <!-- Precio -->
-                  <td>$6.300</td>
+                  <td>$<%= toThousand(price) %></td>
                   <!-- Precio final -->
-                  <td>$5.670</td>
+                  <td>$<%= discount ? price - (price * discount / 100) : price %></td>
                   <!-- Descuento-->
-                  <td>10 %</td>
+                  <td><%= discount %> %</td>
                   <!-- Tipo-->
-                  <td>Clásica</td>
+                  <td><%= type %></td>
                   <!-- Colores -->
                   <td>
-                    <span class="col d-inline-block" style="background-color:#ff0000;height: 20px;width:20px;"></span>
-                    <span class="col d-inline-block" style="background-color:#000000;height: 20px;width:20px;"></sp>
+                    <div class="">
+                    <% color.hex.forEach(hex => { %>
+                        <input class="" type="color" value="<%= hex %>" disabled>
+                    <% }); %>
+                    </div>
+                    <p class="col d-inline-block"><%= color.text %></sp>
                   </td>
                   <!-- Oferta -->
-                  <td>No</td>
+                  <td><%= showInOffer ? "Si" : "No" %></td>
                   <!-- Destacado -->
-                  <td>Si</td>
+                  <td><%= outstanding ? "Si" : "No" %></td>
                   <!-- Subtitulo -->
-                  <td>Guitarra clásica ideal para principiantes y aficionados.</td>
+                  <td><%= subtitle %></td>
                   <!-- Descripciones -->
-                  <td>
-                    Arriba: tilo\n Parte posterior y lateral: tilo\nCuello: Catalpa\nDiapasón: arce\nPuente:
-                    arce\nCabeza
-                    de máquina: níquel
-                  </td>
+                  <td class="d-table" style="inline-size: 300px;"><%= description %></td>
                   <!-- Hecho en -->
-                  <td>Guatemala</td>
+                  <td><%= madeIn %></td>
                   <!-- Categoría -->
-                  <td>guitarras</td>
+                  <td><%= category %></td>
                   <!-- Disponible -->
-                  <td>Si</td>
+                  <td><%= available ? "Si" : "No" %></td>
                   <!-- Stock -->
-                  <td>Si</td>
+                  <td><%= stock ? "Si" : "No" %></td>
                   <!-- Envió gratis -->
-                  <td>Si</td>
+                  <td><%= freeShipping ? "Si" : "No" %></td>
                   <!-- Precio envió -->
-                  <td>700</td>
-
+                  <td><%= priceShipping %></td>
                 </tr>
 
-                <% } %>
+                <% }) %>
+
             </table>
 
           </div>

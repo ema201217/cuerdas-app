@@ -12,6 +12,7 @@
 .favorite-btn {
   opacity: 0;
   transition: .5s;
+  cursor:url('../public/images/Icons/cursor-favorite.cur') !important;
 }
 
 #card-product:hover .favorite-btn{
@@ -21,6 +22,10 @@
 .favorite-btn:hover {
   opacity: 1 !important;
   transition: .5s;
+}
+
+#card__product--image:hover + .favorite-btn{
+  opacity: 1 !important;
 }
 
 

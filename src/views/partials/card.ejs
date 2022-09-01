@@ -1,7 +1,7 @@
 <article id="<%= animation && "card-product" %>" class="card text-dark bg-transparent bg-gradient mx-auto <%= !animation && "h-100" %>" style="min-width: 250px;max-width:300px;cursor: default;">
   <div class="card-header position-relative p-0 bg-transparent">
     <a class="d-block" href="/productos/detalle/<%= id %>/<%= category %>">
-      <img class="card-image-top" style="height:300px;object-fit:contain" src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`%>" alt="">
+      <img id="card__product--image" class="card-image-top" style="height:300px;object-fit:contain" src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`%>" alt="">
     </a>
     <span type="button" class="btn border-0 position-absolute top-0 end-0 text-primary m-4 rounded-circle p-2 bg-light favorite-btn" style="cursor:default;">
       <i class="fa-regular fa-heart fs-3"></i>
