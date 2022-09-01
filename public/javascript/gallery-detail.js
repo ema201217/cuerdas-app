@@ -12,3 +12,4 @@ function toggleNavigation() {
 
 $productImages.forEach((image) => image.addEventListener("mouseover", changeImage));
 $navItem.addEventListener("mouseover", toggleNavigation);
+

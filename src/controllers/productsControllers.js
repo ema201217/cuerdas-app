@@ -15,6 +15,11 @@ module.exports = {
     return res.render("products/productsAll", {
       products: productsAll,
       toThousand,
+    },(err,renderOld)=>{
+      res.render("partials/basic",{
+        title:"Productos",
+        contents: renderOld
+      })
     });
   },
 
@@ -32,6 +37,11 @@ module.exports = {
       ...productFind,
       relateds,
       toThousand,
+    },(err,renderOld) => {
+      res.render('partials/basic',{
+        title:"Detalle de producto",
+        contents: renderOld
+      })
     });
   },
 };

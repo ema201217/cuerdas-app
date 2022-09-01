@@ -1,32 +1,59 @@
 const { readDB } = require("../data");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+var svgCaptcha = require("svg-captcha");
 
 module.exports = {
   /* PRODUCTOS */
   products: (req, res) => {
-    const products = readDB('products.json')
-    return res.render("admin/products",{products,toThousand});
+    const products = readDB("products.json");
+    res.render(
+      "admin/products",
+      { products, toThousand },
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "productos",
+          contents: renderProducts,
+          title: "Admin | Productos",
+        });
+      }
+    );
   },
+
   edit: (req, res) => {
-    return res.render("admin/product-edit");
+    const captcha = svgCaptcha.create();
+    /* req.session.captcha = captcha.text; */
+    
+    const productFind = readDB("products.json").find(
+      ({ id }) => id === +req.params.id
+    );
+console.log(req.host);
+    res.render(
+      "admin/product-edit",
+      { ...productFind, captcha: captcha.data },
+      (err, renderEditProduct) => {
+        res.render("partials/sidebar", {
+          page: "productos",
+          contents: renderEditProduct,
+          title: "Admin | Productos | Edición",
+        });
+      }
+    );
   },
 
   /* CATEGORIAS */
   categories: (req, res) => {
-    const categories = readDB('categories.json')
-    return res.render("admin/categories",{categories});
+    return res.render("admin/categories");
   },
 
   /* USUARIOS */
   users: (req, res) => {
-    const users = readDB('users.json')
-    return res.render("admin/users",{users});
+    return res.render("admin/users");
   },
 
   /* BANNERS */
   banners: (req, res) => {
-    const banners = readDB('banners.json')
-    return res.render("admin/banners",{banners});
+    const banners = readDB("banners.json");
+    return res.render("admin/banners", { banners });
   },
 
   /* DASHBOARD */

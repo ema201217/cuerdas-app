@@ -1,11 +1,4 @@
-<%- include('../partials/head', { title : 'Detalles del producto' }) %>
-
-  <body class="">
-    <%- include('../partials/header') %>
-
-
-      <main>
-
+    <main>
         <div class="container my-4 my-lg-5">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -25,7 +18,7 @@
             } #%>
 
             <div class="text-end">
-              <a href="/admin/productos" class="btn btn-success my-2">Volver a Admin</a>
+              <a href="/admin/productos" class="btn btn-outline-primary my-2">Ir al Admin</a>
             </div>
 
 
@@ -35,21 +28,24 @@
 
                   <% images.forEach(image=> { %>
                     <img style="object-fit:contain"
-                      src="<%= /http/.test(image) ? image : `/images/Products/${image}`  %>">
+                      src="<%= /http/.test(image) ? image : `/images/Products/${image}`%>">
                     <% }) %>
                 </div>
                 <div role="tablist" class="dots text-dark" id="dots-detail"></div>
               </div>
 
               <div class="col-lg-7 d-none d-lg-block">
-                <div class="product-image">
-                  <img style="object-fit:contain" class="active"
-                  <% const indexRandom = Math.floor(Math.random() * images.length) %> 
-                    src="<%= /http/.test(images[indexRandom]) ? images[indexRandom] : `/images/Products/${images[indexRandom]}` %>">
-
+                <% const indexRandom = Math.floor(Math.random() * images.length) %> 
+                <div 
+                class="product-image product-img--main d-none d-lg-block" 
+                data-image="<%= /http/.test(images[indexRandom]) ? images[indexRandom] : `/images/Products/${images[indexRandom]}` %>" data-scale="4">
+                  <img 
+                  style="object-fit:contain" 
+                  class="product-image--img active"
+                  src="<%= /http/.test(images[indexRandom]) ? images[indexRandom] : `/images/Products/${images[indexRandom]}` %>">
                 </div>
                 <ul class="image-list">
-                  <% let count= 3 %>
+                  <% let count= 5 %>
                     <% for(let index=0;;index++) { count -=1; if (images[index]) { %>
                       <li class="image-item"><img style="object-fit:contain"
                           src="<%= /http/.test(images[index]) ? images[index] : `/images/Products/${images[index]}`  %>">
@@ -103,24 +99,21 @@
                     border-color: transparent;
                     color: #3483fa;">Agregar al carrito</button>
                     </div>
-
               </div>
             </div>
         </div>
-      </main>
-
-      
-      <% if (relateds.length) { %>
-        <hr>
-        <section class="py-3 py-lg-5">
-          <h1 class="col-12 text-center">Productos relacionados</h1>
+    </main>
+    <% if (relateds.length) { %>
+      <hr>
+      <section class="py-3 py-lg-5">
+        <h1 class="col-12 text-center">Productos relacionados</h1>
           <!-- Enviamos al slider los productos relacionados al producto que se ve en el detalle de producto -->
           <%- include("../partials/slider.ejs",{type:"related", products: relateds}) %>
-        </section>
-        <% } %>
+      </section>
+    <% } %>
 
-          <%- include('../partials/footer') %>
-            <script src="/javascript/gallery-detail.js"></script>
-            <script src="/javascript/library/glider.js"></script>
-            <script src="/javascript/glider.config.js"></script>
-  </body>
+    <!-- JQUERY SCRIPTS -->
+    <script src="/javascript/library/jquery.js"></script>
+    <script src="/javascript/library/jquery-ui.js"></script>
+    <script src="/javascript/image-zoom.js"></script>
+    <script src="/javascript/gallery-detail.js"></script>

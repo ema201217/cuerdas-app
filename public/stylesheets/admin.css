@@ -36,6 +36,7 @@
 .admin-products .img-hover{
   border: 1px solid transparent;
   transition: 1s border;
+  width: 250px !important;
 }
 .admin-products .img-hover:hover{
   border:1px solid rgb(194, 194, 194);

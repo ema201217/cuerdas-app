@@ -1,0 +1,37 @@
+[
+  {
+    "id":1,
+    "name":"Freedom",
+    "logo":"https://seeklogo.com/images/M/musical-freedom-records-logo-ABD78F0695-seeklogo.com.png"
+  },
+  {
+    "id":2,
+    "name":"Gracia",
+    "logo":"https://www.centerlom.com/img/marcas/45.jpg"
+  },
+  {
+    "id":3,
+    "name":"Segovia",
+    "logo":"https://seeklogo.com/images/M/musical-freedom-records-logo-ABD78F0695-seeklogo.com.png"
+  },
+  {
+    "id":4,
+    "name":"SX",
+    "logo":"https://http2.mlstatic.com/D_NQ_NP_733903-MLA43146608534_082020-O.webp"
+  },
+  {
+    "id":5,
+    "name":"Yamaha",
+    "logo":"hhttps://yamahamusical.co/wp-content/uploads/2019/04/Logos-Yamaha-Corp-Aplicaciones_v.png"
+  },
+  {
+    "id":6,
+    "name":"SX-F",
+    "logo":"hhttps://yamahamusical.co/wp-content/uploads/2019/04/Logos-Yamaha-Corp-Aplicaciones_v.png"
+  },
+  {
+    "id":7,
+    "name":"SN-F",
+    "logo":"hhttps://yamahamusical.co/wp-content/uploads/2019/04/Logos-Yamaha-Corp-Aplicaciones_v.png"
+  }
+]

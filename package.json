@@ -13,6 +13,7 @@
     "express-partials": "^0.3.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "svg-captcha": "^1.4.0"
   }
 }

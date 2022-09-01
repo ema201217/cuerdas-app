@@ -2,7 +2,7 @@ const { readDB } = require("../data");
 
 module.exports = (req, res, next) => {
   res.locals.accessories = readDB("accessories.json");
-
+  res.locals.brands = readDB('brands.json')
   const categories = readDB("categories.json");
   const products = readDB("products.json");
 
@@ -14,7 +14,8 @@ module.exports = (req, res, next) => {
     )
   );
 
-  res.locals.categories = categoriesExisting;
+  res.locals.categoriesHeader = categoriesExisting;
+  res.locals.categoriesAll = categories
 
   next();
 };
