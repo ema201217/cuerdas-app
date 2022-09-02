@@ -1,0 +1,151 @@
+<main class="container my-5">
+  <div class="card p-lg-5">
+    <div class="card-body">
+
+      <h1 class="card-title m-4 mb-5 text-center text-lg-start">Mi información</h1>
+
+      <form class="row justify-content-center justify-content-lg-between">
+        <!-- AVATAR -->
+        <div class="col-12 col-lg-3 d-flex align-items-center position-relative justify-content-center"
+          style="width: fit-content;">
+          <img
+            src="https://img2.freepng.es/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg"
+            class="card-img-top col-3 img-thumbnail rounded-circle p-2" alt="..."
+            style="width: 200px;height:200px;object-fit:cover">
+          <input class="form-control d-none" id="avatar" type="file">
+          <label for="avatar" class="form-label btn btn-light position-absolute  end-0 border"><i
+              class="fa-solid fa-cloud-arrow-up"></i></label>
+        </div>
+
+        <div class="col-12 col-lg-9 row gap-2 gap-lg-0">
+          <!-- NOMBRE -->
+          <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="<%# name %>-">
+            <label class="form-label px-3 fw-normal" for="name">Nombre</label>
+          </div>
+
+          <!-- APELLIDO -->
+          <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Apellido"
+              value="<%# surname %>-">
+            <label class="form-label px-3 fw-normal" for="surname">Apellido</label>
+          </div>
+
+          <!-- NOMBRE DE USUARIO -->
+          <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+              value="<%# username %>-" autocomplete="off">
+            <label class="form-label px-3 fw-normal" for="username">Username</label>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
+            <input type="email" class="form-control" value="<%# email %>test@test.com" disabled>
+            <label class="form-label px-3 fw-normal" for="username">Email</label>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating position-relative" style="height: fit-content;">
+            <input type="password" value="************" class="form-control" id="password" name="password"
+              placeholder="Contraseña" value="<%# password %>-" autocomplete="off" disabled>
+            <label class="form-label px-3 fw-normal" for="password">Contraseña</label>
+            <div class="text-end position-absolute translate-middle end-0 top-50">
+              <a href="#" class="btn btn-sm btn-outline-light me-2" style="font-size:14px;" title="cambiar contraseña">
+                <i class="fa-sharp fa-solid fa-rotate"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- MOSTRAR ROL SI ES DISTINTO DE USUARIO COMÚN -->
+          <%# if(rol !==userRegular){ %>
+            <!-- <output><%# role %></output>  -->
+            <%# } %>
+
+              <!-- GÉNEROS -->
+              <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating position-relative">
+                <select class="form-select" id="gender" name="gender" aria-label="Floating label select example">
+                  <option selected hidden>Selecciona una opción</option>
+                  <option value="1">Masculino</option>
+                  <option value="2">Femenino</option>
+                  <option value="5">No Binario</option>
+                  <option value="3">No definido</option>
+                  <option value="6">Prefiero no contestar</option>
+                </select>
+                <label for="gender" class="form-label px-3 fw-normal">Genero</label>
+              </div>
+
+              <!-- BOTON -> ELIMINAR MI CUENTA -->
+              <div class="col-12 text-end">
+                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteUser">
+                  Eliminar mi cuenta
+                </button>
+              </div>
+
+              <!-- MODAL ELIMINAR USUARIO ->->-> INICIAL-->
+              <div class="modal fade" id="modalDeleteUser" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-warning ms-3" id="exampleModalLabel" style="font-size: 2rem;">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                      </h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body my-3">
+                      <h4 class="my-3">
+                        ¿Estas Seguro de querer eliminar tu usuario?</h4>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#modalCaptchaDeleteUser">
+                        Aceptar
+                      </button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MODAL ELIMINAR USUARIO ->->-> CAPTCHA -->
+              <div class="modal" tabindex="-1" id="modalCaptchaDeleteUser">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <form action="/usuario/<%# session.id %>?_method=DELETE">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Para completar la operación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body row">
+
+                        <!-- CAPTCHA -->
+                        <div class="col-12 col-md-6 offset-md-4 mx-auto">
+                          <div class="input-group-text bg-transparent">
+                            <span class="mx-auto">
+                              <%# captcha %>
+                            </span>
+                          </div>
+                          <input type="text" name="captcha" class="form-control text-center my-1"
+                            placeholder="Ingresar Captcha">
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+</main>

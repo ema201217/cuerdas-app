@@ -25,6 +25,14 @@ module.exports = {
   },
   
   search: (req, res) => {
-    return res.render("search");
+    return res.render(
+      "products/search",
+      (err, renderOld) => {
+        res.render("partials/basic", {
+          contents: renderOld,
+          title:'Resultado'
+        });
+      }
+    );
   },
 };
