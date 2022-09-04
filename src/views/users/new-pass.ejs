@@ -1,0 +1,47 @@
+<main class="container">
+  <div class="row justify-content-center">
+    <div class="card col-12 col-lg-4">
+      <form action="/password?_method=PUT" method="post">
+        <div class="card-body row justify-content-center gap-3">
+
+          <!-- NUEVA CONTRASEÑA -->
+          <div class="form-group col-12 col-lg-10 mt-5">
+            <label class="form-label px-3 fw-normal" for="newPass">Nueva contraseña</label>
+            <div class="position-relative" style="height: fit-content;">
+              <input type="password" class="form-control" id="password" name="password" autocomplete="off">
+
+              <div class="text-end position-absolute translate-middle end-0 top-50">
+                <span class="me-2 change-pass" style="font-size:14px;">
+                  <i class="fa-regular fa-eye"></i>
+                  <!-- <i class="fa-regular fa-eye-slash"></i> -->
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONFIRMAR CONTRASEÑA -->
+          <div class="form-group col-12 col-lg-10">
+            <label class="form-label px-3 fw-normal" for="newPass">Confirmar contraseña</label>
+            <div class="position-relative" style="height: fit-content;">
+              <input type="password" class="form-control" id="password" name="passConfirm" autocomplete="off">
+
+              <div class="text-end position-absolute translate-middle end-0 top-50">
+                <span class="me-2 change-pass" style="font-size:14px;">
+                  <i class="fa-regular fa-eye"></i>
+                  <!-- <i class="fa-regular fa-eye-slash"></i> -->
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONFIRMAR -->
+          <div class="col-12 text-end mt-2">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>

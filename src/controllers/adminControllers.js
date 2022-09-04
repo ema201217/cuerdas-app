@@ -26,7 +26,7 @@ module.exports = {
     const productFind = readDB("products.json").find(
       ({ id }) => id === +req.params.id
     );
-console.log(req.host);
+
     res.render(
       "admin/product-edit",
       { ...productFind, captcha: captcha.data },
@@ -42,52 +42,169 @@ console.log(req.host);
 
   /* CATEGORIAS */
   categories: (req, res) => {
-    return res.render("admin/categories");
+    res.render(
+      "admin/categories",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "categorias",
+          contents: renderProducts,
+          title: "Admin | Categorias",
+        });
+      }
+    );
   },
 
   /* USUARIOS */
   users: (req, res) => {
-    return res.render("admin/users");
+    res.render(
+      "admin/users",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "usuarios",
+          contents: renderProducts,
+          title: "Admin | Usuarios",
+        });
+      }
+    );
   },
 
   /* BANNERS */
   banners: (req, res) => {
     const banners = readDB("banners.json");
-    return res.render("admin/banners", { banners });
+    res.render(
+      "admin/banners",
+      { banners },
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "banners",
+          contents: renderProducts,
+          title: "Admin | Productos",
+        });
+      }
+    );
   },
 
   /* DASHBOARD */
   dashboard: (req, res) => {
-    return res.render("admin/dashboard");
+    res.render(
+      "admin/dashboard",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "dashboard",
+          contents: renderProducts,
+          title: "Admin | Estadísticas",
+        });
+      }
+    );
   },
 
   /* EDITOR DE CÓDIGO */
   codeEditor: (req, res) => {
-    return res.render("admin/codeEditor");
+    res.render(
+      "admin/codeEditor",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "code",
+          contents: renderProducts,
+          title: "Editor de código integrado",
+        });
+      }
+    );
   },
 
   /* EMPLEADOS */
   staff: (req, res) => {
-    return res.render("admin/staff");
+    res.render(
+      "admin/staff",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "empleados",
+          contents: renderProducts,
+          title: "Admin | Empleados",
+        });
+      }
+    );
   },
 
   /* BUSCADOR */
   search: (req, res) => {
-    return res.render("admin/search");
+    res.render(
+      "admin/search",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "",
+          contents: renderProducts,
+          title: "Admin | Buscador",
+        });
+      }
+    );
   },
 
   /* MENSAJES */
   messages: (req, res) => {
-    return res.render("admin/messages");
+    res.render(
+      "admin/messages",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "mensajes",
+          contents: renderProducts,
+          title: "Admin | Buscador",
+        });
+      }
+    );
   },
 
   /* VENTAS */
   sales: (req, res) => {
+    res.render(
+      "admin/sales",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "ventas",
+          contents: renderProducts,
+          title: "Admin | Buscador",
+        });
+      }
+    );
     return res.render("admin/sales");
   },
 
   /* NOTAS DE CRÉDITO */
   notesCredits: (req, res) => {
+    res.render(
+      "admin/messages",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "notas-creditos",
+          contents: renderProducts,
+          title: "Admin | Buscador",
+        });
+      }
+    );
+    return res.render("admin/notes-credits");
+  },
+  /* MARCAS */
+  brands: (req, res) => {
+    res.render(
+      "admin/brands",
+      {},
+      (err, renderProducts) => {
+        res.render("partials/sidebar", {
+          page: "marcas",
+          contents: renderProducts,
+          title: "Admin | Marcas",
+        });
+      }
+    );
     return res.render("admin/notes-credits");
   },
 };

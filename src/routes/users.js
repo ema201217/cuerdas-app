@@ -5,7 +5,7 @@ const {
   register,
   login,
   shoppingCart,
-  profile
+  profile,
 } = require("../controllers/usersControllers");
 
 /* /users */
@@ -13,6 +13,6 @@ router
   .get("/registrar", register)
   .get("/ingresar", login)
   .get("/carrito", shoppingCart)
-  .get("/perfil", profile);
+  .get("/perfil", profile)
 
 module.exports = router;

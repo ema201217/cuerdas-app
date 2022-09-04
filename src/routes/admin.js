@@ -15,6 +15,7 @@ const {
   search,
   add,
   edit,
+  brands,
 } = require("../controllers/adminControllers");
 
 router
@@ -50,6 +51,9 @@ router
   .get("/notas-creditos", notesCredits)
 
   /* ventas */
-  .get("/ventas", sales);
+  .get("/ventas", sales)
+
+  /* ventas */
+  .get("/marcas", brands);
 
 module.exports = router;
