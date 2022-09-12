@@ -30,8 +30,8 @@ module.exports = {
       "admin/product-edit",
       { product:productFind, 
         captcha: captcha.data,
-        link: req.url },
-        
+        link: req.get('host') },
+
       (err, renderEditProduct) => {
         console.log(err);
         res.render("partials/sidebar", {
