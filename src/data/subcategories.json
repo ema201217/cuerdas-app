@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "name": "guitarras",
+    "categoryId":1
+  },
+  {
+    "id": 2,
+    "name": "violines",
+    "categoryId":1
+  },
+  {
+    "id": 3,
+    "name": "bajos",
+    "categoryId":1
+  },
+  {
+    "id": 4,
+    "name": "contrabajos",
+    "categoryId":1
+  },
+  {
+    "id": 5,
+    "name": "charangos",
+    "categoryId":1
+  },
+  {
+    "id": 6,
+    "name": "arpa",
+    "categoryId":1
+  },
+  {
+    "id": 7,
+    "name": "piano",
+    "categoryId":1
+  },  {
+    "id": 8,
+    "name": "afinadores",
+    "categoryId":2
+  },
+  {
+    "id": 9,
+    "name": "cuerdas",
+    "categoryId":2
+  },
+  {
+    "id": 10,
+    "name": "cables",
+    "categoryId":2
+  },
+  {
+    "id": 11,
+    "name": "púas",
+    "categoryId":2
+  },
+  {
+    "id": 12,
+    "name": "microfonos",
+    "categoryId":2
+  }
+]

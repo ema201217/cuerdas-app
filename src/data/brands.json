@@ -33,5 +33,15 @@
     "id":7,
     "name":"SN-F",
     "logo":"hhttps://yamahamusical.co/wp-content/uploads/2019/04/Logos-Yamaha-Corp-Aplicaciones_v.png"
+  },
+  {
+    "id":8,
+    "name":"Cherub",
+    "logo":"https://http2.mlstatic.com/D_NQ_NP_661024-MLA42524873289_072020-O.webp"
+  },
+  {
+    "id":9,
+    "name":"HAMC",
+    "logo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_ya-7JWq-QKH4uhvs-EM7FhgYTyvjSOLvA&usqp=CAU"
   }
 ]

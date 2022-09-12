@@ -19,10 +19,17 @@
 
   <!-- JAVASCRIPT LOCAL -->
   <script src="/javascript/script.js" defer></script>
-
 </head>
 
 <body class="vh-100 d-flex flex-column justify-content-between">
+
+  <div class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-dark snipper-grow-container position-fixed top-0 start-0 bg-opacity-75" style="z-index: 200;">
+    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status" aria-hidden="true">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+
   <!-- HEADER -->
   <header id="header" class="vw-100">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-gradient">
@@ -60,26 +67,26 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end bg-dark dropdown-menu-dark" aria-labelledby="navbarDropdown">
                 <span class="dropdown-header">Categorias</span>
-                <% categoriesHeader.forEach(category=> { %>
+                <% categories.forEach(category=> { %>
                   <li><a class="dropdown-item" href="/productos/<%= category.id %>">
-                      <%= category.name %>
+                      <%= capitalize(category.name) %>
                     </a></li>
                   <% }) %>
                     <li>
                       <hr class="dropdown-divider bg-white">
                     </li>
                     <li>
-                      <span class="dropdown-header">Accesorios</span>
-                      <% accessories.forEach(accessory=> { %>
-                    <li><a class="dropdown-item" href="/productos//<%= accessory.id %>">
-                        <%= accessory.name %>
+                      <span class="dropdown-header">Sub Categorias</span>
+                      <% subcategories.forEach(subcategory=> { %>
+                    <li><a class="dropdown-item" href="/productos/_/<%= subcategory.id %>">
+                        <%= capitalize(subcategory.name) %>
                       </a></li>
                     <% }) %>
             </li>
             <li>
               <hr class="dropdown-divider bg-white">
             </li>
-            <li><a class="dropdown-item" href="/productos/x">Todos los productos</a></li>
+            <li><a class="dropdown-item" href="/productos/">Todos los productos</a></li>
           </ul>
           </li>
 
@@ -201,8 +208,11 @@
   </footer>
 
   <!-- SCRIPTS -->
+  
   <script src="/javascript/library/glider.js"></script>
   <script src="/javascript/glider.config.js"></script>
+  <script src="/javascript/spinner.js"></script>
+
 </body>
 
 </html>

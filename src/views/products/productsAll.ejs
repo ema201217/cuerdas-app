@@ -12,25 +12,7 @@
 
       <% if (products.length) { %>
         <!-- PAGINACIÓN SUPERIOR -->
-        <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5 col offset-1">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link disabled" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+       <%# include('../partials/pagination',{page,offset,limit,pageCurrent}) %> 
         <% } %>
     </div>
 
@@ -82,30 +64,21 @@
               <% }) %>
           </div>
 
+     
+
           <div class="d-block d-lg-none">
             <!-- Enviamos al slider el tipo de entidad con la que se relaciona y los productos para que se itere en base a la tarjeta definida -->
             <%- include('../partials/slider',{type:"products",products}) %>
           </div>
+
+
           <!-- PAGINACIÓN INFERIOR -->
-          <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link disabled" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="/productos?offset=21&limit=21">2</a></li>
-              <li class="page-item"><a class="page-link" href="/productos?offset=42&limit=21">3</a></li>
-              <li class="page-item"><a class="page-link" href="/productos?offset=63&limit=21">4</a></li>
-              <li class="page-item"><a class="page-link" href="/productos?offset=84&limit=21">5</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <% if (products.length) { %>
+            <!-- PAGINACIÓN SUPERIOR -->
+           <%# include('../partials/pagination',{page,offset,limit,pageCurrent}) %> 
+            <% } %>
+
+            
           <% }else{ %>
 
             <div class="text-center my-5">

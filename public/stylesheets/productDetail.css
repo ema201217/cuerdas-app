@@ -25,9 +25,9 @@
   .image-list {
     display: flex;
     overflow: hidden;
+    gap: 10px;
   }
   .image-list li {
-    margin: 0 0.75rem 0 0;
     flex-basis: 100%;
   }
   .image-list li:nth-child(3) {

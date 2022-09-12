@@ -1,5 +1,4 @@
 const { readDB } = require("../data");
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 var svgCaptcha = require("svg-captcha");
 
 module.exports = {
@@ -8,7 +7,7 @@ module.exports = {
     const products = readDB("products.json");
     res.render(
       "admin/products",
-      { products, toThousand },
+      { products },
       (err, renderProducts) => {
         res.render("partials/sidebar", {
           page: "productos",
@@ -29,8 +28,12 @@ module.exports = {
 
     res.render(
       "admin/product-edit",
-      { ...productFind, captcha: captcha.data },
+      { product:productFind, 
+        captcha: captcha.data,
+        link: req.url },
+        
       (err, renderEditProduct) => {
+        console.log(err);
         res.render("partials/sidebar", {
           page: "productos",
           contents: renderEditProduct,

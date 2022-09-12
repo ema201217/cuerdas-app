@@ -45,14 +45,14 @@
               src="<%= /http/.test(images[indexRandom]) ? images[indexRandom] : `/images/Products/${images[indexRandom]}` %>">
             </div>
             <ul class="image-list">
-              <% let count= 5 %>
+              <% let count= 4 %>
                 <% for(let index=0;;index++) { count -=1; if (images[index]) { %>
-                  <li class="image-item"><img style="object-fit:contain"
+                  <li class="image-item border"><img style="object-fit:contain"
                       src="<%= /http/.test(images[index]) ? images[index] : `/images/Products/${images[index]}`  %>">
                   </li>
                   <% }else{ %>
 
-                    <li class="image-item">
+                    <li class="image-item border">
                       <img style="object-fit:contain"
                         src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`%>">
                     </li>
@@ -86,10 +86,10 @@
                       <%= discount ? discount + " % OFF" : null %>
                     </span>
                   </div>
-                  <P class="fs-6 text-dark fw-bold">en 12x $<%= (price / 12).toFixed(2) %>
+                  <P class="fs-6 text-dark fw-bold">en 12x $<%= (price / 12).toFixed(2) %> <i class="text-danger fa-solid fa-credit-card"></i>
                   </P>
-                  <p>
-                    <%= description %>
+                  <p class="fw-normal">
+                    <%- description %>
                   </p>
                 </div>
 
