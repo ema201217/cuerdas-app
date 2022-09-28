@@ -1,0 +1,18 @@
+[
+  {
+    "type":"administrador",
+    "info":"Dueño del negocio y administrador general de todo el sitio"
+  },
+  {
+    "type":"regular",
+    "info":"Cliente registrado en la aplicación"
+  },
+  {
+    "type":"vendedor",
+    "info":"Cliente registrado en la aplicación"
+  },
+  {
+    "type":"supervisor",
+    "info":"Cliente registrado en la aplicación"
+  }
+]

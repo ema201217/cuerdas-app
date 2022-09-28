@@ -1,0 +1,32 @@
+'use strict';
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('providers', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      name: {
+        type: Sequelize.STRING
+      },
+      cuit: {
+        type: Sequelize.STRING
+      },
+      addressComplete: {
+        type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      }
+    });
+  },
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('providers');
+  }
+};

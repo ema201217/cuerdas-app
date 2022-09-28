@@ -1,0 +1,22 @@
+[
+  {
+    "view": "home",
+    "active": true
+  },
+  {
+    "view": "products",
+    "active": false
+  },
+  {
+    "view": "contact",
+    "active": false
+  },
+  {
+    "view": "cart",
+    "active": false
+  },
+  {
+    "view": "profile",
+    "active": false
+  }
+]

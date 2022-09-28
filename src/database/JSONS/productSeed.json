@@ -1,0 +1,24 @@
+[
+  {
+    "title":"Guitarra clásica 1/2 Freedom CG300",
+    "subtitle": "Guitarra clásica ideal para principiantes y aficionados.",
+    "description": "Arriba: tilo <br>Parte posterior y lateral: tilo <br>Cuello: Catalpa <br>Diapasón: arce <br>Puente: arce <br>Cabeza de máquina: níquel",
+    "model": "CG-300",
+    "madeIn": "Guatemala",
+    "quantity": 20,
+    "price": 6300,
+    "discount": 10,
+    "showInOffer": true,
+    "outstanding": false,
+    "available": true,
+    "stock": true,
+    "freeShipping": false,
+    "priceShipping": 700,
+    
+    "brandId": 1,
+    "typeId": 1,
+    "colorId":1,
+    "subcategoryId": 1,
+    "providerId":1
+  }
+]
