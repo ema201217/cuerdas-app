@@ -1,7 +1,7 @@
 <article id="<%= animation && "card-product" %>" class="card text-dark bg-transparent bg-gradient mx-auto <%= !animation && "h-100" %>" style="min-width: 250px;max-width:300px;cursor: default;">
   <div class="card-header position-relative p-0 bg-transparent">
-    <a class="d-block" href="/productos/detalle/<%= id %>/<%= subcategoryId %>">
-      <img id="card__product--image" class="card-image-top" style="height:300px;object-fit:contain" src="<%= /http/.test(images[0]) ? images[0] : `/images/Products/${images[0]}`%>" alt="">
+    <a class="d-block" href="/productos/detalle/<%= product.id %>/<%= product.subcategoryId %>">
+      <img id="card__product--image" class="card-image-top" style="height:300px;object-fit:contain" src="<%= /http/.test(product.images[0].img) ? product.images[0].img : `/images/Products/${product.images[0].img}`%>" alt="">
     </a>
     <span type="button" class="btn border-0 position-absolute top-0 end-0 text-primary m-4 rounded-circle p-2 bg-light favorite-btn" style="cursor:default;">
       <i class="fa-regular fa-heart fs-3"></i>
@@ -10,20 +10,20 @@
   </div>
 
   <div class="card-body bg-white">
-    <p class="<%= !discount && "d-none"   %> card-title my-0 overflow-hidden text-decoration-line-through text-muted fs-6 price-before">$<%= price  %></p>
+    <p class="<%= !product.discount && "d-none"   %> card-title my-0 overflow-hidden text-decoration-line-through text-muted fs-6 price-before">$<%= product.price  %></p>
     <div class="d-flex align-items-center gap-2">
-      <h2 class="card-title my-0">$<%= discount ? price - (price * discount / 100) : price %></h2>
-      <span class="text-success fs-5 fw-light"><%= discount ? discount + " % OFF" : null %></span>
+      <h2 class="card-title my-0">$<%= product.discount ? product.price - (product.price * product.discount / 100) : product.price %></h2>
+      <span class="text-success fs-5 fw-light"><%= product.discount ? product.discount + " % OFF" : null %></span>
 
     </div>
     <p class="text-success my-0 fs-6 fw-light">5x $1.250 sin interés</p>
-    <p class="text-success my-0 fs-6 fw-normal"><%= freeShipping ? "Envió gratis" : null%>
-     <% if (freeShipping) { %>
+    <p class="text-success my-0 fs-6 fw-normal"><%= product.freeShipping ? "Envió gratis" : null%>
+     <% if (product.freeShipping) { %>
       <i
           class="fa-solid fa-bolt-lightning"></i>
      <% } %>
     </p>
-    <p class="my-1 fs-6 text-muted fw-light card-description overflow-hidden text-truncate" style="max-width: 100%;"><%= title %>
+    <p class="my-1 fs-6 text-muted fw-light card-description overflow-hidden text-truncate" style="max-width: 100%;"><%= product.title %>
     </p>
   </div>
 </article>

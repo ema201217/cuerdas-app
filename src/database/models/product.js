@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.ImageProduct, {
         as: "images",
         foreignKey: "productId",
+        onDelete: 'CASCADE'
       });
 
       /* MODEL BRAND */
@@ -64,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
       freeShipping: DataTypes.BOOLEAN,
       priceShipping: DataTypes.INTEGER,
 
-      /* Foreign Key */
+      /* Foreign Keys */
       brandId: DataTypes.INTEGER,
       typeId: DataTypes.INTEGER,
       colorId: DataTypes.INTEGER,
@@ -75,7 +76,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "Product",
       tableName: "products",
-      underscored:false
+      paranoid: true
     }
   );
   return product;

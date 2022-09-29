@@ -51,7 +51,8 @@ module.exports = {
       },
       updatedAt: {
         type: Sequelize.DATE
-      }
+      },
+      deletedAt : Sequelize.DATE
     });
   },
   async down(queryInterface, Sequelize) {

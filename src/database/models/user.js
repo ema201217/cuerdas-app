@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       /* MODEL LOCATION */
       this.hasMany(models.Location,{
         as:'locations',
-        foreignKey:'userId'
+        foreignKey:'userId',
+        onDelete:'CASCADE'
       })
       
       /* MODEL GENDER */

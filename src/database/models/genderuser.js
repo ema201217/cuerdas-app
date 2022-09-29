@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       /* MODEL USER */
-      this.belongsTo(models.User,{
+      this.hasMany(models.User,{
         as:'users',
         foreignKey:'genderId'
       })
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Gender',
-    tableName: 'genders'
+    tableName: 'genderUsers'
   });
   return genderUser;
 };

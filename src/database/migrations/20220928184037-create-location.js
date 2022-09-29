@@ -1,41 +1,36 @@
-'use strict';
+"use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('locations', {
+    await queryInterface.createTable("locations", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       country: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       province: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       city: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       address: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       number: {
         type: Sequelize.INTEGER,
-        allowNull: false
       },
       floor: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER.UNSIGNED,
       },
       apartment: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       pc: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
 
       /* Foreign Key */
@@ -43,21 +38,21 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model:{tableName:'users'},
-          key:'id'
+          model: { tableName: "users" },
+          key: "id",
         },
-        onDelete:"CASCADE"
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('locations');
-  }
+    await queryInterface.dropTable("locations");
+  },
 };

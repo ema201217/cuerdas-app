@@ -2,7 +2,7 @@
   <div class="glider glider-<%= type %>">
     <% products.forEach( product=> { %>
       <div class="glider-slide mx-3">
-        <%- include('card',{...product,animation:false}) %>
+        <%- include('card',{product,animation:false}) %>
       </div>
     <% }) %>
   </div>

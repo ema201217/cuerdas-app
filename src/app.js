@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'..','public')));
 
 /* Middleware locals */
-// app.use(neededInformation)
+app.use(neededInformation)
 
 app.use('/', indexRouter);
 // app.use('/usuario', usersRouter);

@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.Banner,{
-        as:'banner',
+        as:'images',
         foreignKey:'bannerId'
       })
     }

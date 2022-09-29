@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
+  <title>
+    <%= title %>
+  </title>
   <script src="https://kit.fontawesome.com/15a2e4bbb7.js" crossorigin="anonymous"></script>
 
   <!-- BOOTSTRAP STYLES -->
@@ -23,7 +25,9 @@
 
 <body class="vh-100 d-flex flex-column justify-content-between">
 
-  <div class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-dark snipper-grow-container position-fixed top-0 start-0 bg-opacity-75" style="z-index: 200;">
+  <div
+    class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-dark snipper-grow-container position-fixed top-0 start-0 bg-opacity-75"
+    style="z-index: 200;">
     <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status" aria-hidden="true">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -79,7 +83,7 @@
                       <span class="dropdown-header">Sub Categorias</span>
                       <% subcategories.forEach(subcategory=> { %>
                     <li><a class="dropdown-item" href="/productos/_/<%= subcategory.id %>">
-                        <%= capitalize(subcategory.name) %>
+                        <%= subcategory.name %>
                       </a></li>
                     <% }) %>
             </li>
@@ -167,51 +171,51 @@
     </nav>
   </header>
 
-    <%- contents %>
+  <%- contents %>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark bg-gradient text-white py-3 row text-center m-0">
-    <section class="col-12 col-md-4">
-      <h5>¿Dónde encontramos?</h5>
-      <div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.9823603360187!2d-58.72917458571586!3d-34.452595657022776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca20c117bf0e3%3A0xcd856576ed4b2105!2sTortugas%20Open%20Mall!5e0!3m2!1ses!2sar!4v1661692377253!5m2!1ses!2sar"
-          width="50%" height="100" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </section>
+    <!-- FOOTER -->
+    <footer class="bg-dark bg-gradient text-white py-3 row text-center m-0">
+      <section class="col-12 col-md-4">
+        <h5>¿Dónde encontramos?</h5>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.9823603360187!2d-58.72917458571586!3d-34.452595657022776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca20c117bf0e3%3A0xcd856576ed4b2105!2sTortugas%20Open%20Mall!5e0!3m2!1ses!2sar!4v1661692377253!5m2!1ses!2sar"
+            width="50%" height="100" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
 
-    <section class="col-12 col-md-4">
-      <h5 class="col-12">Medios de pago</h5>
+      <section class="col-12 col-md-4">
+        <h5 class="col-12">Medios de pago</h5>
 
-      <img class="col-3 mx-auto" style="object-fit: contain;" src="/images/Payment/visa.jpg" alt="">
-      <img class="col-3 mx-auto" style="object-fit: contain;" src="/images/Payment/mastercard.jpg" alt="">
-      <img class="col-3 mx-auto" style="object-fit: contain;" src="/images/Payment/mercadopago.jpg" alt="">
+        <img class="col-3 mx-auto" style="object-fit: contain;" src="/images/Payment/visa.jpg" alt="">
+        <img class="col-3 mx-auto" style="object-fit: contain;" src="/images/Payment/mastercard.jpg" alt="">
+        <img class="col-3 mx-auto" style="object-fit: contain;" src="/images/Payment/mercadopago.jpg" alt="">
 
-    </section>
+      </section>
 
-    <section class="col-12 col-md-4">
-      <h5><a class="link-light" href="/info/contacto">Contacto</a> | Redes</h5>
-      <div class="">
-        <a class="link-light mx-4" href="">
-          <i class="fs-2 fa-brands fa-whatsapp"></i>
-        </a>
-        <a class="link-light mx-4" href="">
-          <i class="fs-2 fa-brands fa-instagram"></i>
-        </a>
-        <a class="link-light mx-4" href="">
-          <i class="fs-2 fa-brands fa-facebook"></i>
-        </a>
-      </div>
-    </section>
+      <section class="col-12 col-md-4">
+        <h5><a class="link-light" href="/info/contacto">Contacto</a> | Redes</h5>
+        <div class="">
+          <a class="link-light mx-4" href="">
+            <i class="fs-2 fa-brands fa-whatsapp"></i>
+          </a>
+          <a class="link-light mx-4" href="">
+            <i class="fs-2 fa-brands fa-instagram"></i>
+          </a>
+          <a class="link-light mx-4" href="">
+            <i class="fs-2 fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </section>
 
-  </footer>
+    </footer>
 
-  <!-- SCRIPTS -->
-  
-  <script src="/javascript/library/glider.js"></script>
-  <script src="/javascript/glider.config.js"></script>
-  <script src="/javascript/spinner.js"></script>
+    <!-- SCRIPTS -->
+
+    <script src="/javascript/library/glider.js"></script>
+    <script src="/javascript/glider.config.js"></script>
+    <script src="/javascript/spinner.js"></script>
 
 </body>
 
