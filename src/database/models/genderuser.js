@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       /* MODEL USER */
       this.belongsTo(models.User,{
         as:'users',
-        foreignKey:'gender_id'
+        foreignKey:'genderId'
       })
     }
   }

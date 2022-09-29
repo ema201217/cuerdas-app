@@ -5,7 +5,7 @@ const { ordersDetails } = require("../JSONS");
 const detailsMap = ordersDetails.map(detail => {
   return {
     ...detail,
-    created_at:new Date
+    createdAt:new Date
   }
 })
 

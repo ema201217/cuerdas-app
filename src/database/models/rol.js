@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       /* MODEL USER */
       this.hasMany(models.User,{
         as:'users',
-        foreignKey:'role_id'
+        foreignKey:'roleId'
       })
     }
   }

@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
        /* MODEL PRODUCT */
        this.hasMany(models.Product,{
         as:'products',
-        foreignKey:'subcategory_id'
+        foreignKey:'subcategoryId'
       })
 
        /* MODEL CATEGORY */
        this.belongsTo(models.Category,{
         as:'category',
-        foreignKey:'category_id'
+        foreignKey:'categoryId'
       })
     }
   }
@@ -27,8 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Subcategory',
-    tableName: 'subcategories',
-    underscored:true
+    tableName: 'subcategories'
   });
   return subcategory;
 };

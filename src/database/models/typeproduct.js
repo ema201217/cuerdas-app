@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       /* MODEL PRODUCT */
       this.hasMany(models.Product,{
         as:'products',
-        foreignKey:'type_id'
+        foreignKey:'typeId'
       })
       
     }
@@ -26,8 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Type',
-    tableName: 'typeProducts',
-    underscored:true
+    tableName: 'typeProducts'
   });
   return typeProduct;
 };

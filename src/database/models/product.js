@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class product extends Model {
     /**
@@ -13,71 +11,72 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       /* MODEL IMAGE PRODUCT */
-      this.hasMany(models.ImageProduct,{
-        as:'images',
-        foreignKey:'product_id'
-      })
+      this.hasMany(models.ImageProduct, {
+        as: "images",
+        foreignKey: "productId",
+      });
 
       /* MODEL BRAND */
-      this.belongsTo(models.Brand,{
-        as:'brand',
-        foreignKey:'brand_id'
-      })
+      this.belongsTo(models.Brand, {
+        as: "brand",
+        foreignKey: "brandId",
+      });
 
       /* MODEL TYPE */
-      this.belongsTo(models.Type,{
-        as:'type',
-        foreignKey:'type_id'
-      })
+      this.belongsTo(models.Type, {
+        as: "type",
+        foreignKey: "typeId",
+      });
 
       /* MODEL COLOR */
-      this.belongsTo(models.Color,{
-        as:'color',
-        foreignKey:'color_id'
-      })
+      this.belongsTo(models.Color, {
+        as: "color",
+        foreignKey: "colorId",
+      });
 
       /* MODEL SUBCATEGORY */
-      this.belongsTo(models.Subcategory,{
-        as:'subcategory',
-        foreignKey:'subcategory_id'
-      })
-     
-      /* MODEL PROVIDER */
-      this.belongsTo(models.Provider,{
-        as:'provider',
-        foreignKey:'provider_id'
-      })
+      this.belongsTo(models.Subcategory, {
+        as: "subcategory",
+        foreignKey: "subcategoryId",
+      });
 
+      /* MODEL PROVIDER */
+      this.belongsTo(models.Provider, {
+        as: "provider",
+        foreignKey: "providerId",
+      });
     }
   }
-  product.init({
-    title: DataTypes.STRING,
-    subtitle: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    model: DataTypes.STRING,
-    made_in: DataTypes.STRING,
-    quantity: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
-    discount: DataTypes.INTEGER,
-    show_in_offer: DataTypes.BOOLEAN,
-    outstanding: DataTypes.BOOLEAN,
-    available: DataTypes.BOOLEAN,
-    stock: DataTypes.BOOLEAN,
-    free_shipping: DataTypes.BOOLEAN,
-    price_shipping: DataTypes.INTEGER,
+  product.init(
+    {
+      title: DataTypes.STRING,
+      subtitle: DataTypes.STRING,
+      description: DataTypes.TEXT,
+      model: DataTypes.STRING,
+      madeIn: DataTypes.STRING,
+      quantity: DataTypes.INTEGER,
+      price: DataTypes.INTEGER,
+      discount: DataTypes.INTEGER,
+      showInOffer: DataTypes.BOOLEAN,
+      outstanding: DataTypes.BOOLEAN,
+      available: DataTypes.BOOLEAN,
+      stock: DataTypes.BOOLEAN,
+      freeShipping: DataTypes.BOOLEAN,
+      priceShipping: DataTypes.INTEGER,
 
-    /* Foreign Key */
-    brand_id: DataTypes.INTEGER,
-    type_id: DataTypes.INTEGER,
-    color_id: DataTypes.INTEGER,
-    subcategory_id: DataTypes.INTEGER,
-    provider_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Product',
-    createdAt:'created_at',
-    updatedAt:'updated_at',
-    underscored:true
-  });
+      /* Foreign Key */
+      brandId: DataTypes.INTEGER,
+      typeId: DataTypes.INTEGER,
+      colorId: DataTypes.INTEGER,
+      subcategoryId: DataTypes.INTEGER,
+      providerId: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Product",
+      tableName: "products",
+      underscored:false
+    }
+  );
   return product;
 };

@@ -5,7 +5,7 @@ const { brands } = require("../JSONS");
 const brandsMap = brands.map(brand => {
   return {
     ...brand,
-    created_at:new Date
+    createdAt:new Date
   }
 })
 module.exports = {

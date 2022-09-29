@@ -39,7 +39,7 @@ module.exports = {
       },
 
       /* Foreign Key */
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -48,11 +48,11 @@ module.exports = {
         },
         onDelete:"CASCADE"
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

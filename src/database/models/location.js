@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.User,{
         as:'user',
-        foreignKey:'user_id'
+        foreignKey:'userId'
       })
     }
   }
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     floor: DataTypes.INTEGER,
     apartment: DataTypes.STRING,
     pc: DataTypes.STRING,
-    user_id: DataTypes.INTEGER
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Location',

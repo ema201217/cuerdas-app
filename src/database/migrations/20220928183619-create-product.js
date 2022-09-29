@@ -22,7 +22,7 @@ module.exports = {
       model: {
         type: Sequelize.STRING,
       },
-      made_in: {
+      madeIn: {
         type: Sequelize.STRING,
       },
       quantity: {
@@ -36,7 +36,7 @@ module.exports = {
       discount: {
         type: Sequelize.INTEGER.UNSIGNED,
       },
-      show_in_offer: {
+      showInOffer: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
@@ -52,16 +52,16 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
       },
-      free_shipping: {
+      freeShipping: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
-      price_shipping: {
+      priceShipping: {
         type: Sequelize.INTEGER.UNSIGNED
       },
 
       /* Foreign Keys */
-      brand_id: {
+      brandId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -71,7 +71,7 @@ module.exports = {
           key: "id",
         },
       },
-      type_id: {
+      typeId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -81,7 +81,7 @@ module.exports = {
           key: "id",
         },
       },
-      color_id: {
+      colorId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -91,7 +91,7 @@ module.exports = {
           key: "id",
         },
       },
-      subcategory_id: {
+      subcategoryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -101,7 +101,7 @@ module.exports = {
           key: "id",
         },
       },
-      provider_id: {
+      providerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -111,11 +111,11 @@ module.exports = {
           key: "id",
         },
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
       },
     });

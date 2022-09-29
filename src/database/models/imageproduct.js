@@ -7,22 +7,20 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // define association here
-      imageProduct.belongsTo(models.Product,{
+      this.belongsTo(models.Product,{
         as:'product',
-        foreignKey:'product_id'
+        foreignKey:'productId'
       })
     }
   }
   imageProduct.init({
     img: DataTypes.STRING,
-    product_id: DataTypes.INTEGER
+    productId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'ImageProduct',
     tableName: 'imageProducts',
-    createdAt:'created_at',
-    updatedAt:'updated_at',
-    underscored:true
+    underscored:false
   });
   return imageProduct;
 };

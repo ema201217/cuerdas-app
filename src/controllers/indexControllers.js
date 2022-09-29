@@ -4,7 +4,7 @@ module.exports = {
   index: async (req, res) => {
     try {
       const products = await db.Product.findAll({
-        include: ['images','brand','type','color','subcategory','provider']
+        include: ['images' ,'brand','type','color','subcategory','provider']
       });
       res.send(products);
     } catch (err) {

@@ -16,15 +16,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      address_complete: {
+      addressComplete: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

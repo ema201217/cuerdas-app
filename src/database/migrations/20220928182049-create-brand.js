@@ -16,11 +16,11 @@ module.exports = {
         type: Sequelize.TEXT,
         defaultValue:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMxWNmN8rTxddxZp4G4KY82VMh9Qdo2kh0vHt_LQ0lww&s"
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

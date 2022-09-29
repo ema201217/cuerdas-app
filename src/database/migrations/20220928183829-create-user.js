@@ -29,7 +29,7 @@ module.exports = {
       },
 
       /* Foreign Keys */
-      gender_id: {
+      genderId: {
         type: Sequelize.INTEGER,
         defaultValue:4,
         references: {
@@ -37,7 +37,7 @@ module.exports = {
           key:'id'
         }
       },
-      role_id: {
+      roleId: {
         type: Sequelize.INTEGER,
         defaultValue:2,
         references: {
@@ -45,11 +45,11 @@ module.exports = {
           key:'id'
         }
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

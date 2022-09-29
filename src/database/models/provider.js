@@ -11,19 +11,18 @@ module.exports = (sequelize, DataTypes) => {
       /* MODEL PRODUCT */
       this.hasMany(models.Product,{
         as:'products',
-        foreignKey:'provider_id'
+        foreignKey:'providerId'
       })
     }
   }
   provider.init({
     name: DataTypes.STRING,
     cuit: DataTypes.STRING,
-    address_complete: DataTypes.STRING
+    addressComplete: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Provider',
     tableName: 'providers',
-    underscored:true
   });
   return provider;
 };

@@ -10,7 +10,7 @@ module.exports = {
       },
 
       /* Foreign Keys */
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -19,7 +19,7 @@ module.exports = {
         },
         onDelete:'CASCADE'
       },
-      product_id: {
+      productId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -28,11 +28,11 @@ module.exports = {
         },
         onDelete:'CASCADE'
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      price_unit: {
+      priceUnit: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
@@ -18,7 +18,7 @@ module.exports = {
       },
 
       /* Foreign Key */
-      order_id: {
+      orderId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -27,11 +27,11 @@ module.exports = {
         },
         onDelete:'CASCADE'
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

@@ -5,7 +5,7 @@ const { subcategories } = require("../JSONS");
 const subcategoriesMap = subcategories.map(category => {
   return {
     ...category,
-    created_at:new Date
+    createdAt:new Date
   }
 })
 

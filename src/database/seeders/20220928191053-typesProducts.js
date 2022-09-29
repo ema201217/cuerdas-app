@@ -5,7 +5,7 @@ const { typesProducts } = require("../JSONS");
 const typesMap = typesProducts.map(type => {
   return {
     ...type,
-    created_at:new Date
+    createdAt:new Date
   }
 })
 

@@ -5,7 +5,7 @@ const { products } = require("../JSONS");
 const productsMap = products.map(product => {
   return {
     ...product,
-    created_at:new Date
+    createdAt:new Date
   }
 })
 

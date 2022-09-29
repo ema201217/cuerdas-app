@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       /* MODEL PRODUCT */
-      brand.hasMany(models.Product,{
+      this.hasMany(models.Product,{
         as:'products',
-        foreignKey:'brand_id'
+        foreignKey:'brandId'
       })
     }
   }
@@ -22,8 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Brand',
-    tableName: 'brands',
-    underscored:true
+    tableName: 'brands'
   });
   return brand;
 };
