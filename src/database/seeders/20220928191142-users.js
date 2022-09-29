@@ -5,7 +5,7 @@ const { users } = require("../JSONS");
 const usersMap = users.map(user => {
   return {
     ...user,
-    createdAt:new Date
+    created_at:new Date
   }
 })
 

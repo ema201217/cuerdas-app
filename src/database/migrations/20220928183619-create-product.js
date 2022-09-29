@@ -22,7 +22,7 @@ module.exports = {
       model: {
         type: Sequelize.STRING,
       },
-      madeIn: {
+      made_in: {
         type: Sequelize.STRING,
       },
       quantity: {
@@ -30,13 +30,13 @@ module.exports = {
         allowNull: false,
       },
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
       },
       discount: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER.UNSIGNED,
       },
-      showInOffer: {
+      show_in_offer: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
@@ -52,55 +52,70 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
       },
-      freeShipping: {
+      free_shipping: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
-      priceShipping: {
-        type: Sequelize.INTEGER,
+      price_shipping: {
+        type: Sequelize.INTEGER.UNSIGNED
       },
 
       /* Foreign Keys */
-      brandId: {
+      brand_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: "Brand",
+          model: {
+            tableName:"brands"
+          },
           key: "id",
         },
       },
-      typeId: {
+      type_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: "Type",
+          model: {
+            tableName:"typeProducts"
+          },
           key: "id",
         },
       },
-      colorId: {
+      color_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: "Color",
+          model: {
+            tableName:"colorProducts"
+          },
           key: "id",
         },
       },
-      subcategoryId: {
+      subcategory_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: "Subcategory",
+          model: {
+            tableName:"subcategories"
+          },
           key: "id",
         },
       },
-      providerId: {
+      provider_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: "Provider",
+          model: {
+            tableName:"providers"
+          },
           key: "id",
         },
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE,
       },
     });

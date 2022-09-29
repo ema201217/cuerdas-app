@@ -1,21 +1,32 @@
-const { readDB } = require("../data");
+const db = require('../database/models')
+
 var svgCaptcha = require("svg-captcha");
 
 module.exports = {
   /* PRODUCTOS */
-  products: (req, res) => {
-    const products = readDB("products.json");
-    res.render(
-      "admin/products",
-      { products },
-      (err, renderProducts) => {
-        res.render("partials/sidebar", {
-          page: "productos",
-          contents: renderProducts,
-          title: "Admin | Productos",
-        });
-      }
-    );
+  products: async (req, res) => {
+    try {
+      
+      const products = db.Product.findAll(
+        {
+          include:['images']
+        }
+        );
+      res.render(
+        "admin/products",
+        { products },
+        (err, renderProducts) => {
+          res.render("partials/sidebar", {
+            page: "productos",
+            contents: renderProducts,
+            title: "Admin | Productos",
+          });
+        }
+      );
+
+    } catch (error) {
+      
+    }
   },
 
   edit: (req, res) => {

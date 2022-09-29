@@ -11,6 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      
+      /* MODEL LOCATION */
+      this.hasMany(models.Location,{
+        as:'locations',
+        foreignKey:'user_id'
+      })
+      
+      /* MODEL GENDER */
+      this.belongsTo(models.Gender,{
+        as:'gender',
+        foreignKey:'gender_id'
+      })
+     
+      /* MODEL ROLE */
+      this.belongsTo(models.Role,{
+        as:'role',
+        foreignKey:'role_id'
+      })
     }
   }
   user.init({
@@ -19,11 +37,12 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    genderId: DataTypes.INTEGER,
-    roleId: DataTypes.INTEGER
+    gender_id: DataTypes.INTEGER,
+    role_id: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'user',
+    modelName: 'User',
+    tableName: 'users'
   });
   return user;
 };

@@ -8,20 +8,30 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      priceUnit: {
-        type: Sequelize.INTEGER
+      price_unit: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       quantity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue:1
       },
-      orderId: {
-        type: Sequelize.INTEGER
+
+      /* Foreign Key */
+      order_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model:{tableName:'orders'},
+          key:'id'
+        },
+        onDelete:'CASCADE'
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE
       }
     });

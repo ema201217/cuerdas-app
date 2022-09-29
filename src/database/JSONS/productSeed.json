@@ -4,21 +4,21 @@
     "subtitle": "Guitarra clásica ideal para principiantes y aficionados.",
     "description": "Arriba: tilo <br>Parte posterior y lateral: tilo <br>Cuello: Catalpa <br>Diapasón: arce <br>Puente: arce <br>Cabeza de máquina: níquel",
     "model": "CG-300",
-    "madeIn": "Guatemala",
+    "made_in": "Guatemala",
     "quantity": 20,
     "price": 6300,
     "discount": 10,
-    "showInOffer": true,
+    "show_in_offer": true,
     "outstanding": false,
     "available": true,
     "stock": true,
-    "freeShipping": false,
-    "priceShipping": 700,
+    "free_shipping": false,
+    "price_shipping": 700,
     
-    "brandId": 1,
-    "typeId": 1,
-    "colorId":1,
-    "subcategoryId": 1,
-    "providerId":1
+    "brand_id": 1,
+    "type_id": 1,
+    "color_id":1,
+    "subcategory_id": 1,
+    "provider_id":1
   }
 ]

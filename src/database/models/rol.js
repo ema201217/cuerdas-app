@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      /* MODEL USER */
+      this.hasMany(models.User,{
+        as:'users',
+        foreignKey:'role_id'
+      })
     }
   }
   rol.init({
@@ -19,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Role',
+    tableName: 'roles'
   });
   return rol;
 };

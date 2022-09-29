@@ -6,11 +6,11 @@ const logger = require('morgan');
 const partials = require('express-partials')
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const productsRouter = require('./routes/products');
-const infoRouter = require('./routes/info');
-const adminRouter = require('./routes/admin');
-const passwordRouter = require('./routes/password');
+// const usersRouter = require('./routes/users');
+// const productsRouter = require('./routes/products');
+// const infoRouter = require('./routes/info');
+// const adminRouter = require('./routes/admin');
+// const passwordRouter = require('./routes/password');
 
 /* Middleware required */
 const neededInformation = require('./middlewares/info-general')
@@ -29,14 +29,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'..','public')));
 
 /* Middleware locals */
-app.use(neededInformation)
+// app.use(neededInformation)
 
 app.use('/', indexRouter);
-app.use('/usuario', usersRouter);
-app.use('/productos', productsRouter);
-app.use('/info', infoRouter);
-app.use('/admin', adminRouter);
-app.use('/password', passwordRouter);
+// app.use('/usuario', usersRouter);
+// app.use('/productos', productsRouter);
+// app.use('/info', infoRouter);
+// app.use('/admin', adminRouter);
+// app.use('/password', passwordRouter);
 
 
 // catch 404 and forward to error handler

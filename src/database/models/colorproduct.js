@@ -11,14 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      /* MODEL PRODUCT */
+      this.hasMany(models.Product,{
+        as:'products',
+        foreignKey:'color_id'
+      })
     }
   }
   colorProduct.init({
     text: DataTypes.STRING,
-    hex: Sequelize.JSON
+    hex: DataTypes.JSON
   }, {
     sequelize,
     modelName: 'Color',
+    tableName:'colorProducts',
+    underscored:true
   });
   return colorProduct;
 };

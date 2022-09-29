@@ -9,19 +9,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       country: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       province: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       city: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       address: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       number: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       floor: {
         type: Sequelize.INTEGER
@@ -32,14 +37,22 @@ module.exports = {
       pc: {
         type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.INTEGER
+
+      /* Foreign Key */
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model:{tableName:'users'},
+          key:'id'
+        },
+        onDelete:"CASCADE"
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE
       }
     });

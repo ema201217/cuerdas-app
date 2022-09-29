@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      /* MODEL IMAGES BANNER */
+      this.hasMany(models.ImageBanner,{
+        as:'images',
+        foreignKey:'banner_id'
+      })
+
+      
     }
   }
   banner.init({
@@ -19,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Banner',
+    tableName: 'banners'
   });
   return banner;
 };

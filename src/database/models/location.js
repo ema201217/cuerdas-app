@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.User,{
+        as:'user',
+        foreignKey:'user_id'
+      })
     }
   }
   location.init({
@@ -22,10 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     floor: DataTypes.INTEGER,
     apartment: DataTypes.STRING,
     pc: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Location',
+    tableName: 'locations'
   });
   return location;
 };

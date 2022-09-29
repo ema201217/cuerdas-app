@@ -5,7 +5,7 @@ const { providers } = require("../JSONS");
 const providersMap = providers.map(provider => {
   return {
     ...provider,
-    createdAt:new Date
+    created_at:new Date
   }
 })
 

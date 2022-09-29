@@ -5,7 +5,7 @@ const { favorites } = require("../JSONS");
 const favoritesMap = favorites.map(favorite => {
   return {
     ...favorite,
-    createdAt:new Date
+    created_at:new Date
   }
 })
 

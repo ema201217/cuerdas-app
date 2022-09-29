@@ -9,16 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       logo: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        defaultValue:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMxWNmN8rTxddxZp4G4KY82VMh9Qdo2kh0vHt_LQ0lww&s"
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE
       }
     });
