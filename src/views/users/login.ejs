@@ -1,0 +1,70 @@
+<main class="container my-5">
+    <section class="row justify-content-center">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Iniciar Sesión</li>
+            </ol>
+        </nav>
+
+        <div class="col-12 col-md-8">
+            <form action="" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
+                <!-- TITULO -->
+                <h1 class="card-title my-5 text-center">Iniciar Sesión</h1>
+
+                <!-- ENTRADAS EMAIL Y CONTRASEÑA -->
+                <div class="mb-3 form-floating col-12 col-lg-8 offset-lg-2">
+                    <input type="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Email o Usuario" name="usernameOrEmail">
+                    <label for="exampleInputEmail1" class="form-label ms-1">Email o Usuario</label>
+                </div>
+                <div class="mb-3 form-floating col-12 col-lg-8 offset-lg-2">
+                    <input type="password" class="form-control" id="pass" placeholder="Contraseña"
+                        name="password">
+                    <label for="pass" class="form-label ms-1">Contraseña</label>
+                </div>
+
+                <!-- ERROR -->
+                <p class="text-danger text-center mt-0">Credenciales invalidas</p>
+
+                <!-- COOKIE -->
+                <div class="mx-auto mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                    <label class="form-check-label" for="remember">Recuerda mi sesión</label>
+                </div>
+
+                <!-- INGRESO NORMAL -->
+                <button type="submit"
+                    class="btn btn-light fw-bold col-12 col-lg-6 offset-lg-3 link-primary my-2 py-2">Ingresar</button>
+
+                    <hr>
+                <!-- INGRESO CON GOOGLE -->
+                <a href="#"
+                    class="d-inline-block btn btn-light link-danger col-12 col-lg-6 offset-lg-3 my-2 overflow-hidden p-0" style="height:30px;">
+                    <!-- <i class="fa-brands fa-google"></i>oogle -->
+                    <img class="h-100 w-100 py-1" style="object-fit: contain;" src="/images/Social/google.png" alt="img-google">
+                </a>
+
+                <!-- INGRESO CON FACEBOOK -->
+                <a href="#" class="d-inline-block btn btn-primary col-12 col-lg-6 offset-lg-3 my-2 p-0" style="height:30px;">
+                    <!-- <i class="fa-brands fa-facebook"></i>acebook -->
+                    <img class="h-100 w-100 py-1" style="object-fit:contain;" src="/images/Social/facebook.png" alt="img-facebook">
+                </a>
+
+                <!-- OLVIDO DE CONTRASEÑA Y REGISTRARSE -->
+                <div class="text-center my-3">
+                    <p class="form-text">
+                        <a class="text-decoration-underline" href="/usuario/registrar">Olvide mi
+                            contraseña</a>
+                    </p>
+                    <p class="form-text">
+                        <span class="text-muted">¿No tienes cuenta? </span><a
+                            href="/usuario/registrar">Regístrate</a>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</main>

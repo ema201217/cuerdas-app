@@ -1,0 +1,121 @@
+
+<main class="container my-5">
+<section class="row justify-content-center">
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registrarse</li>
+    </ol>
+</nav>
+
+
+<div class="col-12 col-md-10">
+    <form action="" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
+        <!-- TITULO -->
+        <h1 class="card-title my-5 text-center">Registrarse</h1>
+
+        <div class="row">
+            <!-- INPUTS -->
+            <div class="mb-3 form-floating col-12 col-lg-6">
+                <input type="text" class="form-control" id="firstName" aria-describedby="emailHelp"
+                    placeholder="Email o Usuario" name="firstName">
+                <label for="firstName" class="form-label ms-1">Nombre</label>
+                <!-- ERROR -->
+                <p class="text-danger text-start">Nombre requerido</p>
+            </div>
+
+            <div class="mb-3 form-floating col-12 col-lg-6">
+                <input type="text" class="form-control" id="lastName" aria-describedby="emailHelp"
+                    placeholder="Apellido" name="lastName">
+                <label for="lastName" class="form-label ms-1">Apellido</label>
+                <!-- ERROR -->
+                <p class="text-danger text-start">Apellido requerido</p>
+            </div>
+
+            <div class="mb-3 form-floating col-12 col-lg-6">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                    placeholder="Apellido" name="email">
+                <label for="email" class="form-label ms-1">Email</label>
+                <!-- ERROR -->
+                <p class="text-danger text-start">Email requerido</p>
+            </div>
+
+            <div class="mb-3 form-floating col-12 col-lg-6">
+                <input type="password" class="form-control" id="pass" placeholder="Contraseña"
+                    name="password">
+                <label for="pass" class="form-label ms-1">Contraseña</label>
+                <!-- ERROR -->
+                <p class="text-danger text-start">Contraseña requerida</p>
+            </div>
+
+            <div class="mb-3 form-floating col-12 col-lg-6">
+                <input type="password" class="form-control" id="pass" placeholder="Contraseña"
+                    name="password">
+                <label for="pass" class="form-label ms-1">Confirmar Contraseña</label>
+                <!-- ERROR -->
+                <p class="text-danger text-start">Contraseñas no coinciden</p>
+            </div>
+
+            <!-- RECAPTCHA DE GOOGLE -->
+            <script
+                src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                async>
+            </script>
+
+            <div class="mb-3 col-12 col-lg-6">
+                <div class="g-recaptcha" id="ReCaptcha"></div>
+            </div>
+
+
+        </div>
+
+        <!-- TERMINOS -->
+        <div class="mx-auto mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="terms" name="terms">
+            <div class="d-flex align-items-center gap-2">
+                <label class="form-check-label" for="remember">Aceptar términos y
+                    condiciones</label>
+                <!-- ERROR -->
+                <i class="fa-solid fa-xmark text-danger"></i>
+            </div>
+
+        </div>
+
+        <!-- REGISTRO NORMAL -->
+        <button type="submit"
+            class="btn btn-light col-12 col-lg-6 offset-lg-3 link-primary my-2 py-2">Registrarse</button>
+
+        <hr>
+
+        <!-- REGISTRO CON GOOGLE -->
+        <a href="#"
+            class="d-inline-block btn btn-light link-danger col-12 col-lg-6 offset-lg-3 my-2 overflow-hidden p-0"
+            style="height:30px;">
+            <!-- <i class="fa-brands fa-google"></i>oogle -->
+            <img class="h-100 w-100 py-1" style="object-fit: contain;"
+                src="/images/Social/google.png" alt="img-google">
+        </a>
+
+        <!-- REGISTRO CON FACEBOOK -->
+        <a href="#" class="d-inline-block btn btn-primary col-12 col-lg-6 offset-lg-3 my-2 p-0"
+            style="height:30px;">
+            <!-- <i class="fa-brands fa-facebook"></i>acebook -->
+            <img class="h-100 w-100 py-1" style="object-fit:contain;"
+                src="/images/Social/facebook.png" alt="img-facebook">
+        </a>
+
+        <!-- INGRESAR -->
+        <div class="text-center my-3">
+
+            <p class="form-text">
+                <span class="text-muted">¿Ya tienes cuenta? </span><a
+                    href="/usuario/registrar">INGRESAR</a>
+            </p>
+        </div>
+
+    </form>
+</div>
+</section>
+</main>
+<script src="/javascript/reCaptcha.config.js"></script>

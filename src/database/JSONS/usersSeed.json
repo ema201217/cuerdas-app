@@ -1,0 +1,20 @@
+[
+  {
+    "name":"Emanuel",
+    "surname":"Arroyo",
+    "username":"ema201217",
+    "email":"ema201217@gmail.com",
+    "password":"123123",
+    "genderId":1,
+    "roleId":1
+  },
+  {
+    "name":"Francisco",
+    "surname":"Arroyo",
+    "username":"ema201217",
+    "email":"emanuelarroyodev@gmail.com",
+    "password":"123123",
+    "genderId":1,
+    "roleId":2
+  }
+]

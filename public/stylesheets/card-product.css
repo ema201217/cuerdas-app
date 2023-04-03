@@ -1,0 +1,33 @@
+
+#card-product .price-before,#card-product .card-description {
+  height: 0px;
+  transition: .5s;
+}
+
+#card-product:hover .price-before,#card-product:hover .card-description {
+  height: 20px;
+  transition: .4s;
+}
+
+.favorite-btn {
+  opacity: 0;
+  transition: .5s;
+  cursor:url('../public/images/Icons/cursor-favorite.cur') !important;
+}
+
+#card-product:hover .favorite-btn{
+  opacity: .5;
+}
+
+.favorite-btn:hover {
+  opacity: 1 !important;
+  transition: .5s;
+}
+
+#card__product--image:hover + .favorite-btn{
+  opacity: 1 !important;
+}
+
+
+
+

@@ -1,0 +1,60 @@
+:root {
+    --negro: #1C0A00;
+    --marronOscuro: #361500;
+    --marronIntermedio: #cf9061;
+    --marronClaro: #CC9544;
+    --grisClaro: #f0ede8;
+    --tamanioDescuentos: 16px;
+    --tamanioDescripciones: 16px;
+
+    /*TIPOGRAFIA*/
+    --roboto: "Roboto", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*::-webkit-scrollbar {
+    -webkit-appearance: none;
+} 
+ 
+html::-webkit-scrollbar,body::-webkit-scrollbar,main::-webkit-scrollbar {
+   display: none !important;
+   overflow-x: hidden;
+} 
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+}
+
+img{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}

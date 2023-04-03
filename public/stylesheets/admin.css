@@ -1,0 +1,44 @@
+/* SCROLL STYLES */
+
+#sidebar-admin *::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#sidebar-admin *::-webkit-scrollbar:vertical {
+  width:5px;
+}
+
+#sidebar-admin *::-webkit-scrollbar-button:increment,#sidebar-admin *::-webkit-scrollbar-button {
+  
+} 
+
+#sidebar-admin *::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+#sidebar-admin *::-webkit-scrollbar-thumb {
+  background-color: #0d6efd;
+  border-radius: 10px;
+}
+#sidebar-admin *::-webkit-scrollbar-corner {
+  display: none;
+}
+
+#slider-admin-products *::-webkit-scrollbar:horizontal {
+  height: 3px;
+}
+
+#slider-admin-products *::-webkit-scrollbar-thumb {
+  background-color: #94979c;
+}
+
+/* HOVER DE LAS IMÁGENES PRE-VISUALIZADAS */
+.admin-products .img-hover{
+  border: 1px solid transparent;
+  transition: 1s border;
+  width: 250px !important;
+}
+.admin-products .img-hover:hover{
+  border:1px solid rgb(194, 194, 194);
+  transition: 1s border;
+}

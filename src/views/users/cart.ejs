@@ -1,0 +1,62 @@
+<main class="container my-5" width="300px">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Mi Carrito</li>
+    </ol>
+  </nav>
+  <!-- <h3 class="text-center mb-5">CARRITO DE COMPRA</h3> -->
+  <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
+    class="scrollspy-example py-5 overflow-scroll" tabindex="0">
+    <table class="table table-lg text-center table-hover">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col"></th>
+          <th scope="col">Productos</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Quitar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>
+            <a href="/productos/detalle/2">
+              <img src="/images/Products/freedon.jpg" class="border" alt="" style="width:100px">
+            </a>
+          </td>
+          <td>Titulo 1</td>
+          <td>
+            <div class="btn-group justify-content-center" role="group" aria-label="Basic example">
+              <button type="button" class="border-0 bg-transparent">-</button>
+              <input type="text" class="form-control w-50 text-center" value="1" min="1" max="100">
+              <button type="button" class="border-0 bg-transparent">+</button>
+            </div>
+          </td>
+          <td>$2.300</td>
+          <td>$2.300</td>
+          <td>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="container">
+    <section class="row text-center">
+      <div class="alert alert-success col-12 col-lg-3">
+        <span>Total: </span><output>$2.300</output>
+      </div>
+      <span class="col-lg-5 offset-lg-4">
+        <button class="col-12 col-md-3 btn btn-sm btn-primary bg-gradient my-1">Realizar Compra</button>
+        <button class="col-12 col-md-3 btn btn-sm btn-danger bg-gradient my-1">Vaciar Carrito</button>
+        <button class="col-12 col-md-3 btn btn-sm btn-light bg-gradient my-1">Volver</button>
+      </span>
+
+    </section>
+  </section>
+</main>

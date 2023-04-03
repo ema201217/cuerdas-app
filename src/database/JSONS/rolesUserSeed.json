@@ -1,0 +1,18 @@
+[
+  {
+    "type":"administrador",
+    "info":"Dueño del negocio y administrador general de toda la aplicación"
+  },
+  {
+    "type":"regular",
+    "info":"Cliente registrado en la aplicación"
+  },
+  {
+    "type":"vendedor",
+    "info":"Permisos limitados - gestiona la carga de productos"
+  },
+  {
+    "type":"encargado",
+    "info":"Administrador general de toda la aplicación - Permisos limitados"
+  }
+]

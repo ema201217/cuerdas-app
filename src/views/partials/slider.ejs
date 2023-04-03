@@ -1,0 +1,20 @@
+<div class="glider-contain">
+  <div class="glider glider-<%= type %>">
+    <% products.forEach( product=> { %>
+      <div class="glider-slide mx-3">
+        <%- include('card',{product,animation:false}) %>
+      </div>
+    <% }) %>
+  </div>
+
+  <% if (products.length > 5) { %>
+    <button aria-label="Previous"
+      class="d-none d-md-block start-0 rounded-end p-1 bg-light text-primary bg-gradient glider-prev glider-prev-<%= type %>" style="top:35%"><i
+        class="fa-solid fa-arrow-left"></i></button>
+    <button aria-label="Next"
+      class="d-none d-md-block end-0 rounded-start p-1 bg-light text-primary bg-gradient glider-next glider-next-<%= type %>" style="top:35%"><i
+        class="fa-solid fa-arrow-right"></i></button>
+  <% } %>
+
+  <div role="tablist" class="dots text-dark" id="dots-<%= type %>"></div>
+</div>

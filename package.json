@@ -1,0 +1,27 @@
+{
+  "name": "grupo-7-todo-concuerda",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/bin/www",
+    "dev": "nodemon ./src/bin/www",
+    "reset-db": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-partials": "^0.3.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.23.2",
+    "sequelize-paginate": "^1.1.6",
+    "svg-captcha": "^1.4.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
+  }
+}

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); /* importa fuente */
+@import "general.css";
+@import "reutilizables.css";
+@import "glider.css";
+@import "sliders.css";
+@import "admin.css";
+@import "productDetail.css";
+@import "card-product.css";
+

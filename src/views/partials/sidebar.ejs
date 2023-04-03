@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %>
+  </title>
+  <script src="https://kit.fontawesome.com/15a2e4bbb7.js" crossorigin="anonymous"></script>
+
+  <!-- BOOTSTRAP STYLES -->
+  <link href="/stylesheets/library/bootstrap.min.css" rel="stylesheet">
+
+  <!-- LOCAL STYLES -->
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+
+  <!-- BOOTSTRAP SCRIPT -->
+  <script src="/javascript/library/bootstrap.bundle.min.js" defer></script>
+
+  <!-- JAVASCRIPT LOCAL -->
+  <script src="/javascript/script.js" defer></script>
+</head>
+
+  <body>
+
+    <div class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-dark snipper-grow-container position-fixed top-0 start-0 bg-opacity-75" style="z-index: 200;">
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status" aria-hidden="true">
+        <span class="visually-hidden">Loading...</span>
+       </div>
+     </div>
+     
+     <main class="admin-products">
+       <div class="d-flex align-items-start" id="sidebar-admin">
+         
+         <!-- NAVEGACIÓN LATERAL -->
+         <div class="col-2 d-flex flex-column flex-shrink-0 p-lg-3 text-white bg-dark vh-100 start-0">
+           <ul
+           class="nav nav-pills flex-column flex-nowrap mb-auto gap-3 align-items-center align-items-lg-start overflow-scroll">
+           
+           <!-- HOME -->
+           <li class="nav-item m-0 text-white">
+             <a href="/"
+             class="nav-link link-primary d-flex justify-content-center align-items-center mt-1 text-white gap-3">
+             <i class="fa-solid fa-house-chimney"></i>
+             <span class="d-none d-lg-block">Home</span>
+            </a>
+          </li>
+          <hr class="w-100 text-white my-0">
+          
+          <!-- DASHBOARD -->
+          <li class="nav-item m-0">
+            <a href="/admin/dashboard"
+            class="nav-link link-danger text-white d-flex align-items-center gap-3 <%= page === "dashboard" ? "active" : null %>">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="d-none d-lg-block"> Tablero de estadísticas</span>
+          </a>
+        </li>
+
+            <!-- VENTAS -->
+            <li class="nav-item m-0">
+              <a href="/admin/ventas"
+              class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "ventas" ? "active" : null %>">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <span class="d-none d-lg-block"> Ventas</span>
+            </a>
+          </li>
+          
+          <!-- NOTAS DE CRÉDITO -->
+          <li class="nav-item m-0">
+            <a href="/admin/notas-creditos"
+            class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "notas-creditos" ? "active" : null %>">
+            <i class="fa-solid fa-note-sticky"></i>
+            <span class="d-none d-lg-block"> Notas de crédito</span>
+          </a>
+        </li>
+        <hr class="w-100 text-white my-0">
+        
+        <!-- PRODUCTS -->
+        <li class="nav-item m-0">
+          <a href="/admin/productos"
+          class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "productos" ? "active" : null %>">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span class="d-none d-lg-block"> Productos</span>
+        </a>
+      </li>
+      
+            <!-- USUARIOS -->
+            <li class="nav-item m-0">
+              <a href="/admin/usuarios"
+              class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "usuarios" ? "active" : null %>">
+              <i class="fa-solid fa-users"></i>
+              <span class="d-none d-lg-block"> Usuarios</span>
+            </a>
+          </li>
+          
+          <!-- EMPLEADOS -->
+          <li class="nav-item m-0">
+            <a href="/admin/empleados"
+            class="nav-link link-success text-white d-flex align-items-center gap-3 <%= page === "empleados" ? "active" : null %>">
+            <i class="fa-solid fa-users-between-lines"></i>
+            <span class="d-none d-lg-block"> Empleados</span>
+          </a>
+        </li>
+        
+        <!-- BANNERS -->
+        <li class="nav-item m-0">
+          <a href="/admin/banners"
+          class="nav-link link-primary d-flex align-items-center gap-3 text-white <%= page === "banners" ? "active" : null %>">
+          <i class="fa-solid fa-images"></i>
+          <span class="d-none d-lg-block"> Banners</span>
+        </a>
+      </li>
+      
+      <!-- CATEGORIAS -->
+      <li class="nav-item m-0">
+        <a href="/admin/categorias"
+        class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "categorias" ? "active" : null %>">
+        <i class="fa-solid fa-list"></i>
+        <span class="d-none d-lg-block"> Categorías</span>
+      </a>
+    </li>
+    
+    <!-- MARCAS -->
+    <li class="nav-item m-0">
+      <a href="/admin/marcas"
+      class="nav-link link-primary text-white d-flex align-items-center gap-3 <%= page === "marcas" ? "active" : null %>">
+      <i class="fa-solid fa-list"></i>
+      <span class="d-none d-lg-block"> Marcas</span>
+    </a>
+  </li>
+  <hr class="w-100 text-white my-0">
+  
+  <!-- MENSAJES -->
+  <li class="nav-item m-0">
+    <a href="/admin/mensajes"
+    class="nav-link link-info text-white d-flex align-items-center gap-3 <%= page === "mensajes" ? "active": null %>">
+    <i class="fa-solid fa-comment-sms"></i>
+    <span class="d-none d-lg-block"> Mensajes</span>
+  </a>
+</li>
+
+<!-- EDITOR DE CÓDIGO -->
+<li class="nav-item m-0 mb-5">
+  <a href="/admin/code"
+  class="nav-link link-warning text-white d-flex align-items-center gap-3 <%= page === "code" ? "active" : null %>">
+  <i class="fa-solid fa-code"></i>
+  <span class="d-none d-lg-block"> Editor de código</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<!-- NAVEGACIÓN SUPERIOR -->
+<div class="col-10">
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 p-0 p-lg-2">
+    <div class="container-fluid gap-2">
+      
+              <!-- BUSCADOR -->
+              <form action="/admin/search" class="d-flex col col-lg-6 offset-lg-3 position-relative" method="get">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar..." name="keyword">
+                <button class="btn position-absolute end-0 me-2 border-0" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+              
+              <!-- MENU AVATAR -->
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 position-relative">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle d-flex justify-content-end align-items-center" href="#"
+                  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                  <strong class="d-none d-lg-block">Emanuel Arroyo</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end bg-dark position-absolute"
+                aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Mi información</a></li>
+                <li><a class="dropdown-item" href="#">Configuraciones</a></li>
+                <li>
+                  <hr class="dropdown-divider bg-white">
+                    </li>
+                    <li><a class="dropdown-item" href="/usuario/salir">Cerrar sesión</a></li>
+                  </ul>
+                </li>
+              </ul>
+              
+            </div>
+          </nav>
+          
+          <%- contents %>
+          
+        </div>
+        
+      </div>
+    </main>
+    <script src="/javascript/library/glider.js"></script>
+    <script src="/javascript/glider.config.js"></script>
+    <script src="/javascript/spinner.js"></script>
+    
+  </body>
+  
+  </html>

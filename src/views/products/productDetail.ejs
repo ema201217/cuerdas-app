@@ -1,0 +1,119 @@
+<main>
+    <div class="container my-4 my-lg-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
+          <li class="breadcrumb-item active">Detalles del producto &nbsp;&nbsp;
+            <i class="fa-solid fa-arrow-right"></i>
+          </li>
+          <li class="mx-3" aria-current="page">
+            <%= p.title %>
+          </li>
+        </ol>
+      </nav>
+
+
+      <%# if (session && session.rol==1) { <a href="/admin/products" class="btn btn-primary my-2 my-lg-0">Volver a Admin</a>
+        } #%>
+
+        <div class="text-end">
+          <a href="/admin/productos" class="btn btn-outline-primary my-2">Ir al Admin</a>
+        </div>
+
+
+        <div class="row">
+          <div class="glider-contain d-block d-lg-none mb-4 col-12 col-md-6">
+            <div class="glider-detail">
+
+              <% p.images.forEach(({img})=> { %>
+                <img style="object-fit:contain"
+                  src="<%= /http/.test(img) ? img : `/images/Products/${img}`%>">
+                <% }) %>
+            </div>
+            <div role="tablist" class="dots text-dark" id="dots-detail"></div>
+          </div>
+
+          <div class="col-lg-7 d-none d-lg-block">
+            <% const indexRandom = Math.floor(Math.random() * p.images.length) %> 
+            <div 
+            class="product-image product-img--main d-none d-lg-block" 
+            data-image="<%= /http/.test(p.images[indexRandom].img) ? p.images[indexRandom].img : `/images/Products/${p.images[indexRandom].img}` %>" data-scale="4">
+              <img 
+              style="object-fit:contain" 
+              class="product-image--img active"
+              src="<%= /http/.test(p.images[indexRandom].img) ? p.images[indexRandom].img : `/images/Products/${p.images[indexRandom].img}` %>">
+            </div>
+            <ul class="image-list">
+              <% let count= 4 %>
+                <% for(let index=0;;index++) { count -=1; if (p.images[index]) { %>
+                  <li class="image-item border"><img style="object-fit:contain"
+                      src="<%= /http/.test(p.images[index].img) ? p.images[index].img : `/images/Products/${p.images[index].img}`  %>">
+                  </li>
+                  <% }else{ %>
+
+                    <li class="image-item border">
+                      <img style="object-fit:contain"
+                        src="<%= /http/.test(p.images[0].img) ? p.images[0].img : `/images/Products/${p.images[0].img}`%>">
+                    </li>
+                    <% } if (count===0) {break;}} %>
+
+            </ul>
+          </div>
+
+          <div class="card col-12 col-lg-5 position-relative shodow h-100">
+            <span class="position-absolute top-0 end-0 fs-2 text-primary p-2" title="Agregar a favoritos">
+              <i class="fa-regular fa-heart fs-3"></i>
+              <!-- <i class="fa-solid fa-heart fs-3"></i> -->
+            </span>
+            <h4 class="card-title fw-bold my-2 pe-5">
+              <%= p.title %>
+            </h4>
+
+            <% if (p.subtitle) { %>
+              <h6 class="card-text fw-bold my-2 pe-5">
+                <%= p.subtitle %>
+              </h6>
+              <% } %>
+                <div class="card-body flex-grow-0">
+                  <p class="<%= !p.discount && " d-none" %> my-0 text-decoration-line-through text-muted">$<%=
+                      toThousand(p.price) %>
+                  </p>
+                  <div class="d-flex align-items-center gap-1">
+                    <p class="my-0 fs-2 text-primary fw-normal">$ <%= toThousand(p.discount ? p.price - (p.price *
+                        p.discount / 100) : p.price) %>
+                    </p><span class="text-success fs-5">
+                      <%= p.discount ? p.discount + " % OFF" : null %>
+                    </span>
+                  </div>
+                  <P class="fs-6 text-dark fw-bold">en 12x $<%= (p.price / 12).toFixed(2) %> <i class="text-danger fa-solid fa-credit-card"></i>
+                  </P>
+                  <p class="fw-normal">
+                    <%- p.description %>
+                  </p>
+                </div>
+
+                <div class="row">
+                  <button class="btn btn-primary col-10 offset-1 col-md-6 offset-md-3">Comprar ahora</button>
+                  <button class="btn text-primary col-10 offset-1 col-md-6 offset-md-3 my-2" style="background-color: rgba(65,137,230,.15);
+                border-color: transparent;
+                color: #3483fa;">Agregar al carrito</button>
+                </div>
+          </div>
+        </div>
+    </div>
+</main>
+<% if (relateds.length) { %>
+  <hr>
+  <section class="py-3 py-lg-5">
+    <h1 class="col-12 text-center">Productos relacionados</h1>
+      <!-- Enviamos al slider los productos relacionados al producto que se ve en el detalle de producto -->
+      <%- include("../partials/slider.ejs",{type:"related", products: relateds}) %>
+  </section>
+<% } %>
+
+<!-- JQUERY SCRIPTS -->
+<script src="/javascript/library/jquery.js"></script>
+<script src="/javascript/library/jquery-ui.js"></script>
+<script src="/javascript/image-zoom.js"></script>
+<script src="/javascript/gallery-detail.js"></script>
