@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       /* MODEL PRODUCT */
       this.hasMany(models.Product,{
         as:'products',
-        foreignKey:'brandId'
+        foreignKey:'brandId',
+        onUpdate:"CASCADE"
       })
     }
   }

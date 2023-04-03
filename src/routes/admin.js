@@ -16,12 +16,14 @@ const {
   add,
   edit,
   brands,
+  update,
 } = require("../controllers/adminControllers");
 
 router
   /* productos */
   .get("/productos", products)
   .get("/productos/editar/:id", edit)
+  .put("/productos/editar/:id", update)
 
   /* categorias */
   .get("/categorias", categories)

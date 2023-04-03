@@ -36,17 +36,11 @@
         <th scope="col">Envió gratis</th>
         <th scope="col">Precio envió</th>
       </tr>
-
-
-
-
-
-
   
-      <% products.forEach(({id,images,title,subtitle,description,brand,model,type,category,madeIn,color,quantity,price,discount,showInOffer,outstanding,available,stock,freeShipping,priceShipping}) => { %>
+      <% products.forEach(p => { %>
         
       <!-- Modal Deleted-->
-      <div class="modal fade" id="modalDelete-<%= id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+      <div class="modal fade" id="modalDelete-<%= p.id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -58,20 +52,20 @@
               </div>
               <div class="modal-body my-3">
                 <h4 class="my-3">
-                  Estas Seguro de querer eliminar el producto:<span class="fw-normal fs-6 text-danger">  <%= title %></span>
+                  Estas Seguro de querer eliminar el producto:<span class="fw-normal fs-6 text-danger">  <%= p.title %></span>
                 </h4>
                 
                 
                   <div class="row">
-                    <input type="text" class="d-block form-control col-6" placeholder="/<%= title %>/">
+                    <input type="text" class="d-block form-control col-6" placeholder="/<%= p.title %>/">
                   </div>
                 
-                <div class="fw-normal">Para eliminar escribe: /<span class="text-muted fw-bold"><%= title %></span>/ .
+                <div class="fw-normal">Para eliminar escribe: /<span class="text-muted fw-bold"><%= p.title %></span>/ .
                   <p>Tener en cuenta que no podrás recuperar el producto eliminado.</p></div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <form action="/admin/productos/eliminar/<%= id %>?_method=DELETE">
+                <form action="/admin/productos/eliminar/<%= p.id %>?_method=DELETE">
                   <button type="submit" class="btn btn-success">Aceptar</button>
                 </form>
               </div>
@@ -83,70 +77,70 @@
         <tr>
           <!-- ID -->
           <th>
-            <a href="/admin/productos/editar/<%= id %>" class="fs-5 btn btn-outline-primary border-0"><i
+            <a href="/admin/productos/editar/<%= p.id %>" class="fs-5 btn btn-outline-primary border-0"><i
                 class="fa-solid fa-pen-to-square"></i></a>
 
             <!-- Button trigger modal -->
             <button type="button" class="fs-5 btn btn-outline-danger border-0" data-bs-toggle="modal"
-              data-bs-target="#modalDelete-<%= id %>">
+              data-bs-target="#modalDelete-<%= p.id %>">
               <i class="fa-solid fa-eraser"></i>
             </button>
 
           </th>
 
           <!-- ID -->
-          <th scope="row"><%= id %></th>
+          <th scope="row"><%= p.id %></th>
           <!-- Imagenes -->
           <td>
-            <a href="/productos/detalle/<%= id %>">
-            <% images.forEach((image) => { %>
-                <img src="<%= /http/.test(image) ? image : `/images/Products/${image}` %>" class="border" alt="" width="30px" height="40px" style="object-fit:contain">
+            <a href="/productos/detalle/<%= p.id %>">
+            <% p.images.forEach(({img}) => { %>
+                <img src="<%= /http/.test(img) ? img : `/images/Products/${img}` %>" class="border" alt="" width="30px" height="40px" style="object-fit:contain">
                   <% }) %>
                 </a>
           </td>
           <!-- Titulo -->
-          <td><%= title %></td>
+          <td><%= p.title %></td>
           <!-- Cantidad -->
-          <td><%= quantity %></td>
+          <td><%= p.quantity %></td>
           <!-- Marca -->
-          <td><%= brand %></td>
+          <td><%= p.brand.name %></td>
           <!-- Precio -->
-          <td>$<%= toThousand(price) %></td>
+          <td>$<%= toThousand(p.price) %></td>
           <!-- Precio final -->
-          <td>$<%= discount ? price - (price * discount / 100) : price %></td>
+          <td>$<%= p.discount ? p.price - (p.price * p.discount / 100) : p.price %></td>
           <!-- Descuento-->
-          <td><%= discount %> %</td>
+          <td><%= p.discount %> %</td>
           <!-- Tipo-->
-          <td><%= type %></td>
+          <td><%= p.type.name %></td>
           <!-- Colores -->
           <td>
             <div class="">
-            <% color.hex.forEach(hex => { %>
+            <% p.color.hex.forEach(hex => { %>
                 <input class="" type="color" value="<%= hex %>" disabled>
             <% }); %>
             </div>
-            <p class="col d-inline-block"><%= color.text %></sp>
+            <p class="col d-inline-block"><%= p.color.text %></sp>
           </td>
           <!-- Oferta -->
-          <td><%= showInOffer ? "Si" : "No" %></td>
+          <td><%= p.showInOffer ? "Si" : "No" %></td>
           <!-- Destacado -->
-          <td><%= outstanding ? "Si" : "No" %></td>
+          <td><%= p.outstanding ? "Si" : "No" %></td>
           <!-- Subtitulo -->
-          <td><%= subtitle %></td>
+          <td><%= p.subtitle %></td>
           <!-- Descripciones -->
-          <td class="d-table" style="inline-size: 300px;"><%- description %></td>
+          <td class="d-table" style="inline-size: 300px;"><%- p.description %></td>
           <!-- Hecho en -->
-          <td><%= madeIn %></td>
+          <td><%= p.madeIn %></td>
           <!-- Categoría -->
-          <td><%= category %></td>
+          <td><%= p.subcategory.category.name %></td>
           <!-- Disponible -->
-          <td><%= available ? "Si" : "No" %></td>
+          <td><%= p.available ? "Si" : "No" %></td>
           <!-- Stock -->
-          <td><%= stock ? "Si" : "No" %></td>
+          <td><%= p.stock ? "Si" : "No" %></td>
           <!-- Envió gratis -->
-          <td><%= freeShipping ? "Si" : "No" %></td>
+          <td><%= p.freeShipping ? "Si" : "No" %></td>
           <!-- Precio envió -->
-          <td><%= priceShipping %></td>
+          <td><%= p.priceShipping %></td>
         </tr>
 
         <% }) %>

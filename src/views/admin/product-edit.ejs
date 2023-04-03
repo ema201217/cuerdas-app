@@ -17,7 +17,9 @@
             <hr class="mt-4 mb-1">
           </div>
           <div class="card-body">
-            <form class="row gx-3 gy-2 align-items-center">
+            <form class="row gx-3 gy-2 align-items-center"
+              action="/admin/productos/editar/<%= product.id %>?_method=PUT" method="post"
+              enctype="multipart/form-data">
 
               <!-- TITULO -->
               <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
@@ -30,10 +32,9 @@
 
               <!-- MARCA -->
               <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
-                <select class="form-select" name="brand">
-                  <option selected hidden value="">...</option>
+                <select class="form-select" name="brandId">
                   <% brands.forEach(({id,name})=> { %>
-                    <option value="<%= id %>" <%=product.brand===id && "selected" %> ><%= name %>
+                    <option value="<%= id %>" <%=product.brand.id===id && "selected" %> ><%= name %>
                     </option>
                     <% }) %>
 
@@ -45,7 +46,7 @@
 
               <!-- CATEGORIAS -->
               <div class="col-12 col-md-6 col-lg-4 form-floating">
-                <select class="form-select" name="category">
+                <select class="form-select" name="categoryId">
                   <!-- <option selected hidden value="">...</option> -->
                   <% let count=categories.length; %>
                     <% for( let i=0; i < categories.length; i++ ) { %>
@@ -66,14 +67,14 @@
 
               <!-- SUB-CATEGORIAS -->
               <div class="col-12 col-md-6 col-lg-4 form-floating">
-                <select class="form-select" name="subcategory">
+                <select class="form-select" name="subcategoryId">
                   <option selected hidden value="">...</option>
                   <% subcategories.forEach(({id,name})=> { %>
                     <option value="<%= id %>" <%=product.subcategoryId===id && "selected" %> ><%= name %>
                     </option>
                     <% }) %>
                 </select>
-                <label for="form-label">Categorias</label>
+                <label for="form-label">Sub categorias</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
               </div>
@@ -119,7 +120,7 @@
 
                   <!-- COLOR -> input type text -->
                   <div class="form-floating">
-                    <input type="text" list="colorsList" class="form-control" id="color" placeholder="Color"
+                    <input type="text" list="colorsList" class="form-control" id="colorText" placeholder="Color"
                       value="<%= product.color.text %>" name="colorText">
                     <label for="colorProduct" class="form-label fw-normal px-2">Colores</label>
                     <datalist id="colorsList">
@@ -145,9 +146,9 @@
               <!-- PREVISUALIZACIÓN DE LAS IMÁGENES AGREGADAS -->
               <div class="glider-contain" id="slider-admin-products">
                 <div class="glider glider-img-admin">
-                  <% product.images.forEach((image)=>{%>
+                  <% product.images.forEach(({img})=>{%>
                     <div class="position-relative img-hover">
-                      <img src="<%= /http/.test(image) ? image : `/images/Products/${image}`%>" alt="">
+                      <img src="<%= /http/.test(img) ? img : `/images/Products/${img}`%>" alt="">
                       <button class="link-dark border-0 position-absolute top-0 end-0 px-1">
                         <i class="fa-solid fa-xmark"></i>
                       </button>
@@ -211,15 +212,17 @@
 
               <!-- TIPO -->
               <div class="col-12 col-md-6 col-lg-2 form-floating">
-                <input type="text" list="typeList" class="form-control" id="type" name="type" placeholder="Tipo"
-                  value="<%= product.type %>">
-                <label class="form-label px-3 fw-normal" for="type">Tipo</label>
-                <datalist id="typeList">
-                  <option value="Clásico">
-                  <option value="Acústico">
-                  <option value="Precisión">
-                  <option value="Electrónico">
-                </datalist>
+
+
+                <select class="form-select" name="typeId">
+                  <% types.forEach(({id,name})=> { %>
+
+                    <option value="<%= id %>" <%=product.typeId.id===id && "selected" %> ><%= name %>
+                    </option>
+                    <% }) %>
+
+                </select>
+                <label for="form-label">Tipo</label>
               </div>
 
               <!-- HECHO EN -->

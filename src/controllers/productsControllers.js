@@ -1,13 +1,13 @@
-const { subcategories } = require("../database/JSONS");
 const db = require("../database/models");
 const { Op } = require("sequelize");
+const getLabelFilter = require("../helpers/getLabelFilter");
 
 module.exports = {
   all: async (req, res) => {
     try {
       const reqQuery = req.query;
       const pageSelected = +reqQuery.page || 1;
-      const limit = +reqQuery.countElements || 10;
+      const limit = +reqQuery.countElements || 3;
       const subcategoryId = +reqQuery.subcategoryId || null;
       const categoryId = +reqQuery.categoryId || null;
 
@@ -40,8 +40,19 @@ module.exports = {
         };
       }
 
-      const { docs: products, pages } = await db.Product.paginate(options);
+      const { docs: products, pages,total } = await db.Product.paginate(options);
 
+      // RUTA QUE FIGURA EN LA VISTA DE LISTA DE PRODUCTOS
+      const { capitalize, categories, subcategories } = res.locals;
+      const labelFilter = getLabelFilter(
+        [
+          { key: categoryId, elementsFilter: categories },
+          { key: subcategoryId, elementsFilter: subcategories },
+        ],
+        "name"
+      );
+
+      const showPaginator = total > limit && products.length;
       /* INTERPRETACIONES ENVIADAS A LA VISTA */
       return res.render(
         "products/productsAll",
@@ -51,6 +62,8 @@ module.exports = {
           pageCurrent: pageSelected,
           subcategoryId,
           categoryId,
+          labelFilter: capitalize(labelFilter) || labelFilter,
+          showPaginator
         },
         (err, renderOld) => {
           if (err) {
