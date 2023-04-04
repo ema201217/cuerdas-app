@@ -13,15 +13,16 @@ const {
   notesCredits,
   sales,
   search,
-  add,
   edit,
   brands,
   update,
+  store,
 } = require("../controllers/adminControllers");
 
 router
   /* productos */
   .get("/productos", products)
+  .post("/productos", store)
   .get("/productos/editar/:id", edit)
   .put("/productos/editar/:id", update)
 

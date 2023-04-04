@@ -63,7 +63,6 @@ module.exports = {
       /* Foreign Keys */
       brandId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: {
             tableName:"brands"
@@ -73,7 +72,6 @@ module.exports = {
       },
       typeId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: {
             tableName:"typeProducts"
@@ -83,7 +81,6 @@ module.exports = {
       },
       colorId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: {
             tableName:"colorProducts"
@@ -103,7 +100,6 @@ module.exports = {
       },
       providerId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: {
             tableName:"providers"

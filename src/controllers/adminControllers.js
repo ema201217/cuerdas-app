@@ -13,6 +13,7 @@ module.exports = {
           "color",
           "type",
           "brand",
+          "provider",
           { model: db.Subcategory, as: "subcategory", include: ["category"] },
         ],
       });
@@ -33,7 +34,6 @@ module.exports = {
     } catch (error) {}
   },
   store: async (req, res) => {
-    const id = req.params.id;
     const {
       title,
       quantity,
@@ -41,7 +41,7 @@ module.exports = {
       price,
       discount,
       typeId,
-      colorText,
+      colorId,
       showInOffer,
       outstanding,
       subtitle,
@@ -52,40 +52,34 @@ module.exports = {
       stock,
       freeShipping,
       categoryId,
-      colorsHex,
       model,
       priceShipping,
+      providerId,
       captcha,
     } = req.body;
     try {
-
-      // create color
-      const c = await db.Color.create(
-        {
-          text: colorText,
-          hex: JSON.stringify(colorsHex),
-        }
-      );
+      console.log(req.body);
 
       const p = await db.Product.create({
-        title: title?.trim,
-        model: model?.trim,
+        title: title?.trim(),
+        model: model?.trim(),
         quantity: +quantity,
         brandId: +brandId,
         price: +price,
         discount: +discount,
         typeId: +typeId,
-        colorId: c.id,
+        colorId: +colorId,
         showInOffer: !!showInOffer,
         outstanding: !!outstanding,
+        providerId: +providerId,
         available: !!available,
         stock: !!stock,
         freeShipping: !!freeShipping,
         priceShipping: +priceShipping,
-        subtitle: subtitle?.trim,
-        description: description?.trim,
-        madeIn: madeIn?.trim,
-        subcategoryId: subcategoryId?.trim,
+        subtitle: subtitle?.trim(),
+        description: description?.trim(),
+        madeIn: madeIn?.trim(),
+        subcategoryId: subcategoryId?.trim(),
       });
 
       /* upload from images */
@@ -94,11 +88,14 @@ module.exports = {
         files.forEach(({ mv, name }) =>
           mv(path.join(__dirname, `../../public/images/Products/${name}`))
         );
-        const images = files.map(({ name }) => ({ img: name, productId: p.id }));
+        const images = files.map(({ name }) => ({
+          img: name,
+          productId: p.id,
+        }));
         // create images new
         await db.ImageProduct.bulkCreate(images);
       }
-      
+
       res.redirect("/admin/productos");
     } catch (error) {
       console.log(error);
@@ -147,7 +144,7 @@ module.exports = {
       available,
       stock,
       freeShipping,
-      categoryId,
+      colorId,
       colorsHex,
       model,
       priceShipping,
@@ -170,6 +167,7 @@ module.exports = {
       p.stock = !!stock;
       p.freeShipping = !!freeShipping;
       p.priceShipping = +priceShipping;
+      p.colorId = +colorId;
       p.subtitle = subtitle?.trim();
       p.description = description?.trim();
       p.madeIn = madeIn?.trim();
@@ -188,24 +186,12 @@ module.exports = {
         await db.ImageProduct.bulkCreate(images);
       }
 
-      // edit color
-      await db.Color.update(
-        {
-          text: colorText,
-          hex: JSON.stringify(colorsHex),
-        },
-        {
-          where: {
-            id: p.colorId,
-          },
-        }
-      );
       res.redirect("/admin/productos");
     } catch (error) {
       console.log(error);
     }
   },
-
+  
   /* CATEGORIAS */
   categories: (req, res) => {
     res.render("admin/categories", {}, (err, renderProducts) => {

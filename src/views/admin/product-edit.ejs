@@ -46,26 +46,21 @@
 
               <!-- CATEGORIAS -->
               <div class="col-12 col-md-6 col-lg-4 form-floating">
+
                 <select class="form-select" name="categoryId">
-                  <!-- <option selected hidden value="">...</option> -->
-                  <% let count=categories.length; %>
-                    <% for( let i=0; i < categories.length; i++ ) { %>
-
-                      <option value="<%= categories[i].id %>">
-                        <%= categories[i].name %>
-                      </option>
-
-                      <% } %>
-
-
-
+                  <option selected hidden value="">Seleccionar</option>
+                  <% categories.forEach(({id,name}) => { %>
+                    <option value="<%= id %>" <%= product.subcategoryId === id && "selected" %>>
+                      <%=name %>
+                    </option>
+                    <% }) %>
                 </select>
                 <label for="form-label">Categorias</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
               </div>
 
-              <!-- SUB-CATEGORIAS -->
+              <!-- SUBCATEGORIAS -->
               <div class="col-12 col-md-6 col-lg-4 form-floating">
                 <select class="form-select" name="subcategoryId">
                   <option selected hidden value="">...</option>
@@ -74,13 +69,30 @@
                     </option>
                     <% }) %>
                 </select>
-                <label for="form-label">Sub categorias</label>
+                <label for="form-label">Subcategorias</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
               </div>
 
+              <!-- PRECIO -->
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
+                <input type="number" min="1" class="form-control" id="price" name="price" value="<%= product.price %>"
+                  placeholder="Precio">
+                <label class="form-label px-3 fw-normal" for="price">Precio</label>
+                <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+                  style="font-size:10px;"></i>
+              </div>
+
+
+              <!-- DESCUENTO -->
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
+                <input type="number" min="1" class="form-control" id="discount" value="<%= product.discount %>"
+                  name="discount" placeholder="Descuento">
+                <label class="form-label px-3 fw-normal" for="discount">Descuento</label>
+              </div>
+
               <!-- DESCRIPCIÓN -->
-              <div class="col-auto col-lg-8 form-floating position-relative">
+              <div class="col-auto col-12 form-floating position-relative">
                 <textarea type="text" class="form-control" style="height: 120px" id="description" name="description"
                   placeholder="Descripción"><%= product.description %></textarea>
                 <label class="form-label px-3 fw-normal" for="description">Descripción</label>
@@ -88,54 +100,7 @@
                   style="font-size:10px;"></i>
               </div>
 
-              <!-- COLORES -->
-              <div class="col-12 col-md-6 col-lg-4 form-group">
-                <div class="input-group">
-                  <div class="input-group-text bg-transparent position-relative d-flex flex-column">
-                    <% product.color.hex.forEach(hex=> { %>
-                      <input type="color" name="colorsHex[]" class="form-control form-control-color my-1"
-                        id="colorProduct" title="Color del producto" value="<%= hex %>">
-                      <% }) %>
 
-                        <!-- <input type="color" class="form-control form-control-color" id="colorProduct" value=""
-                title="Color del producto">
-              <input type="color" class="form-control form-control-color" id="colorProduct" value=""
-                title="Color del producto"> -->
-
-                        <!-- BORRAR ULTIMO COLOR -->
-                        <button type="button"
-                          class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
-                          style="z-index:1;font-size: 8px;right: 40px;">
-                          <i class="fa-solid fa-minus"></i>
-                        </button>
-
-                        <!-- AGREGAR UN COLOR -->
-                        <button type="button"
-                          class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
-                          style="z-index:1;font-size: 8px;right: 10px;">
-                          <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                  </div>
-
-                  <!-- COLOR -> input type text -->
-                  <div class="form-floating">
-                    <input type="text" list="colorsList" class="form-control" id="colorText" placeholder="Color"
-                      value="<%= product.color.text %>" name="colorText">
-                    <label for="colorProduct" class="form-label fw-normal px-2">Colores</label>
-                    <datalist id="colorsList">
-                      <option value="Natural">
-                      <option value="Marrón oscuro">
-                      <option value="Rojo/Negro">
-                      <option value="Marrón mate">
-                    </datalist>
-
-                  </div>
-                  <i class="text-danger position-absolute top-0 end-0 pt-2 pe-2 fa-solid fa-asterisk"
-                    style="font-size:10px;"></i>
-                </div>
-
-              </div>
 
               <!-- LINEA DIVISION -->
               <hr class="col-6 offset-3 mt-4 mb-1 w-50">
@@ -162,21 +127,12 @@
               <div class="col-12 col-lg-6">
                 <input class="form-control form-control" name="imgsFiles" id="ImgProduct" type="file" multiple
                   accept="image/*">
-                <!--  <div class="form-text">
-                  <p><%# old.imgsFiles.join(' | '); %> </p>
-                </div> -->
               </div>
 
               <!-- IMÁGENES URL -->
               <div class="col-12 col-lg-6 position-relative">
                 <input type="text" class="form-control my-1" id="imgText" name="imgText"
                   placeholder="Coloca una url de imagen">
-                <!--   <input type="text" class="form-control my-1" id="imgText" name="imgText"
-            placeholder="Coloca una url de imagen">
-          <input type="text" class="form-control my-1" id="imgText" name="imgText"
-            placeholder="Coloca una url de imagen"> -->
-
-
 
                 <!-- BORRAR ULTIMA IMAGEN URL -->
                 <button type="button"
@@ -196,22 +152,22 @@
               <!-- LINEA DIVISION -->
               <hr class="col-6 offset-3 mt-4 mb-1 w-50">
 
-              <!-- SUBTITULO -->
-              <div class="col-12 col-md-6 form-floating">
-                <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Subtitulo"
-                  value="<%= product.subtitle %>">
-                <label class="form-label px-3 fw-normal" for="subtitle">Subtitulo</label>
-              </div>
+              <!-- COLORES -->
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
+                <select class="form-select" name="colorId">
+                  <option selected hidden value="">Seleccionar</option>
+                  <% colors.forEach(({id, text, hex})=> { %>
+                    <option value="<%= id %>" <%=product.colorId===id && "selected" %>>
+                      <%= text %>
+                    </option>
+                    <% }) %>
 
-              <!-- MODELO -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
-                <input type="text" class="form-control" id="model" value="<%= product.model %>" name="model"
-                  placeholder="Modelo">
-                <label class="form-label px-3 fw-normal" for="model">Modelo</label>
+                </select>
+                <label for="form-label">Color</label>
               </div>
 
               <!-- TIPO -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
 
 
                 <select class="form-select" name="typeId">
@@ -225,47 +181,64 @@
                 <label for="form-label">Tipo</label>
               </div>
 
-              <!-- HECHO EN -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
-                <input type="text" class="form-control" id="madeIn" name="madeIn" value="<%= product.madeIn %>"
-                  placeholder="Hecho en">
-                <label class="form-label px-3 fw-normal" for="madeIn">Hecho en</label>
+              <!-- PROVEEDOR -->
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
+                <select class="form-select" name="providerId">
+                  <option selected hidden value="">Seleccionar</option>
+                  <% providers.forEach(({id, name})=> { %>
+                    <option value="<%= id %>" <%=product.providerId===id && "selected" %>>
+                      <%= name %>
+                    </option>
+                    <% }) %>
+                </select>
+                <label for="form-label">Proveedor</label>
               </div>
 
+
+
+
               <!-- CANTIDAD -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
                 <input type="number" min="1" class="form-control" id="quantity" value="<%= product.quantity %>"
                   name="quantity" placeholder="Cantidad">
                 <label class="form-label px-3 fw-normal" for="quantity">Cantidad</label>
               </div>
 
-              <!-- PRECIO -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
-                <input type="number" min="1" class="form-control" id="price" name="price" value="<%= product.price %>"
-                  placeholder="Precio">
-                <label class="form-label px-3 fw-normal" for="price">Precio</label>
+              <!-- MODELO -->
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
+                <input type="text" class="form-control" id="model" value="<%= product.model %>" name="model"
+                  placeholder="Modelo">
+                <label class="form-label px-3 fw-normal" for="model">Modelo</label>
               </div>
 
-              <!-- DESCUENTO -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
-                <input type="number" min="1" class="form-control" id="discount" value="<%= product.discount %>"
-                  name="discount" placeholder="Descuento">
-                <label class="form-label px-3 fw-normal" for="discount">Descuento</label>
-              </div>
 
               <!-- PRECIO MÍNIMO DE ENVIÓ -->
-              <div class="col-12 col-md-6 col-lg-2 form-floating">
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
                 <input type="number" min="1" class="form-control" id="priceShipping"
                   value="<%= product.priceShipping %>" name="priceShipping" placeholder="Precio mínimo de envió">
                 <label class="form-label px-3 fw-normal" for="priceShipping">Precio mínimo de envió</label>
               </div>
 
+              <!-- SUBTITULO -->
+              <div class="col-md-6 col-lg-8 form-floating">
+                <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Subtitulo"
+                  value="<%= product.subtitle %>">
+                <label class="form-label px-3 fw-normal" for="subtitle">Subtitulo</label>
+              </div>
+
+              <!-- HECHO EN -->
+              <div class="col-12 col-md-6 col-lg-4 form-floating">
+                <input type="text" class="form-control" id="madeIn" name="madeIn" value="<%= product.madeIn %>"
+                  placeholder="Hecho en">
+                <label class="form-label px-3 fw-normal" for="madeIn">Hecho en</label>
+              </div>
+
               <!-- LINEA DIVISION -->
               <hr class="col-6 offset-3 mt-4 mb-1 w-50">
 
-              <div class="col-12 col-md-7 form-group fw-normal row my-3 align-self-baseline">
+              <div class="form-group fw-normal row my-3 align-self-baseline">
                 <!-- MOSTRAR COMO OFERTA -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col">
                   <div class="form-check">
                     <input class="form-check-input" name="showInOffer" <%=product.showInOffer && 'checked' %>
                     type="checkbox"
@@ -277,7 +250,7 @@
                 </div>
 
                 <!-- DESTACADO -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col">
                   <div class="form-check">
                     <input class="form-check-input" name="outstanding" <%=product.outstanding && 'checked' %>
                     type="checkbox"
@@ -289,7 +262,7 @@
                 </div>
 
                 <!-- DISPONIBLE -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col">
                   <div class="form-check">
                     <input class="form-check-input" name="available" <%=product.available && 'checked' %>
                     type="checkbox"
@@ -301,7 +274,7 @@
                 </div>
 
                 <!-- HAY STOCK -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col">
                   <div class="form-check">
                     <input class="form-check-input" name="stock" <%=product.stock && 'checked' %> type="checkbox"
                     id="stock">
@@ -312,7 +285,7 @@
                 </div>
 
                 <!-- ENVIÓ GRATIS -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col">
                   <div class="form-check">
                     <input class="form-check-input" name="freeShipping" <%=product.freeShipping && 'checked' %>
                     type="checkbox"
@@ -323,67 +296,25 @@
                   </div>
                 </div>
 
-                <!-- Contraseña (llave) para realizar el proceso -->
-                <div class="col-12 col-md-6 offset-lg-4 my-4">
-                  <div class="input-group-text bg-transparent">
-                    <span class="mx-auto">
-                      <%- captcha %>
-                    </span>
-                  </div>
-                  <input type="text" name="captcha" class="form-control text-center my-1"
+              </div>
+              <!-- Contraseña (llave) para realizar el proceso -->
+              <div class="col-12 col-md-6 offset-lg-4 my-4">
+                <div class="input-group-text bg-transparent">
+                  <span class="mx-auto">
+                    <%- captcha %>
+                  </span>
+                </div>
+                <div class="my-2 d-flex gap-2">
+                    <input type="text" name="captcha" class="form-control"
                     placeholder="Ingresar Captcha">
-                  <div class="my-2">
-                    <button type="submit" class="btn btn-primary">Guardar producto</button>
-                  </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
               </div>
-
-              <embed class="col-5 border mt-4"
-                src="<%= /heroku/g.test(link) ? 'https://cuerdas-app.herokuapp.com' : 'http://localhost:3000' + `/productos/detalle/${product.id}`%>"
-                type="text/html" height="500px" style="object-fit: cover;">
-
-
-              <!-- Button trigger modal -->
-              <button type="button" class="col-auto offset-lg-11 btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#modalPreviewDesktop" title="Previsualización PC">
-                <i class="fa-solid fa-display"></i>
-              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-  </div>
-</div>
-
-
-<!-- MODAL PREVISUALIZACIÓN DESKTOP -->
-<div class="modal fade" id="modalPreviewDesktop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl" height="80vh">
-    <div class="modal-content" style="height: 90vh;">
-      <div class="modal-header">
-        <h5 class="modal-title">Preview Desktop</h5>
-        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-        <button type="button" data-bs-dismiss="modal" class="btn-close col-6 col-md-4" data-bs-toggle="modal"
-          data-bs-target="#modalProductAdd"></button>
-      </div>
-      <div class="modal-body">
-
-        <embed class=""
-          src="<%= /heroku/g.test(link) ? 'https://cuerdas-app.herokuapp.com' : 'http://localhost:3000' + `/productos/detalle/${product.id}`%>"
-          type="text/html" height="100%" width="100%">
-
-      </div>
-      <div class="modal-footer">
-        <!-- Button trigger modal -->
-        <button type="button" class="col-6 col-md-4 btn btn-sm btn-primary bg-gradient" data-bs-toggle="modal"
-          data-bs-target="#modalProductAdd">
-          Cerrar
-        </button>
-
-      </div>
-    </div>
   </div>
 </div>
