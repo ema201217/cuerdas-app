@@ -5,7 +5,7 @@ const { locations } = require("../JSONS");
 const locationsMap = locations.map(location => {
   return {
     ...location,
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 

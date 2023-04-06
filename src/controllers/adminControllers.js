@@ -58,7 +58,6 @@ module.exports = {
       captcha,
     } = req.body;
     try {
-      console.log(req.body);
 
       const p = await db.Product.create({
         title: title?.trim(),

@@ -6,7 +6,7 @@ const colorsMap = colors.map(provider => {
   return {
     ...provider,
     hex: JSON.stringify(provider.hex),
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 

@@ -9,24 +9,34 @@
         </nav>
 
         <div class="col-12 col-md-8">
-            <form action="" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
+            <form action="/usuario/ingresar" method="post" class="card shadow p-4 col-12 col-lg-8 offset-lg-2">
                 <!-- TITULO -->
                 <h1 class="card-title my-5 text-center">Iniciar Sesión</h1>
 
                 <!-- ENTRADAS EMAIL Y CONTRASEÑA -->
                 <div class="mb-3 form-floating col-12 col-lg-8 offset-lg-2">
-                    <input type="email" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="Email o Usuario" name="usernameOrEmail">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Email o Usuario" name="emailOrUsername">
                     <label for="exampleInputEmail1" class="form-label ms-1">Email o Usuario</label>
+                    <div class="text-danger">
+                        <%= locals.errors && errors.emailOrUsername?.msg %>
+                    </div>
                 </div>
                 <div class="mb-3 form-floating col-12 col-lg-8 offset-lg-2">
-                    <input type="password" class="form-control" id="pass" placeholder="Contraseña"
-                        name="password">
+                    <input type="password" class="form-control" id="pass" placeholder="Contraseña" name="password">
                     <label for="pass" class="form-label ms-1">Contraseña</label>
+                    <div class="text-danger">
+                        <%= locals.errors && errors.password?.msg %>
+                    </div>
                 </div>
 
                 <!-- ERROR -->
-                <p class="text-danger text-center mt-0">Credenciales invalidas</p>
+                <p class="text-danger text-center mt-0">
+                    <%= (locals.errors && !errors.emailOrUsername && !errors.password ) 
+                    ? errors.mergeValidation?.msg 
+                    : null
+                    %>
+                </p>
 
                 <!-- COOKIE -->
                 <div class="mx-auto mb-3 form-check">
@@ -38,18 +48,22 @@
                 <button type="submit"
                     class="btn btn-light fw-bold col-12 col-lg-6 offset-lg-3 link-primary my-2 py-2">Ingresar</button>
 
-                    <hr>
+                <hr>
                 <!-- INGRESO CON GOOGLE -->
                 <a href="#"
-                    class="d-inline-block btn btn-light link-danger col-12 col-lg-6 offset-lg-3 my-2 overflow-hidden p-0" style="height:30px;">
+                    class="d-inline-block btn btn-light link-danger col-12 col-lg-6 offset-lg-3 my-2 overflow-hidden p-0"
+                    style="height:30px;">
                     <!-- <i class="fa-brands fa-google"></i>oogle -->
-                    <img class="h-100 w-100 py-1" style="object-fit: contain;" src="/images/Social/google.png" alt="img-google">
+                    <img class="h-100 w-100 py-1" style="object-fit: contain;" src="/images/Social/google.png"
+                        alt="img-google">
                 </a>
 
                 <!-- INGRESO CON FACEBOOK -->
-                <a href="#" class="d-inline-block btn btn-primary col-12 col-lg-6 offset-lg-3 my-2 p-0" style="height:30px;">
+                <a href="#" class="d-inline-block btn btn-primary col-12 col-lg-6 offset-lg-3 my-2 p-0"
+                    style="height:30px;">
                     <!-- <i class="fa-brands fa-facebook"></i>acebook -->
-                    <img class="h-100 w-100 py-1" style="object-fit:contain;" src="/images/Social/facebook.png" alt="img-facebook">
+                    <img class="h-100 w-100 py-1" style="object-fit:contain;" src="/images/Social/facebook.png"
+                        alt="img-facebook">
                 </a>
 
                 <!-- OLVIDO DE CONTRASEÑA Y REGISTRARSE -->
@@ -59,8 +73,7 @@
                             contraseña</a>
                     </p>
                     <p class="form-text">
-                        <span class="text-muted">¿No tienes cuenta? </span><a
-                            href="/usuario/registrar">Regístrate</a>
+                        <span class="text-muted">¿No tienes cuenta? </span><a href="/usuario/registrar">Regístrate</a>
                     </p>
                 </div>
 

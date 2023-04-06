@@ -5,7 +5,7 @@ const { imgsBanners } = require("../JSONS");
 const imgsMap = imgsBanners.map(img => {
   return {
     ...img,
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 

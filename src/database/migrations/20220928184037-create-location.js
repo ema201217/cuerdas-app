@@ -17,6 +17,9 @@ module.exports = {
       city: {
         type: Sequelize.STRING,
       },
+      active: {
+        type: Sequelize.BOOLEAN,
+      },
       address: {
         type: Sequelize.STRING,
       },

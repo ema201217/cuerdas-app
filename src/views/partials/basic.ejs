@@ -35,28 +35,21 @@
 
 
   <!-- HEADER -->
-  <header id="header" class="vw-100">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-gradient">
-      <div class="container-fluid">
-        <a class="col-2 text-white fw-light fs-2" href="/">
-          <!-- <img class="w-50 mask-circle" src="/images/Icons/logo.jpeg"> -->Cuerdas APP
+  <header id="header" class="vw-100 sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="col-2 text-white fw-light fs-1" href="/">
+          <img src="/images/Icons/logo.png" alt="CUERDARK">
         </a>
-
-        <!-- BUSCADOR -->
-        <form class="d-flex justify-content-center form-group py-0 col col-lg-6" action="/buscar" method="get">
-          <input class="border-0 me-2 form-control" type="search" style="outline: none;" placeholder="Buscar..."
-            aria-label="Search" name="keyword">
-          <button class="btn btn-dark bg-gradient" type="submit"><i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
 
         <button class="navbar-toggler bg-dark bg-gradient" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end flex-grow-0" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0 z-index-2">
+        <div class="collapse collapse-light navbar-collapse justify-content-end flex-grow-0"
+          id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 z-index-2 gap-4">
 
             <!-- HOME -->
             <li class="nav-item">
@@ -65,8 +58,8 @@
 
             <!-- CATEGORÍAS -->
             <li class="nav-item dropdown text-start">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 Categorías
               </a>
               <ul class="dropdown-menu dropdown-menu-end bg-dark dropdown-menu-dark" aria-labelledby="navbarDropdown">
@@ -94,78 +87,94 @@
           </ul>
           </li>
 
+          <!-- BUSCADOR -->
+          <form class="d-flex justify-content-center form-group py-0 col col-lg-5" action="/buscar">
+            <input class="border-0 me-2 form-control bg-light" type="search" name="keyword"
+              style="outline: none;--bs-bg-opacity:.9;" placeholder="Buscar..." aria-label="Search" name="keyword">
+            <button class="btn btn-transparent text-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+
           <!-- CONTACTO -->
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/info/contacto">Contáctenos</a>
+            <a class="nav-link active" aria-current="page" href="/info/contacto">Contacto</a>
           </li>
 
-          <!-- CARRITO DE COMPRA -->
-          <li class="nav-item">
-            <a href="/usuario/carrito" aria-current="page" class="nav-link position-relative">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <!-- Si esta logueado mostrar esto comentado -->
-              <!-- <span class="position-absolute top-50 start-0 translate-middle badge rounded-pill bg-success">
-                  2
-                  <span class="visually-hidden">unread messages</span>
-                </span> -->
-            </a>
-          </li>
 
-          <!-- LINKS USUARIO -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="fa-solid fa-user position-relative">
-                <span class="position-absolute top-100 start-0 translate-middle badge rounded-circle bg-danger p-2">
+          <% if (locals.user?.roleId !==1) { %>
+            <!-- CARRITO DE COMPRA -->
+            <li class="nav-item">
+              <a href="/usuario/carrito" aria-current="page" class="nav-link position-relative">
+                <i class="fa-solid fa-cart-shopping <%= locals.user?.id && " fs-4 text-success" %>"></i>
+                <!-- Si esta logueado mostrar esto comentado -->
+                <% if (locals.user?.id) { %>
+                  <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill p-1"
+                    style="font-size: 1rem;bottom: -8px;right:8px">
+                    2
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                  <% } %>
+              </a>
+            </li>
+            <% } %>
 
-                </span>
-              </i>
+              <!-- LINKS USUARIO -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle <%= locals.user?.id && " p-1 px-3" %>" href="#" id="navbarDropdown"
+                  role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <% if (!locals.user?.id) { %>
+                    <i class="fa-solid fa-user text-danger" style="--bs-text-opacity:.6;"></i>
+                    <% } else if (locals.user?.roleId !==1) { %>
+                      <img class="rounded-circle" style="width: 30px;height: 30px;"
+                        src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+                      <% }else{ %>
+                        <i class="fa-solid fa-shield-halved text-success fs-3"></i>
+                        <% } %>
 
-              <!-- Si esta logueado mostrar esto comentado -->
-              <!--    <i class="rounded-circle">
-                  <img width="40px" height="40px" class="rounded-circle" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-                    alt=""> -->
-              </i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end bg-dark dropdown-menu-dark z-index-2 ps-3"
-              aria-labelledby="navbarDropdown">
-              <li class="nav-item text-end">
-                <button class="nav-link bg-transparent border-0">
-                  <i class="fa-solid fa-toggle-on"></i> Modo oscuro
-                  <!--  <i class="fa-solid fa-toggle-off"></i> -->
-                </button>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link bg-transparent border-0">
-                  <i class="fa-solid fa-earth-americas"></i>
-                  Lenguaje
-                </button>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/usuario/ingresar" tabindex="-1">Iniciar sesión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/usuario/registrar" tabindex="-2">Registrarse</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/usuario/perfil" tabindex="-4">Mi perfil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/usuario/compras" tabindex="-4">Mis compras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/usuario/salir" tabindex="-5">Cerrar sesión</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/admin/productos" tabindex="-6">Administrar</a>
-              </li>
-            </ul>
-          </li>
+                          <!-- Si esta logueado mostrar esto comentado -->
 
-          </ul>
+
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end bg-dark dropdown-menu-dark z-index-2 ps-3"
+                  aria-labelledby="navbarDropdown">
+                  <li class="nav-item text-end">
+                    <button class="nav-link bg-transparent border-0">
+                      <i class="fa-solid fa-toggle-on"></i> Modo oscuro
+                      <!--  <i class="fa-solid fa-toggle-off"></i> -->
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link bg-transparent border-0">
+                      <i class="fa-solid fa-earth-americas"></i>
+                      Lenguaje
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/usuario/ingresar" tabindex="-1">Iniciar sesión</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/usuario/registrar" tabindex="-2">Registrarse</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/usuario/perfil" tabindex="-4">Mi perfil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/usuario/compras" tabindex="-4">Mis compras</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/usuario/salir" tabindex="-5">Cerrar sesión</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/productos" tabindex="-6">Administrar</a>
+                  </li>
+                </ul>
+              </li>
+
+              </ul>
         </div>
       </div>
     </nav>

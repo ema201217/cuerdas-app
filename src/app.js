@@ -6,6 +6,7 @@ const logger = require("morgan");
 const partials = require("express-partials");
 const fileUploadExpress = require("express-fileupload");
 const methodOverride = require("method-override");
+const session = require("express-session");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -16,6 +17,7 @@ const passwordRouter = require("./routes/password");
 
 /* Middleware required */
 const neededInformation = require("./middlewares/info-general");
+const sessionLocals = require("./middlewares/sessionLocals");
 
 const app = express();
 
@@ -29,8 +31,16 @@ app.use(methodOverride("_method"));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser("cuerdasSecret"));
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(
+  session({
+    secret: "cuerdasSecret",
+    resave: false,
+    saveUninitialized: true,
+  })
+  );
+app.use(sessionLocals);
 
 /* Middleware locals */
 app.use(neededInformation);

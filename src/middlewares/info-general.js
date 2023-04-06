@@ -24,6 +24,10 @@ module.exports = async (req, res, next) => {
       await db.Type.findAll({ attributes: ["id", "name"] })
     ).filter((t) => t.name);
 
+    const genders = (
+      await db.Gender.findAll()
+    ).filter((g) => g.text);
+
     const colors = (
       await db.Color.findAll({ attributes: ["id", "text", "hex"] })
     ).filter((c) => c.text);
@@ -49,6 +53,7 @@ module.exports = async (req, res, next) => {
     res.locals.brands = brands;
     res.locals.colors = colors;
     res.locals.providers = providers;
+    res.locals.genders = genders;
     res.locals.toThousand = toThousand;
     res.locals.capitalize = capitalize;
     res.locals.types = types;

@@ -5,7 +5,7 @@ const { genders } = require("../JSONS");
 const gendersMap = genders.map(gender => {
   return {
     ...gender,
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 

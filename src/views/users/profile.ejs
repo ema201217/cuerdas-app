@@ -8,11 +8,10 @@
         <!-- AVATAR -->
         <div class="col-12 col-lg-3 d-flex align-self-start position-relative justify-content-center "
           style="width: fit-content;">
-          <img
-            src="https://img2.freepng.es/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg"
-            class="card-img-top col-3 img-thumbnail rounded-circle p-2" alt="..."
-            style="width: 200px;height:200px;object-fit:cover">
-          <input class="form-control d-none" id="avatar" type="file">
+          <img src="<%= locals.user?.avatar || "https://img2.freepng.es/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg"%>"
+          class="card-img-top col-3 img-thumbnail rounded-circle p-2" alt="..."
+          style="width: 200px;height:200px;object-fit:cover">
+          <input class="form-control d-none" id="avatar" type="file" name="avatar">
           <label for="avatar" class="form-label flex-shirk-2 btn btn-light position-absolute end-0 border"><i
               class="fa-solid fa-cloud-arrow-up"></i></label>
         </div>
@@ -21,28 +20,28 @@
           <!-- NOMBRE -->
           <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
             <input type="text" class="form-control border-0 border-bottom" id="name" name="name" placeholder="Nombre"
-              value="<%# name %>-">
+              value="<%= locals.user?.name %>">
             <label class="form-label px-3 fw-normal" for="name">Nombre</label>
           </div>
 
           <!-- APELLIDO -->
           <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
             <input type="text" class="form-control border-0 border-bottom" id="surname" name="surname"
-              placeholder="Apellido" value="<%# surname %>-">
+              placeholder="Apellido" value="<%= locals.user?.surname %>">
             <label class="form-label px-3 fw-normal" for="surname">Apellido</label>
           </div>
 
           <!-- NOMBRE DE USUARIO -->
           <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
             <input type="text" class="form-control border-0 border-bottom" id="username" name="username"
-              placeholder="Username" value="<%# username %>-" autocomplete="off">
+              placeholder="Username" value="<%= locals.user?.username %>" autocomplete="off">
             <label class="form-label px-3 fw-normal" for="username">Username</label>
           </div>
 
           <!-- EMAIL -->
           <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating">
             <input type="email" class="form-control border-0 border-bottom bg-transparent"
-              value="<%# email %>test@test.com" disabled>
+              value="<%= locals.user?.email %>" disabled>
             <label class="form-label px-3 fw-normal" for="username">Email</label>
           </div>
 
@@ -50,7 +49,7 @@
           <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating position-relative"
             style="height: fit-content;">
             <input type="password" class="form-control border-0 border-bottom bg-transparent" id="password"
-              name="password" placeholder="Contraseña" value="<%# password %>*********" autocomplete="off" disabled>
+              name="password" placeholder="Contraseña" value="*********" autocomplete="off" disabled>
             <label class="form-label px-3 fw-normal" for="password">Contraseña</label>
             <div class="text-end position-absolute translate-middle end-0 top-50">
               <a href="/password/cambiar" class="btn btn-sm btn-outline-dark me-2" style="font-size:14px;"
@@ -67,253 +66,141 @@
 
               <!-- GÉNEROS -->
               <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 form-floating position-relative">
-                <select class="form-select border-0 border-bottom" id="gender" name="gender"
+                <select class="form-select border-0 border-bottom" id="gender" name="genderId"
                   aria-label="Floating label select example">
-                  <option selected hidden>Selecciona una opción</option>
-                  <option value="1">Masculino</option>
-                  <option value="2">Femenino</option>
-                  <option value="5">No Binario</option>
-                  <option value="3">No definido</option>
-                  <option value="6">Prefiero no contestar</option>
+                  <option selected hidden>Seleccionar</option>
+                  <% genders.forEach(({text, id})=> { %>
+                    <option value="<%= id %>" <%=locals.user?.genderId===id && 'checked' %>><%= text %>
+                    </option>
+                    <% }) %>
                 </select>
-                <label for="gender" class="form-label px-3 fw-normal">Genero</label>
+                <label for="gender" class="form-label px-3 fw-normal">Género</label>
               </div>
 
               <!-- UBICACIONES -->
               <div class="row my-4 w-100 gap-2" id="locations">
                 <h2 class="col-12">Mis Direcciones</h2>
 
-                <!-- ubicación 1 -->
-                <div class="card position-relative col-12 col-lg-5 p-2 py-4 ">
+                <% locals.user?.locations.forEach(l=> { %>
 
-                  <div class="position-absolute end-0 top-0 m-2 ">
-                    <label for="active1" class="form-label fw-normal">Activa </label>
-                    <input type="radio" id="active1" name="active" class="form-check-input">
-                  </div>
+                  <div class="card position-relative col-12 col-lg-5 p-2 py-4 ">
 
-                  <div class="card-body row pb-0">
-
-                    <!-- PAÍS -> IMPLEMENTACIÓN DE API EXTERNA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <select class="form-select border-0 border-top" id="country" name="country"
-                        aria-label="Floating label select example">
-                        <option selected hidden>Seleccionar</option>
-                        <option value="1">Argentina</option>
-                        <option value="2">Brasil</option>
-                        <option value="5">Chile</option>
-                        <option value="3">Bolivia</option>
-                        <option value="6">Colombia</option>
-                        <option value="6">Peru</option>
-                      </select>
-                      <label for="country" class="form-label px-3 fw-normal">País</label>
+                    <div class="position-absolute end-0 top-0 m-2 form-check form-switch">
+                      <label for="active<%= l.id %>" class="form-label fw-normal"></label>
+                      <input class="form-check-input" type="checkbox" role="switch" id="active<%= l.id %>" name="active"
+                        <%=l.active ? 'checked' : null %>>
                     </div>
+                    <div class="card-body row pb-0">
 
-                    <!-- PROVINCIA -> IMPLEMENTACIÓN DE API EXTERNA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <select class="form-select border-0 border-top" id="province" name="province"
-                        aria-label="Floating label select example">
-                        <option selected hidden>Seleccionar</option>
-                        <option value="1">Buenos Aires</option>
-                        <option value="2">Mendoza</option>
-                        <option value="5">Neuquen</option>
-                        <option value="3">La Pampa</option>
-                        <option value="6">Tucuman</option>
-                        <option value="6">Entre Rios</option>
-                      </select>
-                      <label for="province" class="form-label px-3 fw-normal">Provincia</label>
-                    </div>
-
-                    <!-- CIUDAD/LOCALIDAD -> IMPLEMENTACIÓN DE API EXTERNA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <select class="form-select border-0 border-top" id="city" name="city"
-                        aria-label="Floating label select example">
-                        <option selected hidden>Seleccionar</option>
-                        <option value="1">San Miguel</option>
-                        <option value="2">Jose Clemente Paz</option>
-                        <option value="5">Bella Vista</option>
-                        <option value="3">Quilmes</option>
-                        <option value="6">Lanus</option>
-                      </select>
-                      <label for="city" class="form-label px-3 fw-normal">Localidad</label>
-                    </div>
-
-                    <!-- CALLE -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="text" class="form-control border-0 border-top" id="address" name="address"
-                        placeholder="Calle" value="<%# address %>-">
-                      <label class="form-label px-3 fw-normal" for="address">Calle</label>
-                    </div>
-
-                    <!-- NUMERO ALTURA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="number" class="form-control border-0 border-top" id="number" name="number"
-                        placeholder="Numero" value="<%# number %>-">
-                      <label class="form-label px-3 fw-normal" for="number">Numero</label>
-                    </div>
-
-                    <!-- PISO -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="number" class="form-control border-0 border-top" id="floor" name="floor"
-                        placeholder="Piso" value="<%# floor %>-" autocomplete="off">
-                      <label class="form-label px-3 fw-normal" for="address">Piso</label>
-                    </div>
-
-                    <!-- DEPARTAMENTO -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="number" class="form-control border-0 border-top" id="apartment" name="apartment"
-                        placeholder="Calle" value="<%# apartment %>-" autocomplete="off">
-                      <label class="form-label px-3 fw-normal" for="apartment">Departamento</label>
-                    </div>
-
-                    <!-- CÓDIGO POSTAL -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="text" class="form-control border-0 border-top" id="pc" name="pc"
-                        placeholder="Código Postal" value="<%# pc %>-">
-                      <label class="form-label px-3 fw-normal" for="apartment">Código Postal</label>
-                    </div>
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-sm btn-outline-danger ms-auto" data-bs-toggle="modal"
-                      data-bs-target="#modalEliminarAddress" style="width: fit-content;">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                    <!-- Modal delete - location -->
-                    <div class="modal fade" id="modalEliminarAddress" tabindex="-1" aria-labelledby="exampleModalLabel"
-                      aria-hidden="true">
-                      <div class="modal-dialog modal-sm modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">¿Quieres borrar la dirección seleccionada?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                            <form action="/usuario/direccion/4">
-                              <button type="submit" class="btn btn-danger">Aceptar</button>
-                            </form>
-                          </div>
-                        </div>
+                      <!-- PAÍS -> IMPLEMENTACIÓN DE API EXTERNA -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <select class="form-select border-0 border-top" id="country" name="country"
+                          aria-label="Floating label select example">
+                          <option selected hidden>Seleccionar</option>
+                          <option value="1">Argentina</option>
+                          <option value="2">Brasil</option>
+                          <option value="5">Chile</option>
+                          <option value="3">Bolivia</option>
+                          <option value="6">Colombia</option>
+                          <option value="6">Peru</option>
+                        </select>
+                        <label for="country" class="form-label px-3 fw-normal">País</label>
                       </div>
-                    </div>
 
-                  </div>
-                </div>
+                      <!-- PROVINCIA -> IMPLEMENTACIÓN DE API EXTERNA -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <select class="form-select border-0 border-top" id="province" name="province"
+                          aria-label="Floating label select example">
+                          <option selected hidden>Seleccionar</option>
+                          <option value="1">Buenos Aires</option>
+                          <option value="2">Mendoza</option>
+                          <option value="5">Neuquen</option>
+                          <option value="3">La Pampa</option>
+                          <option value="6">Tucuman</option>
+                          <option value="6">Entre Rios</option>
+                        </select>
+                        <label for="province" class="form-label px-3 fw-normal">Provincia</label>
+                      </div>
 
-                <!-- ubicación 2 -->
-                <div class="card position-relative col-12 col-lg-5 p-2 py-4 ">
+                      <!-- CIUDAD/LOCALIDAD -> IMPLEMENTACIÓN DE API EXTERNA -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <select class="form-select border-0 border-top" id="city" name="city"
+                          aria-label="Floating label select example">
+                          <option selected hidden>Seleccionar</option>
+                          <option value="1">San Miguel</option>
+                          <option value="2">Jose Clemente Paz</option>
+                          <option value="5">Bella Vista</option>
+                          <option value="3">Quilmes</option>
+                          <option value="6">Lanus</option>
+                        </select>
+                        <label for="city" class="form-label px-3 fw-normal">Localidad</label>
+                      </div>
 
-                  <div class="position-absolute end-0 top-0 m-2">
-                    <label for="active2" class="form-label fw-normal">Activa </label>
-                    <input type="radio" id="active2" name="active" class="form-check-input">
-                  </div>
+                      <!-- CALLE -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <input type="text" class="form-control border-0 border-top" id="address" name="address"
+                          placeholder="Calle" value="<%= l.address %>">
+                        <label class="form-label px-3 fw-normal" for="address">Calle</label>
+                      </div>
 
-                  <div class="card-body row pb-0">
-
-                    <!-- PAÍS -> IMPLEMENTACIÓN DE API EXTERNA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <select class="form-select border-0 border-top" id="country" name="country"
-                        aria-label="Floating label select example">
-                        <option selected hidden>Seleccionar</option>
-                        <option value="1">Argentina</option>
-                        <option value="2">Brasil</option>
-                        <option value="5">Chile</option>
-                        <option value="3">Bolivia</option>
-                        <option value="6">Colombia</option>
-                        <option value="6">Peru</option>
-                      </select>
-                      <label for="country" class="form-label px-3 fw-normal">País</label>
-                    </div>
-
-                    <!-- PROVINCIA -> IMPLEMENTACIÓN DE API EXTERNA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <select class="form-select border-0 border-top" id="province" name="province"
-                        aria-label="Floating label select example">
-                        <option selected hidden>Seleccionar</option>
-                        <option value="1">Buenos Aires</option>
-                        <option value="2">Mendoza</option>
-                        <option value="5">Neuquen</option>
-                        <option value="3">La Pampa</option>
-                        <option value="6">Tucuman</option>
-                        <option value="6">Entre Rios</option>
-                      </select>
-                      <label for="province" class="form-label px-3 fw-normal">Provincia</label>
-                    </div>
-
-                    <!-- CIUDAD/LOCALIDAD -> IMPLEMENTACIÓN DE API EXTERNA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <select class="form-select border-0 border-top" id="city" name="city"
-                        aria-label="Floating label select example">
-                        <option selected hidden>Seleccionar</option>
-                        <option value="1">San Miguel</option>
-                        <option value="2">Jose Clemente Paz</option>
-                        <option value="5">Bella Vista</option>
-                        <option value="3">Quilmes</option>
-                        <option value="6">Lanus</option>
-                      </select>
-                      <label for="city" class="form-label px-3 fw-normal">Localidad</label>
-                    </div>
-
-                    <!-- CALLE -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="text" class="form-control border-0 border-top" id="address" name="address"
-                        placeholder="Calle" value="<%# address %>-">
-                      <label class="form-label px-3 fw-normal" for="address">Calle</label>
-                    </div>
-
-                    <!-- NUMERO ALTURA -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="number" class="form-control border-0 border-top" id="number" name="number"
-                        placeholder="Numero" value="<%# number %>-">
-                      <label class="form-label px-3 fw-normal" for="number">Numero</label>
-                    </div>
+                      <!-- NUMERO ALTURA -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <input type="number" class="form-control border-0 border-top" id="number" name="number"
+                          placeholder="Numero" value="<%= l.number %>">
+                        <label class="form-label px-3 fw-normal" for="number">Numero</label>
+                      </div>
 
                       <!-- PISO -->
                       <div class="col-12 col-lg-6 form-floating my-1">
                         <input type="number" class="form-control border-0 border-top" id="floor" name="floor"
-                          placeholder="Piso" value="<%# floor %>-" autocomplete="off">
+                          placeholder="Piso" value="<%= l.floor %>" autocomplete="off">
                         <label class="form-label px-3 fw-normal" for="address">Piso</label>
                       </div>
 
-                    <!-- DEPARTAMENTO -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="number" class="form-control border-0 border-top" id="apartment" name="apartment"
-                        placeholder="Calle" value="<%# apartment %>-" autocomplete="off">
-                      <label class="form-label px-3 fw-normal" for="apartment">Departamento</label>
-                    </div>
+                      <!-- DEPARTAMENTO -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <input type="number" class="form-control border-0 border-top" id="apartment" name="apartment"
+                          placeholder="Calle" value="<%= l.apartment %>" autocomplete="off">
+                        <label class="form-label px-3 fw-normal" for="apartment">Departamento</label>
+                      </div>
 
-                    <!-- CÓDIGO POSTAL -->
-                    <div class="col-12 col-lg-6 form-floating my-1">
-                      <input type="text" class="form-control border-0 border-top" id="pc" name="pc"
-                        placeholder="Código Postal" value="<%# pc %>-">
-                      <label class="form-label px-3 fw-normal" for="apartment">Código Postal</label>
-                    </div>
+                      <!-- CÓDIGO POSTAL -->
+                      <div class="col-12 col-lg-6 form-floating my-1">
+                        <input type="text" class="form-control border-0 border-top" id="pc" name="pc"
+                          placeholder="Código Postal" value="<%= l.pc %>">
+                        <label class="form-label px-3 fw-normal" for="apartment">Código Postal</label>
+                      </div>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-sm btn-outline-danger ms-auto my-1" data-bs-toggle="modal"
-                      data-bs-target="#modalEliminarAddress" style="width: fit-content;">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-sm btn-outline-danger ms-auto" data-bs-toggle="modal"
+                        data-bs-target="#modalEliminarAddress" style="width: fit-content;">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalEliminarAddress" tabindex="-1" aria-labelledby="exampleModalLabel"
-                      aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Quieres borrar la dirección seleccionada</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Confirmar</button>
+                      <!-- Modal delete - location -->
+                      <div class="modal fade" id="modalEliminarAddress" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">¿Quieres borrar la dirección seleccionada?
+                              </h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                              <form action="/usuario/direccion/4">
+                                <button type="submit" class="btn btn-danger">Aceptar</button>
+                              </form>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
+                    </div>
                   </div>
-                </div>
+                  <% }) %>
 
               </div>
 

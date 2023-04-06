@@ -6,13 +6,23 @@ const {
   login,
   shoppingCart,
   profile,
+  processLogin,
+  processRegister,
+  logout,
 } = require("../controllers/usersControllers");
+const {
+  validationUserLogin,
+  validationUserRegister,
+} = require("../middlewares/validations");
 
-/* /users */
+/* /usuario */
 router
   .get("/registrar", register)
+  .post("/registrar", validationUserRegister, processRegister)
   .get("/ingresar", login)
+  .post("/ingresar", validationUserLogin, processLogin)
+  .get("/salir", logout)
   .get("/carrito", shoppingCart)
-  .get("/perfil", profile)
+  .get("/perfil", profile);
 
 module.exports = router;

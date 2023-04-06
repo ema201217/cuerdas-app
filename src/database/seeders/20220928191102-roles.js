@@ -5,7 +5,7 @@ const { roles } = require("../JSONS");
 const rolesMap = roles.map(rol => {
   return {
     ...rol,
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 

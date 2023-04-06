@@ -5,7 +5,7 @@ const { banners } = require("../JSONS");
 const bannersMap = banners.map(provider => {
   return {
     ...provider,
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 

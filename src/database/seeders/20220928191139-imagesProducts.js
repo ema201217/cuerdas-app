@@ -5,7 +5,7 @@ const { imgsProducts } = require("../JSONS");
 const imgsMap = imgsProducts.map(img => {
   return {
     ...img,
-    createdAt:new Date
+    createdAt:new Date()
   }
 })
 
