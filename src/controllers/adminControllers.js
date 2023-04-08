@@ -1,3 +1,4 @@
+const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const path = require("path");
 
@@ -51,58 +52,85 @@ module.exports = {
       available,
       stock,
       freeShipping,
-      categoryId,
       model,
       priceShipping,
       providerId,
       captcha,
     } = req.body;
+
     try {
+      const errors = validationResult(req);
+      if (errors.isEmpty()) {
+        const p = await db.Product.create({
+          title: title?.trim(),
+          model: model?.trim(),
+          quantity: +quantity,
+          brandId: +brandId,
+          price: +price,
+          discount: +discount,
+          typeId: +typeId,
+          colorId: +colorId,
+          showInOffer: !!showInOffer,
+          outstanding: !!outstanding,
+          providerId: +providerId,
+          available: !!available,
+          stock: !!stock,
+          freeShipping: !!freeShipping,
+          priceShipping: +priceShipping,
+          subtitle: subtitle?.trim(),
+          description: description?.trim(),
+          madeIn: madeIn?.trim(),
+          subcategoryId: subcategoryId?.trim(),
+        });
 
-      const p = await db.Product.create({
-        title: title?.trim(),
-        model: model?.trim(),
-        quantity: +quantity,
-        brandId: +brandId,
-        price: +price,
-        discount: +discount,
-        typeId: +typeId,
-        colorId: +colorId,
-        showInOffer: !!showInOffer,
-        outstanding: !!outstanding,
-        providerId: +providerId,
-        available: !!available,
-        stock: !!stock,
-        freeShipping: !!freeShipping,
-        priceShipping: +priceShipping,
-        subtitle: subtitle?.trim(),
-        description: description?.trim(),
-        madeIn: madeIn?.trim(),
-        subcategoryId: subcategoryId?.trim(),
-      });
+        /* upload from images */
+        const files = req.files ? [req.files?.imgsFiles].flat(3) : null;
+        if (files) {
+          files.forEach(({ mv, name }) =>
+            mv(path.join(__dirname, `../../public/images/Products/${name}`))
+          );
+          const images = files.map(({ name }) => ({
+            img: name,
+            productId: p.id,
+          }));
+          // create images new
+          await db.ImageProduct.bulkCreate(images);
+        }
 
-      /* upload from images */
-      const files = req.files ? [req.files?.imgsFiles].flat(3) : null;
-      if (files) {
-        files.forEach(({ mv, name }) =>
-          mv(path.join(__dirname, `../../public/images/Products/${name}`))
+        res.redirect("/admin/productos");
+      } else {
+        const products = await db.Product.findAll({
+          include: [
+            "images",
+            "color",
+            "type",
+            "brand",
+            "provider",
+            { model: db.Subcategory, as: "subcategory", include: ["category"] },
+          ],
+        });
+        res.render(
+          "admin/products",
+          { products, errors: errors.mapped(), old: req.body },
+          (err, renderProducts) => {
+            if (err) {
+              console.log(err);
+            }
+            res.render("partials/sidebar", {
+              page: "productos",
+              contents: renderProducts,
+              title: "Admin | Productos",
+            });
+          }
         );
-        const images = files.map(({ name }) => ({
-          img: name,
-          productId: p.id,
-        }));
-        // create images new
-        await db.ImageProduct.bulkCreate(images);
       }
-
-      res.redirect("/admin/productos");
     } catch (error) {
       console.log(error);
     }
   },
   edit: async (req, res) => {
     const captcha = svgCaptcha.create();
-    /* req.session.captcha = captcha.text; */
+    req.session.captcha = captcha.text;
 
     const product = await db.Product.findByPk(req.params.id, {
       include: ["images", "color", "brand", "type"],
@@ -133,7 +161,6 @@ module.exports = {
       price,
       discount,
       typeId,
-      colorText,
       showInOffer,
       outstanding,
       subtitle,
@@ -144,12 +171,12 @@ module.exports = {
       stock,
       freeShipping,
       colorId,
-      colorsHex,
       model,
       priceShipping,
+      imgText,
       captcha,
     } = req.body;
-    console.log(colorsHex);
+    /* req.session.captcha asi leemos el captcha session */
     try {
       const p = await db.Product.findByPk(id);
 
@@ -175,22 +202,31 @@ module.exports = {
       await p.save();
 
       /* upload from images */
+      let images = [];
+
+      if (imgText) {
+        images.push({ img: imgText, productId: +id });
+      }
+
       const files = req.files ? [req.files?.imgsFiles].flat(3) : null;
       if (files) {
         files.forEach(({ mv, name }) =>
           mv(path.join(__dirname, `../../public/images/Products/${name}`))
         );
-        const images = files.map(({ name }) => ({ img: name, productId: +id }));
-        // create images new
-        await db.ImageProduct.bulkCreate(images);
+        const imagesMapped = files.map(({ name }) => ({
+          img: name,
+          productId: +id,
+        }));
+        images.push(imagesMapped);
       }
+      await db.ImageProduct.bulkCreate(images);
 
       res.redirect("/admin/productos");
     } catch (error) {
       console.log(error);
     }
   },
-  
+
   /* CATEGORIAS */
   categories: (req, res) => {
     res.render("admin/categories", {}, (err, renderProducts) => {

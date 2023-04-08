@@ -1,0 +1,325 @@
+<div class="modal fade <%= errors && "show d-flex" %>" id="modalProductAdd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="false">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Nuevo producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row gx-3 gy-2 align-items-center" action="/admin/productos" method="post"
+          enctype="multipart/form-data">
+
+          <!-- TITULO -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
+            <input type="text" class="form-control <%= old.title && "is-valid" %>" id="title" name="title" placeholder="Titulo" value="<%= old?.title %>">
+            <label class="form-label px-3 fw-normal" for="title">Titulo</label>
+            <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+              style="font-size:10px;"></i>
+
+              <p class="text-danger">
+                <%= errors?.title?.msg %>
+              </p>
+          </div>
+
+          <!-- MARCA -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
+            <select class="form-select <%= old.brandId && "is-valid" %>" name="brandId">
+              <option selected hidden value="">Seleccionar</option>
+              <% brands.forEach(({id,name})=> { %>
+                <option value="<%= id %>" <%= old?.brandId == id && "selected" %>>
+                  <%=name%>
+                </option>
+                <% }) %>
+            </select>
+            <label for="form-label">Marcas</label>
+            <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+              style="font-size:10px;"></i>
+                <p class="text-danger">
+                   <%= errors?.brandId?.msg %>
+                </p>
+           
+          </div>
+
+          <!-- CATEGORIAS -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <select class="form-select <%= old.categoryId && "is-valid" %>" name="categoryId">
+              <option selected hidden value="">Seleccionar</option>
+              <% categories.forEach(({id,name})=> { %>
+                <option value="<%= id %>">
+                  <%=name%>
+                </option>
+                <% }) %>
+            </select>
+            <label for="form-label">Categorias</label>
+            <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+              style="font-size:10px;"></i>              
+          </div>
+
+          <!-- SUBCATEGORIA -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <select class="form-select <%= old.subcategoryId && "is-valid" %>" name="subcategoryId">
+              <option selected hidden value="">Seleccionar</option>
+              <% subcategories.forEach(({name,id})=> { %>
+                <option value="<%= id %>" <%= old?.subcategoryId == id && "selected" %>>
+                  <%= name %>
+                </option>
+                <% }) %>
+            </select>
+            <label for="form-label">Subcategorias</label>
+            <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+              style="font-size:10px;"></i>
+                <span class="text-danger">
+                  <%= errors?.subcategoryId?.msg %>
+                </span>
+          </div>
+
+          <!-- PRECIO -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <input type="number" min="1" class="form-control <%= old.price && "is-valid" %>" id="price" name="price" placeholder="Precio" value="<%= old?.price %>">
+            <label class="form-label px-3 fw-normal" for="price">Precio</label>
+            <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+              style="font-size:10px;"></i>
+            
+                <span class="text-danger">
+                  <%= errors?.price?.msg %>
+                </span>
+               
+          </div>
+
+          <!-- DESCUENTO -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <input type="number" min="1" class="form-control <%= old.discount && "is-valid" %>" id="discount" name="discount" placeholder="Descuento" value="<%= old?.discount %>">
+            <label class="form-label px-3 fw-normal" for="discount">Descuento</label>
+            
+              <span class="text-danger">
+                <%= errors?.discount?.msg %>
+              </span>
+           
+          </div>
+
+          <!-- DESCRIPCIÓN -->
+          <div class="col-auto col-12 form-floating position-relative">
+            <textarea type="text" class="form-control <%= old.description && "is-valid" %>" style="height:100px" id="description" name="description"
+              placeholder="Descripción"><%= old?.description %></textarea>
+            <label class="form-label px-3 fw-normal" for="description">Descripción</label>
+            <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
+              style="font-size:10px;"></i>
+                <span class="text-danger">
+                  <%= errors?.description?.msg %>
+                </span>
+          </div>
+
+
+
+
+          <!-- LINEA DIVISION -->
+          <hr class="col-6 offset-3 mt-4 mb-1 w-50">
+
+          <!-- IMÁGENES ARCHIVOS -->
+          <h4>Seleccionar las Imágenes</h4>
+
+          <!-- PREVISUALIZACIÓN DE LAS IMÁGENES AGREGADAS -->
+          <div class="glider-contain" id="slider-admin-products">
+            <div class="glider glider-img-admin">
+              <% for( let index=0; index < 3; index++ ) { %>
+
+                <div class="position-relative img-hover">
+                  <img src="/images/Products/guitarra4.jpg" alt="">
+                  <button class="link-dark border-0 position-absolute top-0 end-0 px-1">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <% } %>
+
+            </div>
+
+            <div role="tablist" class="dots text-dark" id="dots-img-admin"></div>
+          </div>
+
+          <!-- IMÁGENES INPUT -->
+          <div class="col-12 col-lg-6">
+            <input class="form-control" name="imgsFiles" id="ImgProduct" type="file" multiple
+              accept="image/*">
+                <span class="text-danger">
+                  <%= errors?.imgsFiles?.msg %>
+                </span>
+          </div>
+
+          <!-- IMÁGENES URL -->
+          <div class="col-12 col-lg-6 position-relative">
+            <input type="url" class="form-control my-1 <%= old.imgText && "is-valid" %>" id="imgText" name="imgText" value="<%= old?.imgText %>"
+              placeholder="Coloca una url de imagen">
+
+                <span class="text-danger">
+                  <%= errors?.imgText?.msg %>
+                </span>
+
+            <!-- BORRAR ULTIMA IMAGEN URL -->
+            <button type="button"
+              class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
+              style="z-index:1;font-size: 8px;right: 40px;" title="borrar ultimo campo">
+              <i class="fa-solid fa-minus"></i>
+            </button>
+
+            <!-- AGREGAR UNA IMAGEN NUEVA URL -->
+            <button type="button"
+              class="btn btn-sm btn-light position-absolute translate-middle top-100 rounded-circle border"
+              style="z-index:1;font-size: 8px;right: 10px;" title="agregar un nuevo campo">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
+          </div>
+
+          <!-- LINEA DIVISION -->
+          <hr class="col-6 offset-3 mt-4 mb-1 w-50">
+
+          <!-- COLORES -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <select class="form-select <%= old.colorId && "is-valid" %>" name="colorId">
+              <option selected hidden value="">Seleccionar</option>
+              <% colors.forEach(({id, text, hex})=> { %>
+                <option value="<%= id %>" <%= old?.colorId == id && "selected" %>>
+                  <%= text %>
+                </option>
+                <% }) %>
+
+            </select>
+            <label for="form-label">Color</label>
+          </div>
+
+
+
+
+          <!-- TIPO -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <select class="form-select <%= old.typeId && "is-valid" %>" name="typeId">
+              <option selected hidden value="">Seleccionar</option>
+              <% types.forEach(({id,name})=> { %>
+                <option value="<%= id %>" <%= old?.typeId == id && "selected" %>>
+                  <%= name %>
+                </option>
+                <% }) %>
+
+            </select>
+            <label for="form-label">Tipo</label>
+          </div>
+
+          <!-- PROVEEDOR -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <select class="form-select <%= old.providerId && "is-valid" %>" name="providerId">
+              <option selected hidden value="">Seleccionar</option>
+              <% providers.forEach(({id, name})=> { %>
+                <option value="<%= id %>" <%= old?.providerId == id && "selected" %>>
+                  <%= name %>
+                </option>
+                <% }) %>
+            </select>
+            <label for="form-label">Proveedor</label>
+          </div>
+
+          <!-- CANTIDAD -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <input type="number" min="1" class="form-control <%= old.quantity && "is-valid" %>" id="quantity" name="quantity" placeholder="Cantidad" value="<%= old?.quantity %>">
+            <label class="form-label px-3 fw-normal" for="quantity">Cantidad</label>
+          </div>
+
+          <!-- MODELO -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <input type="text" class="form-control <%= old.model && "is-valid" %>" id="model" name="model" placeholder="Modelo" value="<%= old?.model %>">
+            <label class="form-label px-3 fw-normal" for="model">Modelo</label>
+          </div>
+
+
+
+          <!-- PRECIO MÍNIMO DE ENVIÓ -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <input type="number" min="1" class="form-control <%= old.priceShipping && "is-valid" %>" id="priceShipping" name="priceShipping"
+              placeholder="Precio mínimo de envió" value="<%= old?.priceShipping %>">
+            <label class="form-label px-3 fw-normal" for="priceShipping">Precio mínimo de envió</label>
+          </div>
+
+          <!-- SUBTITULO -->
+          <div class="col-md-6 col-lg-8 form-floating">
+            <input type="text" class="form-control <%= old.subtitle && "is-valid" %>" id="subtitle" name="subtitle" placeholder="Subtitulo" value="<%= old?.subtitle %>">
+            <label class="form-label px-3 fw-normal" for="subtitle">Subtitulo</label>
+          </div>
+
+          <!-- HECHO EN -->
+          <div class="col-12 col-md-6 col-lg-4 form-floating">
+            <input type="text" class="form-control <%= old.madeId && "is-valid" %>" id="madeIn" name="madeIn" placeholder="Hecho en" value="<%= old?.madeIn %>">
+            <label class="form-label px-3 fw-normal" for="madeIn">Hecho en</label>
+          </div>
+
+
+
+          <!-- LINEA DIVISION -->
+          <hr class="col-6 offset-3 mt-4 mb-1 w-50">
+
+          <div class="col-12 form-group fw-normal row my-3 align-self-baseline">
+            <!-- MOSTRAR COMO OFERTA -->
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input " name="showInOffer" type="checkbox" id="showInOffer" <%= old?.showInOffer && "checked" %>>
+                <label class="form-check-label" for="showInOffer">
+                  Mostrar como oferta
+                </label>
+              </div>
+            </div>
+
+            <!-- DESTACADO -->
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" name="outstanding" type="checkbox" id="outstanding" <%= old?.outstanding && "checked" %>>
+                <label class="form-check-label" for="outstanding">
+                  Destacar
+                </label>
+              </div>
+            </div>
+
+            <!-- DISPONIBLE -->
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" name="available" type="checkbox" id="available" <%= old?.available && "checked" %>>
+                <label class="form-check-label" for="available">
+                  Disponible
+                </label>
+              </div>
+            </div>
+
+            <!-- HAY STOCK -->
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" name="stock" type="checkbox" id="stock" <%= old?.stock && "checked" %>>
+                <label class="form-check-label" for="stock">
+                  Hay Stock
+                </label>
+              </div>
+            </div>
+
+            <!-- ENVIÓ GRATIS -->
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" name="freeShipping" type="checkbox" id="freeShipping" <%= old?.freeShipping && "checked" %>>
+                <label class="form-check-label" for="freeShipping">
+                  Envió gratis
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <!-- Contraseña (llave) para realizar el proceso -->
+          <div class="col-12 col-md-6 col-lg-3 offset-lg-5 form-floating my-5">
+            <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+            <label class="form-label px-3 fw-normal" for="password">Contraseña</label>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3 my-5">
+            <button type="submit" class="btn btn-primary">Guardar producto</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

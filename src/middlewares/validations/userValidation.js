@@ -2,7 +2,7 @@ const { body } = require("express-validator");
 const { compare } = require("bcryptjs");
 const { User } = require("../../database/models");
 
-const loginEmail = body("emailOrUsername")
+const login_email = body("emailOrUsername")
   .notEmpty()
   .withMessage("Campo requerido")
   .bail()
@@ -17,21 +17,23 @@ const loginEmail = body("emailOrUsername")
   })
   .withMessage("El email no esta registrado");
 
-const loginPassword = body("password")
+const login_password = body("password")
   .notEmpty()
   .withMessage("Campo requerido")
   .bail()
   .isLength({ min: 5, max: 25 })
   .withMessage("Longitud minima 5 y máximo 25");
 
-const loginMergeValidation = body("mergeValidation")
+const login_merge_validation = body("mergeValidation")
   .custom(async (_, { req }) => {
-    const user = await User.findOne({ where: { email: req.body.emailOrUsername } });
+    const user = await User.findOne({
+      where: { email: req.body.emailOrUsername },
+    });
     return await compare(req.body.password, user?.password);
   })
   .withMessage("Credenciales invalidas");
 
-const registerEmail = body("email")
+const register_email = body("email")
   .notEmpty()
   .withMessage("Campo requerido")
   .bail()
@@ -47,7 +49,7 @@ const registerEmail = body("email")
   })
   .withMessage("El email ingresado ya esta registrado");
 
-const registerUsername = body("username")
+const register_username = body("username")
   .notEmpty()
   .withMessage("Campo requerido")
   .bail()
@@ -63,11 +65,11 @@ const registerUsername = body("username")
   })
   .withMessage("El nombre de usuario ya esta registrado");
 
-const registerTerms = body("checkTerms")
+const register_terms = body("checkTerms")
   .exists()
   .withMessage("Debes aceptar los términos y condiciones");
 
-const registerPassword = body("password")
+const register_password = body("password")
   .notEmpty()
   .withMessage("Campo requerido")
   .bail()
@@ -77,24 +79,24 @@ const registerPassword = body("password")
   .isAlphanumeric("es-ES")
   .withMessage("La contraseña debe ser letras y números");
 
-const registerMergeValidation = body("password2")
+const register_merge_validation = body("password2")
   .custom((value, { req }) => {
     return value === req.body.password;
   })
   .withMessage("Las contraseñas no coinciden");
 
-const registerReCaptcha = body("recaptcha")
+const register_re_captcha = body("recaptcha")
   .custom((_, { req }) => !!req.body["g-recaptcha-response"])
   .withMessage("Debes activar el captcha");
 
 module.exports = {
-  validationUserLogin: [loginEmail, loginPassword, loginMergeValidation],
+  validationUserLogin: [login_email, login_password, login_merge_validation],
   validationUserRegister: [
-    registerEmail,
-    registerPassword,
-    registerUsername,
-    registerTerms,
-    registerMergeValidation,
-    registerReCaptcha,
+    register_email,
+    register_password,
+    register_username,
+    register_terms,
+    register_merge_validation,
+    register_re_captcha,
   ],
 };

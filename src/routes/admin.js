@@ -18,11 +18,14 @@ const {
   update,
   store,
 } = require("../controllers/adminControllers");
+const {
+  createProductValidation,
+} = require("../middlewares/validations/productsValidation");
 
 router
   /* productos */
   .get("/productos", products)
-  .post("/productos", store)
+  .post("/productos", createProductValidation, store)
   .get("/productos/editar/:id", edit)
   .put("/productos/editar/:id", update)
 

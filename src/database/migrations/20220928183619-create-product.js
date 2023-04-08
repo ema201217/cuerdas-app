@@ -37,24 +37,19 @@ module.exports = {
         type: Sequelize.INTEGER.UNSIGNED,
       },
       showInOffer: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+        type: Sequelize.BOOLEAN
       },
       outstanding: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+        type: Sequelize.BOOLEAN
       },
       available: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
+        type: Sequelize.BOOLEAN
       },
       stock: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
+        type: Sequelize.BOOLEAN
       },
       freeShipping: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+        type: Sequelize.BOOLEAN
       },
       priceShipping: {
         type: Sequelize.INTEGER.UNSIGNED
