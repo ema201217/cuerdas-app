@@ -1,6 +1,6 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
-const getLabelFilter = require("../helpers/getLabelFilter");
+const { getLabelFilter } = require("../helpers");
 
 module.exports = {
   all: async (req, res) => {
@@ -40,7 +40,11 @@ module.exports = {
         };
       }
 
-      const { docs: products, pages,total } = await db.Product.paginate(options);
+      const {
+        docs: products,
+        pages,
+        total,
+      } = await db.Product.paginate(options);
 
       // RUTA QUE FIGURA EN LA VISTA DE LISTA DE PRODUCTOS
       const { capitalize, categories, subcategories } = res.locals;
@@ -63,7 +67,7 @@ module.exports = {
           subcategoryId,
           categoryId,
           labelFilter: capitalize(labelFilter) || labelFilter,
-          showPaginator
+          showPaginator,
         },
         (err, renderOld) => {
           if (err) {

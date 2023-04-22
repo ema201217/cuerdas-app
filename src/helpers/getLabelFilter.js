@@ -3,7 +3,6 @@ module.exports = (
   attributeToRead = ""
 ) => {
   let labelFilter;
-  console.log(arrFilterQueries)
   if (arrFilterQueries.length) {
     arrFilterQueries.forEach(({ key, elementsFilter }) => {
       if(key && elementsFilter){
@@ -11,6 +10,5 @@ module.exports = (
       }
     });
   }
-  console.log(labelFilter)
   return labelFilter;
 };

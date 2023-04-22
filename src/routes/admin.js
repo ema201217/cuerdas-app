@@ -20,6 +20,7 @@ const {
 } = require("../controllers/adminControllers");
 const {
   createProductValidation,
+  updateProductValidation,
 } = require("../middlewares/validations/productsValidation");
 
 router
@@ -27,7 +28,7 @@ router
   .get("/productos", products)
   .post("/productos", createProductValidation, store)
   .get("/productos/editar/:id", edit)
-  .put("/productos/editar/:id", update)
+  .put("/productos/editar/:id", updateProductValidation, update)
 
   /* categorias */
   .get("/categorias", categories)

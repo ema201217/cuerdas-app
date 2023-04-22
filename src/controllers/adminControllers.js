@@ -1,227 +1,98 @@
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const path = require("path");
-
+const { existsSync, unlinkSync } = require("fs");
 var svgCaptcha = require("svg-captcha");
+const {
+  getProducts,
+  createProduct,
+  createImages,
+  getProductById,
+  updateProduct,
+} = require("../services/products");
+const renderView = require("../helpers/renderView");
 
 module.exports = {
-  /* PRODUCTOS */
+  /* LIST PRODUCTS */
   products: async (req, res) => {
     try {
-      const products = await db.Product.findAll({
-        include: [
-          "images",
-          "color",
-          "type",
-          "brand",
-          "provider",
-          { model: db.Subcategory, as: "subcategory", include: ["category"] },
-        ],
+      const products = await getProducts();
+      renderView(res, {
+        viewItemPath: "admin/products",
+        localsPage: "productos",
+        localsTitle: "Admin | Productos",
+        localsViewItem: { products },
       });
-      return res.render(
-        "admin/products",
-        { products },
-        (err, renderProducts) => {
-          if (err) {
-            console.log(err);
-          }
-          res.render("partials/sidebar", {
-            page: "productos",
-            contents: renderProducts,
-            title: "Admin | Productos",
-          });
-        }
-      );
-    } catch (error) {}
-  },
-  store: async (req, res) => {
-    const {
-      title,
-      quantity,
-      brandId,
-      price,
-      discount,
-      typeId,
-      colorId,
-      showInOffer,
-      outstanding,
-      subtitle,
-      description,
-      madeIn,
-      subcategoryId,
-      available,
-      stock,
-      freeShipping,
-      model,
-      priceShipping,
-      providerId,
-      captcha,
-    } = req.body;
-
-    try {
-      const errors = validationResult(req);
-      if (errors.isEmpty()) {
-        const p = await db.Product.create({
-          title: title?.trim(),
-          model: model?.trim(),
-          quantity: +quantity,
-          brandId: +brandId,
-          price: +price,
-          discount: +discount,
-          typeId: +typeId,
-          colorId: +colorId,
-          showInOffer: !!showInOffer,
-          outstanding: !!outstanding,
-          providerId: +providerId,
-          available: !!available,
-          stock: !!stock,
-          freeShipping: !!freeShipping,
-          priceShipping: +priceShipping,
-          subtitle: subtitle?.trim(),
-          description: description?.trim(),
-          madeIn: madeIn?.trim(),
-          subcategoryId: subcategoryId?.trim(),
-        });
-
-        /* upload from images */
-        const files = req.files ? [req.files?.imgsFiles].flat(3) : null;
-        if (files) {
-          files.forEach(({ mv, name }) =>
-            mv(path.join(__dirname, `../../public/images/Products/${name}`))
-          );
-          const images = files.map(({ name }) => ({
-            img: name,
-            productId: p.id,
-          }));
-          // create images new
-          await db.ImageProduct.bulkCreate(images);
-        }
-
-        res.redirect("/admin/productos");
-      } else {
-        const products = await db.Product.findAll({
-          include: [
-            "images",
-            "color",
-            "type",
-            "brand",
-            "provider",
-            { model: db.Subcategory, as: "subcategory", include: ["category"] },
-          ],
-        });
-        res.render(
-          "admin/products",
-          { products, errors: errors.mapped(), old: req.body },
-          (err, renderProducts) => {
-            if (err) {
-              console.log(err);
-            }
-            res.render("partials/sidebar", {
-              page: "productos",
-              contents: renderProducts,
-              title: "Admin | Productos",
-            });
-          }
-        );
-      }
     } catch (error) {
       console.log(error);
     }
   },
+  /* CREATE */
+  store: async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (errors.isEmpty()) {
+        const product = await createProduct({ data: req.body });
+        await createImages({
+          data: req.body,
+          productId: product.id,
+          filesRequest: req.files,
+        });
+        res.redirect("/admin/productos");
+      } else {
+        const products = await getProducts();
+        renderView(res, {
+          viewItemPath: "admin/products",
+          localsPage: "productos",
+          localsTitle: "Admin | Productos",
+          localsViewItem: { products, errors: errors.mapped(), old: req.body },
+        });
+      }
+    } catch (error) {
+      res.send(error);
+    }
+  },
+  /* EDIT */
   edit: async (req, res) => {
     const captcha = svgCaptcha.create();
     req.session.captcha = captcha.text;
-
-    const product = await db.Product.findByPk(req.params.id, {
-      include: ["images", "color", "brand", "type"],
+    const product = await getProductById(req.params.id);
+    renderView(res, {
+      viewItemPath: "admin/product-edit",
+      localsPage: "productos",
+      localsTitle: "Admin | Productos | Edición",
+      localsViewItem: { product, captcha: captcha.data },
     });
-
-    res.render(
-      "admin/product-edit",
-      { product, captcha: captcha.data, link: req.get("host") },
-
-      (err, renderEditProduct) => {
-        if (err) {
-          console.log(err);
-        }
-        res.render("partials/sidebar", {
-          page: "productos",
-          contents: renderEditProduct,
-          title: "Admin | Productos | Edición",
-        });
-      }
-    );
   },
+  /* UPDATE */
   update: async (req, res) => {
-    const id = req.params.id;
-    const {
-      title,
-      quantity,
-      brandId,
-      price,
-      discount,
-      typeId,
-      showInOffer,
-      outstanding,
-      subtitle,
-      description,
-      madeIn,
-      subcategoryId,
-      available,
-      stock,
-      freeShipping,
-      colorId,
-      model,
-      priceShipping,
-      imgText,
-      captcha,
-    } = req.body;
-    /* req.session.captcha asi leemos el captcha session */
     try {
-      const p = await db.Product.findByPk(id);
-
-      p.title = title?.trim();
-      p.model = model?.trim();
-      p.quantity = +quantity;
-      p.brandId = +brandId;
-      p.price = +price;
-      p.discount = +discount;
-      p.typeId = +typeId;
-      p.showInOffer = !!showInOffer;
-      p.outstanding = !!outstanding;
-      p.available = !!available;
-      p.stock = !!stock;
-      p.freeShipping = !!freeShipping;
-      p.priceShipping = +priceShipping;
-      p.colorId = +colorId;
-      p.subtitle = subtitle?.trim();
-      p.description = description?.trim();
-      p.madeIn = madeIn?.trim();
-      p.subcategoryId = subcategoryId?.trim();
-
-      await p.save();
-
-      /* upload from images */
-      let images = [];
-
-      if (imgText) {
-        images.push({ img: imgText, productId: +id });
+      const { id } = req.params;
+      const { captcha } = req.body;
+      const errors = validationResult(req);
+      if (errors.isEmpty()) {
+        const product = await updateProduct(id, { data: req.body });
+        await createImages({
+          data: req.body,
+          productId: id,
+          imagesDb: product.images,
+          removeBefore: true,
+          filesRequest: req.files,
+        });
+        return res.redirect("/admin/productos");
       }
-
-      const files = req.files ? [req.files?.imgsFiles].flat(3) : null;
-      if (files) {
-        files.forEach(({ mv, name }) =>
-          mv(path.join(__dirname, `../../public/images/Products/${name}`))
-        );
-        const imagesMapped = files.map(({ name }) => ({
-          img: name,
-          productId: +id,
-        }));
-        images.push(imagesMapped);
-      }
-      await db.ImageProduct.bulkCreate(images);
-
-      res.redirect("/admin/productos");
+      const product = await getProductById(id);
+      renderView(res, {
+        viewItemPath: "admin/product-edit",
+        localsPage: "productos",
+        localsTitle: "Admin | Productos | Edición",
+        localsViewItem: {
+          product,
+          captcha: captcha.data,
+          old: req.body,
+          errors: errors.mapped(),
+        },
+      });
     } catch (error) {
       console.log(error);
     }
@@ -229,128 +100,100 @@ module.exports = {
 
   /* CATEGORIAS */
   categories: (req, res) => {
-    res.render("admin/categories", {}, (err, renderProducts) => {
-      if (err) {
-        console.log(err);
-      }
-      res.render("partials/sidebar", {
-        page: "categorias",
-        contents: renderProducts,
-        title: "Admin | Categorias",
-      });
+    renderView(res, {
+      viewItemPath: "admin/categories",
+      localsPage: "categorias",
+      localsTitle: "Admin | Categorias",
     });
   },
 
   /* USUARIOS */
   users: (req, res) => {
-    res.render("admin/users", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "usuarios",
-        contents: renderProducts,
-        title: "Admin | Usuarios",
-      });
+    renderView(res, {
+      viewItemPath: "admin/users",
+      localsPage: "usuarios",
+      localsTitle: "Admin | Usuarios",
     });
   },
 
   /* BANNERS */
   banners: (req, res) => {
-    const banners = readDB("banners.json");
-    res.render("admin/banners", { banners }, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "banners",
-        contents: renderProducts,
-        title: "Admin | Productos",
-      });
+    renderView(res, {
+      viewItemPath: "admin/banners",
+      localsPage: "banners",
+      localsTitle: "Admin | Banners",
     });
   },
 
   /* DASHBOARD */
   dashboard: (req, res) => {
-    res.render("admin/dashboard", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "dashboard",
-        contents: renderProducts,
-        title: "Admin | Estadísticas",
-      });
+    renderView(res, {
+      viewItemPath: "admin/dashboard",
+      localsPage: "dashboard",
+      localsTitle: "Admin | Estadísticas",
     });
   },
 
   /* EDITOR DE CÓDIGO */
   codeEditor: (req, res) => {
-    res.render("admin/codeEditor", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "code",
-        contents: renderProducts,
-        title: "Editor de código integrado",
-      });
+    renderView(res, {
+      viewItemPath: "admin/codeEditor",
+      localsPage: "code",
+      localsTitle: "Admin | Editor de código integrado",
     });
   },
 
   /* EMPLEADOS */
   staff: (req, res) => {
-    res.render("admin/staff", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "empleados",
-        contents: renderProducts,
-        title: "Admin | Empleados",
-      });
+    renderView(res, {
+      viewItemPath: "admin/staff",
+      localsPage: "empleados",
+      localsTitle: "Admin | Empleados",
     });
   },
 
   /* BUSCADOR */
   search: (req, res) => {
-    res.render("admin/search", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "",
-        contents: renderProducts,
-        title: "Admin | Buscador",
-      });
+    renderView(res, {
+      viewItemPath: "admin/search",
+      localsPage: "",
+      localsTitle: "Admin | Buscador",
     });
   },
 
   /* MENSAJES */
   messages: (req, res) => {
-    res.render("admin/messages", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "mensajes",
-        contents: renderProducts,
-        title: "Admin | Buscador",
-      });
+    renderView(res, {
+      viewItemPath: "admin/messages",
+      localsPage: "mensajes",
+      localsTitle: "Admin | Mensajes",
     });
   },
 
   /* VENTAS */
   sales: (req, res) => {
-    res.render("admin/sales", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "ventas",
-        contents: renderProducts,
-        title: "Admin | Buscador",
-      });
+    renderView(res, {
+      viewItemPath: "admin/sales",
+      localsPage: "ventas",
+      localsTitle: "Admin | Ventas",
     });
-    return res.render("admin/sales");
   },
 
   /* NOTAS DE CRÉDITO */
+
   notesCredits: (req, res) => {
-    res.render("admin/messages", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "notas-creditos",
-        contents: renderProducts,
-        title: "Admin | Buscador",
-      });
+    renderView(res, {
+      viewItemPath: "admin/notes-credits",
+      localsPage: "notas-creditos",
+      localsTitle: "Admin | Notas de créditos",
     });
-    return res.render("admin/notes-credits");
   },
   /* MARCAS */
   brands: (req, res) => {
-    res.render("admin/brands", {}, (err, renderProducts) => {
-      res.render("partials/sidebar", {
-        page: "marcas",
-        contents: renderProducts,
-        title: "Admin | Marcas",
-      });
+    renderView(res, {
+      viewItemPath: "admin/brands",
+      localsPage: "marcas",
+      localsTitle: "Admin | Marcas",
     });
-    return res.render("admin/notes-credits");
   },
 };

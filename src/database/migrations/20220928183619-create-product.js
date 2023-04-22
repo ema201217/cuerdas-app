@@ -37,22 +37,22 @@ module.exports = {
         type: Sequelize.INTEGER.UNSIGNED,
       },
       showInOffer: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       outstanding: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       available: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       stock: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       freeShipping: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       priceShipping: {
-        type: Sequelize.INTEGER.UNSIGNED
+        type: Sequelize.INTEGER.UNSIGNED,
       },
 
       /* Foreign Keys */
@@ -60,7 +60,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName:"brands"
+            tableName: "brands",
           },
           key: "id",
         },
@@ -69,7 +69,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName:"typeProducts"
+            tableName: "typeProducts",
           },
           key: "id",
         },
@@ -78,7 +78,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName:"colorProducts"
+            tableName: "colorProducts",
           },
           key: "id",
         },
@@ -88,7 +88,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: {
-            tableName:"subcategories"
+            tableName: "subcategories",
           },
           key: "id",
         },
@@ -97,7 +97,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName:"providers"
+            tableName: "providers",
           },
           key: "id",
         },
@@ -110,8 +110,8 @@ module.exports = {
         type: Sequelize.DATE,
       },
       deletedAt: {
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

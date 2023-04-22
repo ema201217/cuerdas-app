@@ -29,6 +29,10 @@
                 <label class="form-label px-3 fw-normal" for="title">Titulo</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
+
+                  <p class="text-danger">
+                    <%= locals.errors?.title?.msg %>
+                  </p>
               </div>
 
               <!-- MARCA -->
@@ -43,6 +47,9 @@
                 <label for="form-label">Marcas</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
+                  <p class="text-danger">
+                    <%= locals.errors?.brandId?.msg %>
+                  </p>
               </div>
 
               <!-- CATEGORIAS -->
@@ -50,8 +57,8 @@
 
                 <select class="form-select" name="categoryId">
                   <option selected hidden value="">Seleccionar</option>
-                  <% categories.forEach(({id,name}) => { %>
-                    <option value="<%= id %>" <%= product.subcategoryId === id && "selected" %>>
+                  <% categories.forEach(({id,name})=> { %>
+                    <option value="<%= id %>" <%=product.subcategoryId===id && "selected" %>>
                       <%=name %>
                     </option>
                     <% }) %>
@@ -59,6 +66,10 @@
                 <label for="form-label">Categorias</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
+
+                  <!-- <p class="text-danger">
+                    <%# locals.errors?.brandId?.msg %>
+                  </p> -->
               </div>
 
               <!-- SUBCATEGORIAS -->
@@ -73,6 +84,9 @@
                 <label for="form-label">Subcategorias</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
+                  <p class="text-danger">
+                    <%= locals.errors?.subcategoryId?.msg %>
+                  </p>
               </div>
 
               <!-- PRECIO -->
@@ -82,6 +96,9 @@
                 <label class="form-label px-3 fw-normal" for="price">Precio</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
+                  <p class="text-danger">
+                    <%= locals.errors?.price?.msg %>
+                  </p>
               </div>
 
 
@@ -90,15 +107,21 @@
                 <input type="number" min="1" class="form-control" id="discount" value="<%= product.discount %>"
                   name="discount" placeholder="Descuento">
                 <label class="form-label px-3 fw-normal" for="discount">Descuento</label>
+                <p class="text-danger">
+                  <%= locals.errors?.discount?.msg %>
+                </p>
               </div>
 
               <!-- DESCRIPCIÓN -->
-              <div class="col-auto col-12 form-floating position-relative">
+              <div class="col-12 form-floating position-relative">
                 <textarea type="text" class="form-control" style="height: 120px" id="description" name="description"
                   placeholder="Descripción"><%= product.description %></textarea>
                 <label class="form-label px-3 fw-normal" for="description">Descripción</label>
                 <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
                   style="font-size:10px;"></i>
+                  <p class="text-danger">
+                    <%= locals.errors?.description?.msg %>
+                  </p>
               </div>
 
 
@@ -108,6 +131,9 @@
 
               <!-- IMÁGENES ARCHIVOS -->
               <h4>Seleccionar las Imágenes</h4>
+
+
+
 
               <!-- PREVISUALIZACIÓN DE LAS IMÁGENES AGREGADAS -->
               <div class="glider-contain" id="slider-admin-products">
@@ -124,10 +150,19 @@
                 <div role="tablist" class="dots text-dark" id="dots-img-admin"></div>
               </div>
 
+              <!--  CHECK REMOVE IMAGES BEFORE -->
+              <div class="col-auto col-12 form-check">
+                <input type="checkbox" id="removeImgs" name="removeImgBefore" value="true" class="form-check-input">
+                <label class="form-check-label px-3 fw-normal" for="removeImgs">Eliminar imágenes anteriores</label>
+              </div>
+              
               <!-- IMÁGENES INPUT -->
               <div class="col-12 col-lg-6">
                 <input class="form-control form-control" name="imgsFiles" id="ImgProduct" type="file" multiple
-                  accept="image/*">
+                  >
+                <p class="text-danger">
+                  <%= locals.errors?.imgsFiles?.msg %>
+                </p>
               </div>
 
               <!-- IMÁGENES URL -->
@@ -148,6 +183,9 @@
                   style="z-index:1;font-size: 8px;right: 10px;" title="agregar un nuevo campo">
                   <i class="fa-solid fa-plus"></i>
                 </button>
+                <p class="text-danger">
+                  <%= locals.errors?.imgText?.msg %>
+                </p>
               </div>
 
               <!-- LINEA DIVISION -->
@@ -165,6 +203,9 @@
 
                 </select>
                 <label for="form-label">Color</label>
+                <p class="text-danger">
+                  <%= locals.errors?.colorId?.msg %>
+                </p>
               </div>
 
               <!-- TIPO -->
@@ -180,6 +221,9 @@
 
                 </select>
                 <label for="form-label">Tipo</label>
+                <p class="text-danger">
+                  <%= locals.errors?.typeId?.msg %>
+                </p>
               </div>
 
               <!-- PROVEEDOR -->
@@ -193,6 +237,9 @@
                     <% }) %>
                 </select>
                 <label for="form-label">Proveedor</label>
+                <p class="text-danger">
+                  <%= locals.errors?.providerId?.msg %>
+                </p>
               </div>
 
 
@@ -203,6 +250,9 @@
                 <input type="number" min="1" class="form-control" id="quantity" value="<%= product.quantity %>"
                   name="quantity" placeholder="Cantidad">
                 <label class="form-label px-3 fw-normal" for="quantity">Cantidad</label>
+                <p class="text-danger">
+                  <%= locals.errors?.quantity?.msg %>
+                </p>
               </div>
 
               <!-- MODELO -->
@@ -210,6 +260,9 @@
                 <input type="text" class="form-control" id="model" value="<%= product.model %>" name="model"
                   placeholder="Modelo">
                 <label class="form-label px-3 fw-normal" for="model">Modelo</label>
+                <p class="text-danger">
+                  <%= locals.errors?.model?.msg %>
+                </p>
               </div>
 
 
@@ -218,6 +271,9 @@
                 <input type="number" min="1" class="form-control" id="priceShipping"
                   value="<%= product.priceShipping %>" name="priceShipping" placeholder="Precio mínimo de envió">
                 <label class="form-label px-3 fw-normal" for="priceShipping">Precio mínimo de envió</label>
+                <p class="text-danger">
+                  <%= locals.errors?.priceShipping?.msg %>
+                </p>
               </div>
 
               <!-- SUBTITULO -->
@@ -225,6 +281,9 @@
                 <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Subtitulo"
                   value="<%= product.subtitle %>">
                 <label class="form-label px-3 fw-normal" for="subtitle">Subtitulo</label>
+                <p class="text-danger">
+                  <%= locals.errors?.subtitle?.msg %>
+                </p>
               </div>
 
               <!-- HECHO EN -->
@@ -232,6 +291,9 @@
                 <input type="text" class="form-control" id="madeIn" name="madeIn" value="<%= product.madeIn %>"
                   placeholder="Hecho en">
                 <label class="form-label px-3 fw-normal" for="madeIn">Hecho en</label>
+                <p class="text-danger">
+                  <%= locals.errors?.madeIn?.msg %>
+                </p>
               </div>
 
               <!-- LINEA DIVISION -->
@@ -306,9 +368,8 @@
                   </span>
                 </div>
                 <div class="my-2 d-flex gap-2">
-                    <input type="text" name="captcha" class="form-control"
-                    placeholder="Ingresar Captcha">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  <input type="text" name="captcha" class="form-control" placeholder="Ingresar Captcha">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
               </div>
             </form>

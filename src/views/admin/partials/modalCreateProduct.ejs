@@ -12,7 +12,7 @@
 
           <!-- TITULO -->
           <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
-            <input type="text" class="form-control <%= old.title && "is-valid" %>" id="title" name="title" placeholder="Titulo" value="<%= old?.title %>">
+            <input type="text" class="form-control <%= old?.title && "is-valid" %>" id="title" name="title" placeholder="Titulo" value="<%= old?.title %>">
             <label class="form-label px-3 fw-normal" for="title">Titulo</label>
             <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
               style="font-size:10px;"></i>
@@ -24,7 +24,7 @@
 
           <!-- MARCA -->
           <div class="col-12 col-md-6 col-lg-4 form-floating position-relative">
-            <select class="form-select <%= old.brandId && "is-valid" %>" name="brandId">
+            <select class="form-select <%= old?.brandId && "is-valid" %>" name="brandId">
               <option selected hidden value="">Seleccionar</option>
               <% brands.forEach(({id,name})=> { %>
                 <option value="<%= id %>" <%= old?.brandId == id && "selected" %>>
@@ -43,7 +43,7 @@
 
           <!-- CATEGORIAS -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <select class="form-select <%= old.categoryId && "is-valid" %>" name="categoryId">
+            <select class="form-select <%= old?.categoryId && "is-valid" %>" name="categoryId">
               <option selected hidden value="">Seleccionar</option>
               <% categories.forEach(({id,name})=> { %>
                 <option value="<%= id %>">
@@ -58,7 +58,7 @@
 
           <!-- SUBCATEGORIA -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <select class="form-select <%= old.subcategoryId && "is-valid" %>" name="subcategoryId">
+            <select class="form-select <%= old?.subcategoryId && "is-valid" %>" name="subcategoryId">
               <option selected hidden value="">Seleccionar</option>
               <% subcategories.forEach(({name,id})=> { %>
                 <option value="<%= id %>" <%= old?.subcategoryId == id && "selected" %>>
@@ -76,7 +76,7 @@
 
           <!-- PRECIO -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <input type="number" min="1" class="form-control <%= old.price && "is-valid" %>" id="price" name="price" placeholder="Precio" value="<%= old?.price %>">
+            <input type="number" min="1" class="form-control <%= old?.price && "is-valid" %>" id="price" name="price" placeholder="Precio" value="<%= old?.price %>">
             <label class="form-label px-3 fw-normal" for="price">Precio</label>
             <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
               style="font-size:10px;"></i>
@@ -89,7 +89,7 @@
 
           <!-- DESCUENTO -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <input type="number" min="1" class="form-control <%= old.discount && "is-valid" %>" id="discount" name="discount" placeholder="Descuento" value="<%= old?.discount %>">
+            <input type="number" min="1" class="form-control <%= old?.discount && "is-valid" %>" id="discount" name="discount" placeholder="Descuento" value="<%= old?.discount %>">
             <label class="form-label px-3 fw-normal" for="discount">Descuento</label>
             
               <span class="text-danger">
@@ -100,7 +100,7 @@
 
           <!-- DESCRIPCIÓN -->
           <div class="col-auto col-12 form-floating position-relative">
-            <textarea type="text" class="form-control <%= old.description && "is-valid" %>" style="height:100px" id="description" name="description"
+            <textarea type="text" class="form-control <%= old?.description && "is-valid" %>" style="height:100px" id="description" name="description"
               placeholder="Descripción"><%= old?.description %></textarea>
             <label class="form-label px-3 fw-normal" for="description">Descripción</label>
             <i class="text-danger position-absolute top-0 end-0 pt-2 pe-3 fa-solid fa-asterisk"
@@ -148,7 +148,7 @@
 
           <!-- IMÁGENES URL -->
           <div class="col-12 col-lg-6 position-relative">
-            <input type="url" class="form-control my-1 <%= old.imgText && "is-valid" %>" id="imgText" name="imgText" value="<%= old?.imgText %>"
+            <input type="url" class="form-control my-1 <%= old?.imgText && "is-valid" %>" id="imgText" name="imgText" value="<%= old?.imgText %>"
               placeholder="Coloca una url de imagen">
 
                 <span class="text-danger">
@@ -176,7 +176,7 @@
 
           <!-- COLORES -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <select class="form-select <%= old.colorId && "is-valid" %>" name="colorId">
+            <select class="form-select <%= old?.colorId && "is-valid" %>" name="colorId">
               <option selected hidden value="">Seleccionar</option>
               <% colors.forEach(({id, text, hex})=> { %>
                 <option value="<%= id %>" <%= old?.colorId == id && "selected" %>>
@@ -193,7 +193,7 @@
 
           <!-- TIPO -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <select class="form-select <%= old.typeId && "is-valid" %>" name="typeId">
+            <select class="form-select <%= old?.typeId && "is-valid" %>" name="typeId">
               <option selected hidden value="">Seleccionar</option>
               <% types.forEach(({id,name})=> { %>
                 <option value="<%= id %>" <%= old?.typeId == id && "selected" %>>
@@ -207,7 +207,7 @@
 
           <!-- PROVEEDOR -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <select class="form-select <%= old.providerId && "is-valid" %>" name="providerId">
+            <select class="form-select <%= old?.providerId && "is-valid" %>" name="providerId">
               <option selected hidden value="">Seleccionar</option>
               <% providers.forEach(({id, name})=> { %>
                 <option value="<%= id %>" <%= old?.providerId == id && "selected" %>>
@@ -220,13 +220,13 @@
 
           <!-- CANTIDAD -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <input type="number" min="1" class="form-control <%= old.quantity && "is-valid" %>" id="quantity" name="quantity" placeholder="Cantidad" value="<%= old?.quantity %>">
+            <input type="number" min="1" class="form-control <%= old?.quantity && "is-valid" %>" id="quantity" name="quantity" placeholder="Cantidad" value="<%= old?.quantity %>">
             <label class="form-label px-3 fw-normal" for="quantity">Cantidad</label>
           </div>
 
           <!-- MODELO -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <input type="text" class="form-control <%= old.model && "is-valid" %>" id="model" name="model" placeholder="Modelo" value="<%= old?.model %>">
+            <input type="text" class="form-control <%= old?.model && "is-valid" %>" id="model" name="model" placeholder="Modelo" value="<%= old?.model %>">
             <label class="form-label px-3 fw-normal" for="model">Modelo</label>
           </div>
 
@@ -234,20 +234,20 @@
 
           <!-- PRECIO MÍNIMO DE ENVIÓ -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <input type="number" min="1" class="form-control <%= old.priceShipping && "is-valid" %>" id="priceShipping" name="priceShipping"
+            <input type="number" min="1" class="form-control <%= old?.priceShipping && "is-valid" %>" id="priceShipping" name="priceShipping"
               placeholder="Precio mínimo de envió" value="<%= old?.priceShipping %>">
             <label class="form-label px-3 fw-normal" for="priceShipping">Precio mínimo de envió</label>
           </div>
 
           <!-- SUBTITULO -->
           <div class="col-md-6 col-lg-8 form-floating">
-            <input type="text" class="form-control <%= old.subtitle && "is-valid" %>" id="subtitle" name="subtitle" placeholder="Subtitulo" value="<%= old?.subtitle %>">
+            <input type="text" class="form-control <%= old?.subtitle && "is-valid" %>" id="subtitle" name="subtitle" placeholder="Subtitulo" value="<%= old?.subtitle %>">
             <label class="form-label px-3 fw-normal" for="subtitle">Subtitulo</label>
           </div>
 
           <!-- HECHO EN -->
           <div class="col-12 col-md-6 col-lg-4 form-floating">
-            <input type="text" class="form-control <%= old.madeId && "is-valid" %>" id="madeIn" name="madeIn" placeholder="Hecho en" value="<%= old?.madeIn %>">
+            <input type="text" class="form-control <%= old?.madeId && "is-valid" %>" id="madeIn" name="madeIn" placeholder="Hecho en" value="<%= old?.madeIn %>">
             <label class="form-label px-3 fw-normal" for="madeIn">Hecho en</label>
           </div>
 
