@@ -1,8 +1,9 @@
 const db = require("../database/models");
+
 const { removeFiles } = require("../helpers");
 module.exports = {
   getProducts: (options = {}) => {
-    const products = db.Product.findAll({
+    let products = db.Product.findAll({
       include: [
         "images",
         "color",

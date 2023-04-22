@@ -17,11 +17,18 @@ module.exports = {
   products: async (req, res) => {
     try {
       const products = await getProducts();
+      const productsMapped = products.map(p => ({
+        ...p.dataValues,
+        color:{
+          ...p.color,
+          hex:JSON.parse(p.color.hex)
+        }
+      }))
       renderView(res, {
         viewItemPath: "admin/products",
         localsPage: "productos",
         localsTitle: "Admin | Productos",
-        localsViewItem: { products },
+        localsViewItem: { products: productsMapped },
       });
     } catch (error) {
       console.log(error);

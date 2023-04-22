@@ -4,7 +4,7 @@ const db = require("../database/models");
 module.exports = async (req, res, next) => {
   try {
     const toThousand = (n) =>
-      n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
     const capitalize = (text) =>
       text && text.charAt(0).toUpperCase() + text.substring(1).toLowerCase();

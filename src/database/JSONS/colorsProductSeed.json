@@ -1,11 +1,10 @@
 [
   {
-    "text":"Rojo/Negro",
-    "hex":[ "#f44336","#121212"]
-  },{
+    "text": "Rojo/Negro",
+    "hex": ["#f44336", "#121212"]
+  },
+  {
     "text": "Natural",
-    "hex": [
-      "#ee954f"
-    ]
+    "hex": ["#ee954f"]
   }
 ]
