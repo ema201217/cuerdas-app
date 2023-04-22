@@ -1,3 +1,4 @@
+require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -39,7 +40,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
   })
-  );
+);
 app.use(sessionLocals);
 
 /* Middleware locals */

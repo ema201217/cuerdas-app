@@ -1,16 +1,19 @@
 {
-  "name": "grupo-7-todo-concuerda",
+  "name": "cuerdark",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./src/bin/www",
     "dev": "nodemon ./src/bin/www",
-    "reset-db": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
+    "reset-db:dev": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "reset:db:pd":"sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "create:db:pd":"sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-fileupload": "^1.4.0",

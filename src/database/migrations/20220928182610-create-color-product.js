@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
       },
       hex: {
-        type: Sequelize.JSON,
+        type: Sequelize.TEXT,
         defaultValue: "[]"
       },
       createdAt: {

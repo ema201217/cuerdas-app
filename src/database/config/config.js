@@ -1,16 +1,18 @@
+require("dotenv").config();
 module.exports = {
   development: {
-    username: "root",
+    username:process.env.USERNAME_DB_DEV,
     password: null,
-    database: "cuerdas-app_db",
-    host: "127.0.0.1",
+    database: process.env.DATABASE_DB_DEV,
+    host: process.env.HOST_DB_DEV,
     dialect: "mysql",
   },
   test: {
-    username: "root",
-    password: null,
-    database: "database_test",
-    host: "127.0.0.1",
+    username:process.env.USERNAME_DB_TEST,
+    password: process.env.PASSWORD_DB_TEST,
+    database:process.env.DATABASE_DB_TEST,
+    host: process.env.HOST_DB_TEST,
+    port: process.env.PORT_DB_TEST,
     dialect: "mysql",
   },
   production: {
