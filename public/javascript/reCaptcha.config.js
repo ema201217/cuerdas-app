@@ -1,6 +1,6 @@
 var onloadCallback = function () {
   grecaptcha.render('ReCaptcha', {
-      sitekey: '6Lf5AbUhAAAAAErunhZQwN0ffg3q1RNCA3gwqG7Z',
+      sitekey: '6Le1BawlAAAAAPVyYv4_v3Bof7eaj4qfX4mofKs4',
       theme: 'light',
       size: 'normal',
   })
