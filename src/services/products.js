@@ -1,20 +1,28 @@
 const db = require("../database/models");
-
+const configs = require("../configs/productsServices");
 const { removeFiles } = require("../helpers");
-module.exports = {
-  getProducts: (options = {}) => {
-    let products = db.Product.findAll({
-      include: [
-        "images",
-        "color",
-        "type",
-        "brand",
-        "provider",
-        { model: db.Subcategory, as: "subcategory", include: ["category"] },
-      ],
+
+const servicesProducts = {
+  getProducts: async (
+    options = {},
+    { withPagination = false, page = 1, quantityProducts = 8 } = {}
+  ) => {
+    const method = withPagination ? "paginate" : "findAll";
+    let config = {
+      ...configs.getProducts,
       ...options,
-    });
-    return products;
+    };
+
+    if (withPagination) {
+      config = { ...config, page, paginate: quantityProducts };
+    }
+
+    const data = await db.Product[method](config);
+
+    const products = withPagination ? data.docs : data;
+    const pages = withPagination ? data.pages : 1;
+    const total = withPagination ? data.total : products.length;
+    return { products, pages, total };
   },
   createProduct: ({ data }) => {
     const {
@@ -92,7 +100,7 @@ module.exports = {
   },
   getProductById: (id, options = {}) => {
     const product = db.Product.findByPk(id, {
-      include: ["images", "color", "brand", "type"],
+      ...configs.getProductById,
       ...options,
     });
     return product;
@@ -118,7 +126,7 @@ module.exports = {
       madeIn,
       subcategoryId,
     } = data;
-    const product = await db.Product.findByPk(id);
+    const product = await servicesProducts.getProductById(id);
 
     product.title = title?.trim();
     product.model = model?.trim();
@@ -138,10 +146,13 @@ module.exports = {
     product.description = description?.trim();
     product.madeIn = madeIn?.trim();
     product.subcategoryId = subcategoryId?.trim();
-
     return product.save();
   },
-  removeImageProduct: (id) => {
-    return db.Image.destroy({ where: { productId: id } });
-  },
+  removeImageProduct: (productId) => db.Image.destroy({ where: { productId } }),
+  getProductsOffer: () =>
+    servicesProducts.getProducts(configs.getProductsOffer),
+  getProductsOutstanding: () =>
+    servicesProducts.getProducts(configs.getProductsOutstanding),
 };
+
+module.exports = servicesProducts;

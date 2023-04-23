@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const {index, search} = require('../controllers/indexControllers')
+const {search, home} = require('../controllers/indexControllers')
 
 /*  */
 router
-  .get('/', index)
+  .get('/', home)
   .get('/buscar', search)
 
 module.exports = router;

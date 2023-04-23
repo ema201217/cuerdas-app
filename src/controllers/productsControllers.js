@@ -51,7 +51,7 @@ module.exports = {
       const labelFilter = getLabelFilter(
         [
           { key: categoryId, elementsFilter: categories },
-          { key: subcategoryId, elementsFilter: subcategories },
+          { key: subcategoryId, elementsFilter: subcategories }
         ],
         "name"
       );

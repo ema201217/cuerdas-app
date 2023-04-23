@@ -2,7 +2,7 @@
   <ul class="pagination">
 
     <li class="page-item">
-      <a class="page-link <%= pageCurrent === 1 && " disabled" %>" href="/productos?page=<%= pageCurrent - 1 %><%= locals.categoryId && `&categoryId=${categoryId}` %><%= locals.subcategoryId && `&subcategoryId=${subcategoryId}` %>" aria-label="Previous">
+      <a class="page-link <%= pageCurrent === 1 && " disabled" %>" href="/<%= !locals.isEndpointPaginatorSearch ? 'productos': "buscar"%>?page=<%= pageCurrent - 1 %><%= locals.categoryId && `&categoryId=${categoryId}` %><%= locals.subcategoryId && `&subcategoryId=${subcategoryId}` %><%= locals.keyword && `&keyword=${keyword}` %>" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
@@ -10,7 +10,7 @@
     <% for(let page=1; page <= pages ;page++) { %>
 
       <li class="page-item <%= pageCurrent === page && " active" %>">
-        <a class="page-link" href="/productos?page=<%= page %><%= locals.categoryId && `&categoryId=${categoryId}` %><%= locals.subcategoryId && `&subcategoryId=${subcategoryId}` %>
+        <a class="page-link" href="/<%= !locals.isEndpointPaginatorSearch ? 'productos': "buscar"%>?page=<%= page %><%= locals.categoryId && `&categoryId=${categoryId}` %><%= locals.subcategoryId && `&subcategoryId=${subcategoryId}` %><%= locals.keyword && `&keyword=${keyword}` %>
           ">
           <%= page %>
         </a>
@@ -18,7 +18,7 @@
       <% } %>
 
         <li class="page-item">
-          <a class="page-link <%= pages === pageCurrent && "disabled" %>" href="/productos?page=<%= pageCurrent + 1 %><%= locals.categoryId && `&categoryId=${categoryId}` %><%= locals.subcategoryId && `&subcategoryId=${subcategoryId}` %>
+          <a class="page-link <%= pages === pageCurrent && "disabled" %>" href="/<%= !locals.isEndpointPaginatorSearch ? 'productos': "buscar"%>?page=<%= pageCurrent + 1 %><%= locals.categoryId && `&categoryId=${categoryId}` %><%= locals.subcategoryId && `&subcategoryId=${subcategoryId}` %><%= locals.keyword && `&keyword=${keyword}` %>
                           " aria-label="Next">
                           <span aria-hidden="true">&raquo;</span>
           </a>

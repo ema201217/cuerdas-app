@@ -6,18 +6,19 @@
       <nav aria-label="breadcrumb col-lg-3 py-5">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item <%= !labelFilter && " active"%>" aria-current="page">Todos los productos</li>
-          <% if (labelFilter) { %>
-            <li class="breadcrumb-item active text-decoration-underline" aria-current="page">
+          <li class="breadcrumb-item <%= !locals.labelFilter && "active"%>" aria-current="page">Todos los productos
+          </li>
+          <% if (locals.labelFilter) { %>
+            <li class="breadcrumb-item active" aria-current="page">
               <%= labelFilter %>
             </li>
             <% } %>
         </ol>
       </nav>
 
-      <% if (showPaginator) { %>
+      <% if (locals.showPaginator) { %>
         <!-- PAGINACIÓN SUPERIOR -->
-        <%- include('../partials/pagination',{ pages, pageCurrent, categoryId,subcategoryId }) %>
+        <%- include('../partials/pagination') %>
           <% } %>
     </div>
 
@@ -25,42 +26,38 @@
 
 
       <!-- FILTROS LATERALES -->
-      <section
-        class="d-none d-lg-block card border-1 col-lg-3 mb-3 position-sticky start-0 top-0 border-end-0 overflow-scroll"
+      <section class="d-none d-lg-block card border-1 col-lg-3 mb-3 position-sticky top-0 border-end-0"
         style="height: fit-content;">
         <div class="card-body vh-100 pb-5">
+          <p ><a class="link" href="/productos">
+            Todos los productos
+          </a></p>
+          <hr class="w-100 my-3">
           <% categories.forEach(c => { %>
-            <p class="fw-light"><a href="/productos?categoryId=<%= c.id %>"><%= capitalize(c.name) %></a></p>
-          <% }) %>
-          <hr class="w-100 my-3">
-          
-          <% subcategories.forEach(s => { %>
-            <p class="fw-light"><a href="/productos?subcategoryId=<%= s.id %>"><%= capitalize(s.name) %></a></p>
+            <p ><a class="link" href="/productos?categoryId=<%= c.id %>">
+                <%= capitalize(c.name) %>
+              </a></p>
             <% }) %>
-            <hr class="w-100 my-3">
-       
-          <p class="fw-light"><a href="">Púas</a></p>
-          <p class="fw-light"><a href="">Cables</a></p>
-          <p class="fw-light"><a href="">Amplificadores</a></p>
-          <p class="fw-light"><a href="">Afinadores</a></p>
-          <hr class="w-100 my-3">
-          <p class="fw-light"><a href="">filtro 12</a></p>
-          <p class="fw-light"><a href="">filtro 13</a></p>
-          <p class="fw-light"><a href="">filtro 14</a></p>
-          <p class="fw-light"><a href="">filtro 15</a></p>
-          <p class="fw-light"><a href="">filtro 16</a></p>
-          <hr class="w-100 my-3">
-          <p class="fw-light"><a href="">filtro 17</a></p>
-          <p class="fw-light"><a href="">filtro 18</a></p>
-          <p class="fw-light"><a href="">filtro 19</a></p>
-          <p class="mb-5"><a href="">filtro 20</a></p>
+              <hr class="w-100 my-3">
+
+              <% subcategories.forEach(s=> { %>
+                <p ><a class="link" href="/productos?subcategoryId=<%= s.id %>">
+                    <%= capitalize(s.name) %>
+                  </a></p>
+                <% }) %>
+                
+                <p ><a class="link" href="">Púas</a></p>
+                <p ><a class="link" href="">Cables</a></p>
+                <p ><a class="link" href="">Amplificadores</a></p>
+                <p ><a class="link" href="">Afinadores</a></p>
+                <hr class="w-100 my-3">
         </div>
       </section>
 
       <!-- TARJETAS DE PRODUCTOS -->
       <section class="col-12 col-lg-9">
 
-        <% if (products.length) { %>
+        <% if (products?.length) { %>
 
           <div class="d-none d-lg-flex row">
             <% products.forEach( product=> { %>
@@ -71,18 +68,15 @@
               <% }) %>
           </div>
 
-
-
           <div class="d-block d-lg-none">
             <!-- Enviamos al slider el tipo de entidad con la que se relaciona y los productos para que se itere en base a la tarjeta definida -->
             <%- include('../partials/slider',{type:"products",products}) %>
           </div>
 
-
           <!-- PAGINACIÓN INFERIOR -->
-          <% if (showPaginator) { %>
+          <% if (locals.showPaginator) { %>
             <!-- PAGINACIÓN SUPERIOR -->
-            <%- include('../partials/pagination',{ pages, pageCurrent, categoryId,subcategoryId }) %>
+            <%- include('../partials/pagination') %>
               <% } %>
 
 
